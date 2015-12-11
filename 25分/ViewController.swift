@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     func setNotification(body:String,timeToNotification:Double,soundName:String,category:String) -> UILocalNotification {
         let localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "滑动查看信息"
+        localNotification.applicationIconBadgeNumber = 0
         localNotification.alertBody = body
         localNotification.soundName = soundName
         localNotification.fireDate = NSDate(timeIntervalSinceNow: timeToNotification)
@@ -44,14 +45,22 @@ class ViewController: UIViewController {
             timerButton.setTitle(timerState.giveUp, forState: .Normal)
             timerWillState = timerState.giveUp
         }else if timerWillState == timerState.giveUp{
+            
             time.invalidate()
             timerLabel.text = formatToDisplayTime(fireTime)
             timerButton.setTitle(timerState.start, forState: .Normal)
             timerWillState = timerState.start
+            
+            UIApplication.sharedApplication().cancelAllLocalNotifications()
         }else if timerWillState == timerState.rest{
             //set timer
             currentTime = restFireTime
             self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
+            
+            //set notification
+            let restNotification = setNotification("时间到了，休息完毕",timeToNotification: Double(fireTime),soundName: UILocalNotificationDefaultSoundName,category: "REST_COMPLETE_CATEGORY")
+            
+            UIApplication.sharedApplication().scheduleLocalNotification(restNotification)
             
             timerButton.setTitle(timerState.giveUp, forState: .Normal)
             timerWillState = timerState.giveUp
@@ -97,7 +106,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         timerLabel.text = formatToDisplayTime(fireTime)
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

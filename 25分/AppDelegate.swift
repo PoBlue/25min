@@ -31,13 +31,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notificationActionCancel.authenticationRequired = false
         notificationActionCancel.activationMode = UIUserNotificationActivationMode.Background
         
+        let notificationActionRest:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionRest.identifier = "restRemindRater"
+        notificationActionRest.title = "再休息一会儿"
+        notificationActionRest.destructive = false
+        notificationActionRest.authenticationRequired = false
+        notificationActionRest.activationMode = UIUserNotificationActivationMode.Background
+        
+        let notificationActionWoring:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionWoring.identifier = "workingNow"
+        notificationActionWoring.title = "工作"
+        notificationActionWoring.destructive = false
+        notificationActionWoring.authenticationRequired = false
+        notificationActionWoring.activationMode = UIUserNotificationActivationMode.Background
+        
+        
         //MARK: -Notification Category
         let notificationCompleteCategory: UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
         notificationCompleteCategory.identifier = "COMPLETE_CATEGORY"
         notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Default)
         notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Minimal)
         
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound , .Alert , .Badge], categories: NSSet(array: [notificationCompleteCategory]) as? Set<UIUserNotificationCategory>))
+        let notificationRestCompletCategory:UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
+        notificationRestCompletCategory.identifier = "REST_COMPLETE_CATEGORY"
+        notificationRestCompletCategory.setActions([notificationActionRest,notificationActionWoring], forContext: .Default)
+        notificationRestCompletCategory.setActions([notificationActionRest,notificationActionWoring], forContext: .Minimal)
+        
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound , .Alert , .Badge], categories: NSSet(array: [notificationCompleteCategory,notificationRestCompletCategory]) as? Set<UIUserNotificationCategory>))
         return true
     }
 
@@ -57,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
     }
 
     func applicationWillTerminate(application: UIApplication) {
