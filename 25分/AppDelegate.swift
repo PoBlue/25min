@@ -16,6 +16,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        //MARK: - Notification Action
+        let notificationActionOk : UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionOk.identifier = "completeRemindRater"
+        notificationActionOk.title = "再工作一会儿"
+        notificationActionOk.destructive = false
+        notificationActionOk.authenticationRequired = false
+        notificationActionOk.activationMode = UIUserNotificationActivationMode.Background
+        
+        let notificationActionCancel: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionCancel.identifier = "relaxNow"
+        notificationActionCancel.title = "休息"
+        notificationActionCancel.destructive = false
+        notificationActionCancel.authenticationRequired = false
+        notificationActionCancel.activationMode = UIUserNotificationActivationMode.Background
+        
+        //MARK: -Notification Category
+        let notificationCompleteCategory: UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
+        notificationCompleteCategory.identifier = "COMPLETE_CATEGORY"
+        notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Default)
+        notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Minimal)
+        
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound , .Alert , .Badge], categories: NSSet(array: [notificationCompleteCategory]) as? Set<UIUserNotificationCategory>))
         return true
     }
 
