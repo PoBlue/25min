@@ -8,25 +8,38 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , timerDelegate{
 
     @IBOutlet weak var timerButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     let fireTime = 9
-    let myTimer = Timer()
+    let myTimer = Timer.shareInstance
     
     @IBAction func touchUpTimerButton(sender: AnyObject) {
-        myTimer.timerWillAction(){
-            (timerWillState:String) in
-            switch timerWillState{
-            case timerState.giveUp:
-                print("giveUp")
-            default:
-                print("other \(timerWillState)")
-                
-            }
-            
+        myTimer.timerWillAction()
+    }
+    
+    func timerStateToController(timerWillState: String){
+        print("timerWillState\(timerWillState)")
+        switch timerWillState{
+        case timerState.start:
+            timerLabel.text = formatToDisplayTime(myTimer.fireTime)
+            timerButton.setTitle(timerState.start, forState: .Normal)
+        case timerState.giveUp:
+            timerButton.setTitle(timerState.giveUp, forState: .Normal)
+        case timerState.workingComplete:
+            timerButton.setTitle(timerState.workingComplete, forState: .Normal)
+        case timerState.rest:
+            timerButton.setTitle(timerState.rest, forState: .Normal)
+        case timerState.restComplete:
+            timerButton.setTitle(timerState.restComplete, forState: .Normal)
+        default:
+            print("error : \(timerWillState)")
         }
+    }
+    
+    func updateingTime(currentTime:Int){
+        timerLabel.text = formatToDisplayTime(currentTime)
     }
     
     
@@ -36,6 +49,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         timerLabel.text = formatToDisplayTime(fireTime)
+        self.myTimer.delegate = self
         
     }
     

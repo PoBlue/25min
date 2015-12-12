@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+protocol timerDelegate{
+    func updateingTime(currentTime:Int)
+    func timerStateToController(timerWillState:String)
+}
+
 class Timer : NSObject{
     
     var timerCurrentState = timerState.start
@@ -18,40 +23,35 @@ class Timer : NSObject{
     var time:NSTimer!
     var timerWillState = timerState.start
     
+    var delegate:timerDelegate?
     
+    static let shareInstance = Timer()
     
-    func timerWillAction(completeHandler:((timerWillState:String) -> Void)?) {
-        if timerWillState == timerState.updating{
-            completeHandler?(timerWillState: timerState.updating)
-        }
-        else if  timerWillState == timerState.start {
+    func timerWillAction() {
+        switch timerWillState{
+        case timerState.start :
             currentTime = fireTime
             //set timer
             self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
             
             
-            completeHandler?(timerWillState: timerState.giveUp)
-//            timerButton.setTitle(timerState.giveUp, forState: .Normal)
+            delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
-        }else if timerWillState == timerState.giveUp{
+        case timerState.giveUp:
             
             time.invalidate()
-            completeHandler?(timerWillState: timerState.start)
-//            timerLabel.text = formatToDisplayTime(fireTime)
-//            timerButton.setTitle(timerState.start, forState: .Normal)
+            delegate?.timerStateToController(timerState.start)
             timerWillState = timerState.start
             
-        }else if timerWillState == timerState.rest{
+        case timerState.rest:
             //set timer
             currentTime = restFireTime
             self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
             
-            completeHandler?(timerWillState: timerState.giveUp)
-//            timerButton.setTitle(timerState.giveUp, forState: .Normal)
+            delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
-        }else if timerWillState == timerState.workingComplete{
-            completeHandler?(timerWillState: timerState.workingComplete)
-//            timerButton.setTitle(timerState.workingComplete, forState: .Normal)
+        case timerState.workingComplete:
+            delegate?.timerStateToController(timerState.workingComplete)
             timerWillState = timerState.rest
             timerCurrentState = timerState.rest
             
@@ -60,9 +60,9 @@ class Timer : NSObject{
             UIApplication.sharedApplication().presentLocalNotificationNow(completeNotification)
             UIApplication.sharedApplication().applicationIconBadgeNumber = 1
             
-        }else if timerWillState == timerState.restComplete{
-            completeHandler?(timerWillState: timerState.restComplete)
-//            timerButton.setTitle(timerState.restComplete, forState: .Normal)
+        case timerState.restComplete:
+            delegate?.timerStateToController(timerState.restComplete)
+            
             timerWillState = timerState.start
             timerCurrentState = timerState.start
             
@@ -70,25 +70,26 @@ class Timer : NSObject{
             let restNotification = setNotification("时间到了，休息完毕",timeToNotification: Double(fireTime),soundName: UILocalNotificationDefaultSoundName,category: "REST_COMPLETE_CATEGORY")
             UIApplication.sharedApplication().presentLocalNotificationNow(restNotification)
             UIApplication.sharedApplication().applicationIconBadgeNumber = 1
-        }
-        else{
+        
+        default:
             print("not have this timerState \(timerWillState)")
         }
     }
     
     func timeUp(timer:NSTimer) -> Void{
+        delegate?.updateingTime(currentTime)
+        
         if currentTime > 0{
-            timerWillState = timerState.updating
-            timerWillAction(nil)
             currentTime--
         }else if timerCurrentState == timerState.start{
             timer.invalidate()
             timerWillState = timerState.workingComplete
-            timerWillAction(nil)
+            timerWillAction()
         }else if timerCurrentState == timerState.rest{
             timer.invalidate()
             timerWillState = timerState.restComplete
-            timerWillAction(nil)
+            timerWillAction()
         }
+        
     }
 }
