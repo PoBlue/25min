@@ -12,7 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let completeCategory = "COMPLETE_CATEGORY"
+    let restCategory = "REST_COMPLETE_CATEGORY"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -48,17 +49,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //MARK: -Notification Category
         let notificationCompleteCategory: UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
-        notificationCompleteCategory.identifier = "COMPLETE_CATEGORY"
+        notificationCompleteCategory.identifier = completeCategory
         notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Default)
         notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Minimal)
         
         let notificationRestCompletCategory:UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
-        notificationRestCompletCategory.identifier = "REST_COMPLETE_CATEGORY"
+        notificationRestCompletCategory.identifier = restCategory
         notificationRestCompletCategory.setActions([notificationActionRest,notificationActionWoring], forContext: .Default)
         notificationRestCompletCategory.setActions([notificationActionRest,notificationActionWoring], forContext: .Minimal)
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound , .Alert , .Badge], categories: NSSet(array: [notificationCompleteCategory,notificationRestCompletCategory]) as? Set<UIUserNotificationCategory>))
         return true
+    }
+    
+    //MARK: - handle action
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        
+        application.applicationIconBadgeNumber = 0
+        let myTimer = Timer.shareInstance
+        
+        if let identifier = identifier{
+            switch identifier{
+            case "completeRemindRater":
+                let remindRaterNotification = setNotification("已再工作5分钟", timeToNotification: 5, soundName: UILocalNotificationDefaultSoundName, category: completeCategory)
+                application.scheduleLocalNotification(remindRaterNotification)
+                print("completeRemindRater")
+            case "relaxNow":
+                myTimer.timerWillState = timerState.rest
+                myTimer.timerWillAction()
+                print("relaxNow")
+            case "restRemindRater":
+                let remindRaterNotification = setNotification("已再休息5分钟", timeToNotification: 5, soundName: UILocalNotificationDefaultSoundName, category:restCategory)
+                application.scheduleLocalNotification(remindRaterNotification)
+                print("restRemindRater")
+            case "workingNow":
+                myTimer.timerWillState = timerState.start
+                myTimer.timerWillAction()
+                print("workingNow")
+            default:
+                print("error :\(identifier)")
+            }
+        }
+        
+        completionHandler()
     }
 
     func applicationWillResignActive(application: UIApplication) {

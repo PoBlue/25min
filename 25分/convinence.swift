@@ -35,3 +35,5 @@ func formatToDisplayTime(currentTime:Int) -> String{
     let time = String(format: "%02d:%02d", arguments: [min,second])
     return time
 }
+
+
