@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct timerState {
     static let start = "开始"
@@ -14,4 +15,15 @@ struct timerState {
     static let workingComplete = "完成工作"
     static let restComplete = "休息完了"
     static let rest = "休息"
+}
+
+func setNotification(body:String,timeToNotification:Double,soundName:String,category:String) -> UILocalNotification {
+    let localNotification:UILocalNotification = UILocalNotification()
+    localNotification.alertAction = "滑动查看信息"
+    localNotification.applicationIconBadgeNumber = 0
+    localNotification.alertBody = body
+    localNotification.soundName = soundName
+    localNotification.fireDate = NSDate(timeIntervalSinceNow: timeToNotification)
+    localNotification.category = category
+    return localNotification
 }

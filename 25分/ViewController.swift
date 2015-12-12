@@ -20,16 +20,6 @@ class ViewController: UIViewController {
     var currentTime = 60 * 25
     var time:NSTimer!
     
-    func setNotification(body:String,timeToNotification:Double,soundName:String,category:String) -> UILocalNotification {
-        let localNotification:UILocalNotification = UILocalNotification()
-        localNotification.alertAction = "滑动查看信息"
-        localNotification.applicationIconBadgeNumber = 0
-        localNotification.alertBody = body
-        localNotification.soundName = soundName
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: timeToNotification)
-        localNotification.category = category
-        return localNotification
-    }
     
     func timerWillAction() {
         if  timerWillState == timerState.start {
@@ -37,10 +27,6 @@ class ViewController: UIViewController {
             //set timer
             self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
             
-            //set notification
-            let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: Double(fireTime),soundName: UILocalNotificationDefaultSoundName,category: "COMPLETE_CATEGORY")
-            
-            UIApplication.sharedApplication().scheduleLocalNotification(completeNotification)
             
             timerButton.setTitle(timerState.giveUp, forState: .Normal)
             timerWillState = timerState.giveUp
@@ -51,16 +37,11 @@ class ViewController: UIViewController {
             timerButton.setTitle(timerState.start, forState: .Normal)
             timerWillState = timerState.start
             
-            UIApplication.sharedApplication().cancelAllLocalNotifications()
         }else if timerWillState == timerState.rest{
             //set timer
             currentTime = restFireTime
             self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
             
-            //set notification
-            let restNotification = setNotification("时间到了，休息完毕",timeToNotification: Double(fireTime),soundName: UILocalNotificationDefaultSoundName,category: "REST_COMPLETE_CATEGORY")
-            
-            UIApplication.sharedApplication().scheduleLocalNotification(restNotification)
             
             timerButton.setTitle(timerState.giveUp, forState: .Normal)
             timerWillState = timerState.giveUp
@@ -68,10 +49,21 @@ class ViewController: UIViewController {
             timerButton.setTitle(timerState.workingComplete, forState: .Normal)
             timerWillState = timerState.rest
             timerCurrentState = timerState.rest
+            
+            //present notification
+            let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: Double(fireTime),soundName: UILocalNotificationDefaultSoundName,category: "COMPLETE_CATEGORY")
+            UIApplication.sharedApplication().presentLocalNotificationNow(completeNotification)
+            UIApplication.sharedApplication().applicationIconBadgeNumber = 1
+            
         }else if timerWillState == timerState.restComplete{
             timerButton.setTitle(timerState.restComplete, forState: .Normal)
             timerWillState = timerState.start
             timerCurrentState = timerState.start
+            
+            //present notification
+            let restNotification = setNotification("时间到了，休息完毕",timeToNotification: Double(fireTime),soundName: UILocalNotificationDefaultSoundName,category: "REST_COMPLETE_CATEGORY")
+            UIApplication.sharedApplication().presentLocalNotificationNow(restNotification)
+            UIApplication.sharedApplication().applicationIconBadgeNumber = 1
         }
         else{
             print("not have this timerState \(timerWillState)")
