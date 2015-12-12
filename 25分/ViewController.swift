@@ -12,86 +12,24 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var timerButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
-    
-    var timerWillState = timerState.start
-    var timerCurrentState = timerState.start
     let fireTime = 9
-    let restFireTime = 6
-    var currentTime = 60 * 25
-    var time:NSTimer!
-    
-    
-    func timerWillAction() {
-        if  timerWillState == timerState.start {
-            currentTime = fireTime
-            //set timer
-            self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
-            
-            
-            timerButton.setTitle(timerState.giveUp, forState: .Normal)
-            timerWillState = timerState.giveUp
-        }else if timerWillState == timerState.giveUp{
-            
-            time.invalidate()
-            timerLabel.text = formatToDisplayTime(fireTime)
-            timerButton.setTitle(timerState.start, forState: .Normal)
-            timerWillState = timerState.start
-            
-        }else if timerWillState == timerState.rest{
-            //set timer
-            currentTime = restFireTime
-            self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
-            
-            
-            timerButton.setTitle(timerState.giveUp, forState: .Normal)
-            timerWillState = timerState.giveUp
-        }else if timerWillState == timerState.workingComplete{
-            timerButton.setTitle(timerState.workingComplete, forState: .Normal)
-            timerWillState = timerState.rest
-            timerCurrentState = timerState.rest
-            
-            //present notification
-            let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: Double(fireTime),soundName: UILocalNotificationDefaultSoundName,category: "COMPLETE_CATEGORY")
-            UIApplication.sharedApplication().presentLocalNotificationNow(completeNotification)
-            UIApplication.sharedApplication().applicationIconBadgeNumber = 1
-            
-        }else if timerWillState == timerState.restComplete{
-            timerButton.setTitle(timerState.restComplete, forState: .Normal)
-            timerWillState = timerState.start
-            timerCurrentState = timerState.start
-            
-            //present notification
-            let restNotification = setNotification("时间到了，休息完毕",timeToNotification: Double(fireTime),soundName: UILocalNotificationDefaultSoundName,category: "REST_COMPLETE_CATEGORY")
-            UIApplication.sharedApplication().presentLocalNotificationNow(restNotification)
-            UIApplication.sharedApplication().applicationIconBadgeNumber = 1
-        }
-        else{
-            print("not have this timerState \(timerWillState)")
-        }
-    }
-    
+    let myTimer = Timer()
     
     @IBAction func touchUpTimerButton(sender: AnyObject) {
-        timerWillAction()
-    }
-    
-    func timeUp(timer:NSTimer) -> Void{
-        if currentTime > 0{
-            timerLabel.text = formatToDisplayTime(currentTime)
-            currentTime--
-            return
-        }else if timerCurrentState == timerState.start{
-            timer.invalidate()
-            timerLabel.text = formatToDisplayTime(currentTime)
-            timerWillState = timerState.workingComplete
-            timerWillAction()
-        }else if timerCurrentState == timerState.rest{
-            timer.invalidate()
-            timerLabel.text = formatToDisplayTime(currentTime)
-            timerWillState = timerState.restComplete
-            timerWillAction()
+        myTimer.timerWillAction(){
+            (timerWillState:String) in
+            switch timerWillState{
+            case timerState.giveUp:
+                print("giveUp")
+            default:
+                print("other \(timerWillState)")
+                
+            }
+            
         }
     }
+    
+    
     
     
     override func viewDidLoad() {
@@ -109,12 +47,6 @@ class ViewController: UIViewController {
     
     //MARK: -easy method
     
-    func formatToDisplayTime(currentTime:Int) -> String{
-        let min = currentTime / 60
-        let second = currentTime % 60
-        let time = String(format: "%02d:%02d", arguments: [min,second])
-        return time
-    }
 
 
 }

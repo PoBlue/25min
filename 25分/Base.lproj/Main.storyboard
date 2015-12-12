@@ -37,7 +37,7 @@
                                 </constraints>
                                 <state key="normal" title="开始"/>
                                 <connections>
-                                    <action selector="touchUpTimerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Rc-IF-4yu"/>
+                                    <action selector="touchUpTimerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bf5-RN-j3m"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,8 +53,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="timerButton" destination="kgO-2t-rdZ" id="RCu-5f-U8t"/>
-                        <outlet property="timerLabel" destination="tfV-YI-F69" id="vnj-jV-fXw"/>
+                        <outlet property="timerButton" destination="kgO-2t-rdZ" id="aX4-WK-Lio"/>
+                        <outlet property="timerLabel" destination="tfV-YI-F69" id="Yv1-jb-0Fo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
