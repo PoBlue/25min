@@ -12,7 +12,6 @@ class ViewController: UIViewController , timerDelegate{
 
     @IBOutlet weak var timerButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
-    let fireTime = 9
     let myTimer = Timer.shareInstance
     
     @IBAction func touchUpTimerButton(sender: AnyObject) {
@@ -48,7 +47,7 @@ class ViewController: UIViewController , timerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        timerLabel.text = formatToDisplayTime(fireTime)
+        timerLabel.text = formatToDisplayTime(myTimer.fireTime)
         self.myTimer.delegate = self
         
     }

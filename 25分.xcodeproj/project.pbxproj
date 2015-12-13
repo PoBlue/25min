@@ -16,6 +16,12 @@
 		135C16191C1A6969005F53D3 /* _5_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C16181C1A6969005F53D3 /* _5_UITests.swift */; };
 		135C16271C1AEC68005F53D3 /* convinence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C16261C1AEC68005F53D3 /* convinence.swift */; };
 		135C16291C1BD282005F53D3 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C16281C1BD282005F53D3 /* Timer.swift */; };
+		13AFA90F1C1D9B3200D25542 /* 09 - Underground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13AFA90E1C1D9B3200D25542 /* 09 - Underground.mp3 */; };
+		13AFA9121C1DA03600D25542 /* 68 - Lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13AFA9111C1DA03600D25542 /* 68 - Lose.mp3 */; };
+		13AFA9141C1DA04800D25542 /* 07 - Course Clear.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13AFA9131C1DA04800D25542 /* 07 - Course Clear.mp3 */; };
+		13AFA9161C1DA38800D25542 /* 02 - Menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13AFA9151C1DA38800D25542 /* 02 - Menu.mp3 */; };
+		13AFA9191C1DA39D00D25542 /* 65 - Harp ~ Thank You!.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13AFA9171C1DA39D00D25542 /* 65 - Harp ~ Thank You!.mp3 */; };
+		13AFA91A1C1DA39D00D25542 /* 84 - All Star Coins Collected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13AFA9181C1DA39D00D25542 /* 84 - All Star Coins Collected.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,12 @@
 		135C161A1C1A6969005F53D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		135C16261C1AEC68005F53D3 /* convinence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = convinence.swift; sourceTree = "<group>"; };
 		135C16281C1BD282005F53D3 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		13AFA90E1C1D9B3200D25542 /* 09 - Underground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "09 - Underground.mp3"; sourceTree = "<group>"; };
+		13AFA9111C1DA03600D25542 /* 68 - Lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "68 - Lose.mp3"; sourceTree = "<group>"; };
+		13AFA9131C1DA04800D25542 /* 07 - Course Clear.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "07 - Course Clear.mp3"; sourceTree = "<group>"; };
+		13AFA9151C1DA38800D25542 /* 02 - Menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02 - Menu.mp3"; sourceTree = "<group>"; };
+		13AFA9171C1DA39D00D25542 /* 65 - Harp ~ Thank You!.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "65 - Harp ~ Thank You!.mp3"; sourceTree = "<group>"; };
+		13AFA9181C1DA39D00D25542 /* 84 - All Star Coins Collected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "84 - All Star Coins Collected.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,7 @@
 		135C15F71C1A6969005F53D3 /* 25分 */ = {
 			isa = PBXGroup;
 			children = (
+				13AFA9101C1D9C2500D25542 /* BGM */,
 				135C15F81C1A6969005F53D3 /* AppDelegate.swift */,
 				135C16261C1AEC68005F53D3 /* convinence.swift */,
 				135C16281C1BD282005F53D3 /* Timer.swift */,
@@ -129,6 +142,19 @@
 				135C161A1C1A6969005F53D3 /* Info.plist */,
 			);
 			path = "25分UITests";
+			sourceTree = "<group>";
+		};
+		13AFA9101C1D9C2500D25542 /* BGM */ = {
+			isa = PBXGroup;
+			children = (
+				13AFA9171C1DA39D00D25542 /* 65 - Harp ~ Thank You!.mp3 */,
+				13AFA9181C1DA39D00D25542 /* 84 - All Star Coins Collected.mp3 */,
+				13AFA9151C1DA38800D25542 /* 02 - Menu.mp3 */,
+				13AFA9131C1DA04800D25542 /* 07 - Course Clear.mp3 */,
+				13AFA9111C1DA03600D25542 /* 68 - Lose.mp3 */,
+				13AFA90E1C1D9B3200D25542 /* 09 - Underground.mp3 */,
+			);
+			name = BGM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,8 +265,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				135C16031C1A6969005F53D3 /* LaunchScreen.storyboard in Resources */,
+				13AFA9141C1DA04800D25542 /* 07 - Course Clear.mp3 in Resources */,
+				13AFA90F1C1D9B3200D25542 /* 09 - Underground.mp3 in Resources */,
+				13AFA9161C1DA38800D25542 /* 02 - Menu.mp3 in Resources */,
+				13AFA9121C1DA03600D25542 /* 68 - Lose.mp3 in Resources */,
+				13AFA9191C1DA39D00D25542 /* 65 - Harp ~ Thank You!.mp3 in Resources */,
 				135C16001C1A6969005F53D3 /* Assets.xcassets in Resources */,
 				135C15FE1C1A6969005F53D3 /* Main.storyboard in Resources */,
+				13AFA91A1C1DA39D00D25542 /* 84 - All Star Coins Collected.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +525,7 @@
 				135C161F1C1A6969005F53D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		135C16201C1A6969005F53D3 /* Build configuration list for PBXNativeTarget "25分Tests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +534,7 @@
 				135C16221C1A6969005F53D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		135C16231C1A6969005F53D3 /* Build configuration list for PBXNativeTarget "25分UITests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +543,7 @@
 				135C16251C1A6969005F53D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,6 +8,46 @@
 
 import Foundation
 import UIKit
+import AVFoundation
+
+var backgroundMusicPlayer: AVAudioPlayer!
+
+func playBackgroundMusic(filename:String,cycle:Bool){
+    let url = NSBundle.mainBundle().URLForResource(filename, withExtension: "mp3")
+    print("play music in path : \(url)")
+    if url == nil{
+        print("could not find file \(filename)")
+        return
+    }
+    
+    do{
+        try backgroundMusicPlayer = AVAudioPlayer(contentsOfURL: url!)
+    }catch{
+        print("could not cteate backgroundMusic")
+        print(error)
+        return
+    }
+    
+    if cycle{
+        backgroundMusicPlayer.numberOfLoops = -1
+    }
+    
+    backgroundMusicPlayer.prepareToPlay()
+    backgroundMusicPlayer.play()
+    do {
+        try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+    }catch{
+        print(error)
+    }
+}
+
+struct bgmFilename {
+    static var musicFile = "09 - Underground"
+    static var giveUpMusic = "68 - Lose"
+    static var winMusic = "07 - Course Clear"
+    static var restMusic = "02 - Menu"
+    static var restFinishMusic = "84 - All Star Coins Collected"
+}
 
 struct timerState {
     static let start = "开始"
@@ -26,6 +66,7 @@ func setNotification(body:String,timeToNotification:Double,soundName:String,cate
     localNotification.soundName = soundName
     localNotification.fireDate = NSDate(timeIntervalSinceNow: timeToNotification)
     localNotification.category = category
+    localNotification.applicationIconBadgeNumber = 1
     return localNotification
 }
 
@@ -35,5 +76,7 @@ func formatToDisplayTime(currentTime:Int) -> String{
     let time = String(format: "%02d:%02d", arguments: [min,second])
     return time
 }
+
+
 
 

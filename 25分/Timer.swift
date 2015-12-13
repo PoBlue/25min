@@ -17,20 +17,47 @@ protocol timerDelegate{
 class Timer : NSObject{
     
     var timerCurrentState = timerState.start
-    let fireTime = 9
-    let restFireTime = 6
+    let fireTime = 8 * 60
+    let restFireTime = 4 * 60
+    var fireDate:NSDate!
     var currentTime = 60 * 25
     var time:NSTimer!
     var timerWillState = timerState.start
     
+    
     var delegate:timerDelegate?
     
-    static let shareInstance = Timer()
+    static var shareInstance = Timer()
+    
+    func timerAction(){
+        switch timerCurrentState{
+        case timerState.start:
+            //set timer
+            self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
+            
+            delegate?.timerStateToController(timerState.giveUp)
+            timerWillState = timerState.giveUp
+            print("starting")
+        case timerState.rest:
+            self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
+            
+            delegate?.timerStateToController(timerState.giveUp)
+            timerWillState = timerState.giveUp
+            print("resting")
+        default:
+            print("error:\(timerCurrentState)")
+        }
+    }
     
     func timerWillAction() {
         switch timerWillState{
         case timerState.start :
+            playBackgroundMusic(bgmFilename.musicFile,cycle: true)
+            timerCurrentState = timerState.start
             currentTime = fireTime
+            
+            //set fire Date
+            fireDate = NSDate(timeIntervalSinceNow: Double(fireTime))
             //set timer
             self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
             
@@ -38,12 +65,16 @@ class Timer : NSObject{
             delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
         case timerState.giveUp:
-            
             time.invalidate()
+            playBackgroundMusic(bgmFilename.giveUpMusic, cycle: false)
             delegate?.timerStateToController(timerState.start)
             timerWillState = timerState.start
             
         case timerState.rest:
+            playBackgroundMusic(bgmFilename.restMusic, cycle: false)
+            timerCurrentState = timerState.rest
+            //set fireDate
+            fireDate = NSDate(timeIntervalSinceNow: Double(restFireTime))
             //set timer
             currentTime = restFireTime
             self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
@@ -51,26 +82,18 @@ class Timer : NSObject{
             delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
         case timerState.workingComplete:
+            playBackgroundMusic(bgmFilename.winMusic, cycle: false)
             delegate?.timerStateToController(timerState.workingComplete)
             timerWillState = timerState.rest
-            timerCurrentState = timerState.rest
             
-            //present notification
-            let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: Double(fireTime),soundName: UILocalNotificationDefaultSoundName,category: "COMPLETE_CATEGORY")
-            UIApplication.sharedApplication().presentLocalNotificationNow(completeNotification)
-            UIApplication.sharedApplication().applicationIconBadgeNumber = 1
             
         case timerState.restComplete:
+            playBackgroundMusic(bgmFilename.restFinishMusic, cycle: false)
             delegate?.timerStateToController(timerState.restComplete)
             
             timerWillState = timerState.start
-            timerCurrentState = timerState.start
             
-            //present notification
-            let restNotification = setNotification("时间到了，休息完毕",timeToNotification: Double(fireTime),soundName: UILocalNotificationDefaultSoundName,category: "REST_COMPLETE_CATEGORY")
-            UIApplication.sharedApplication().presentLocalNotificationNow(restNotification)
-            UIApplication.sharedApplication().applicationIconBadgeNumber = 1
-        
+                    
         default:
             print("not have this timerState \(timerWillState)")
         }
