@@ -18,7 +18,7 @@ class Timer : NSObject{
     
     var timerCurrentState = timerState.start
     let fireTime = 8 * 60
-    let restFireTime = 4 * 60
+    let restFireTime = 4 
     var fireDate:NSDate!
     var currentTime = 60 * 25
     var time:NSTimer!
@@ -31,15 +31,15 @@ class Timer : NSObject{
     
     func timerAction(){
         switch timerCurrentState{
+        case timerState.giveUp:
+            print("give up")
         case timerState.start:
             //set timer
-            self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
             
             delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
             print("starting")
         case timerState.rest:
-            self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
             
             delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
@@ -65,6 +65,8 @@ class Timer : NSObject{
             delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
         case timerState.giveUp:
+            self.timerCurrentState = timerState.giveUp
+            self.currentTime = fireTime
             time.invalidate()
             playBackgroundMusic(bgmFilename.giveUpMusic, cycle: false)
             delegate?.timerStateToController(timerState.start)

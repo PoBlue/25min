@@ -22,16 +22,16 @@ class ViewController: UIViewController , timerDelegate{
         print("timerWillState\(timerWillState)")
         switch timerWillState{
         case timerState.start:
-            timerLabel.text = formatToDisplayTime(myTimer.fireTime)
-            timerButton.setTitle(timerState.start, forState: .Normal)
+            self.timerLabel.text = formatToDisplayTime(self.myTimer.fireTime)
+            self.timerButton.setTitle(timerState.start, forState: .Normal)
         case timerState.giveUp:
-            timerButton.setTitle(timerState.giveUp, forState: .Normal)
+            self.timerButton.setTitle(timerState.giveUp, forState: .Normal)
         case timerState.workingComplete:
-            timerButton.setTitle(timerState.workingComplete, forState: .Normal)
+            self.timerButton.setTitle(timerState.workingComplete, forState: .Normal)
         case timerState.rest:
-            timerButton.setTitle(timerState.rest, forState: .Normal)
+            self.timerButton.setTitle(timerState.rest, forState: .Normal)
         case timerState.restComplete:
-            timerButton.setTitle(timerState.restComplete, forState: .Normal)
+            self.timerButton.setTitle(timerState.restComplete, forState: .Normal)
         default:
             print("error : \(timerWillState)")
         }

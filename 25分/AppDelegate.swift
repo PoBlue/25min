@@ -156,13 +156,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
-        Timer.shareInstance.timerCurrentState = currentState!
-        Timer.shareInstance.timerAction()
+
 
         let timeInterval = Int((fireDate!.timeIntervalSinceDate(NSDate(timeIntervalSinceNow: 0))))
         
         if timeInterval > 0 {
             Timer.shareInstance.currentTime = timeInterval
+            Timer.shareInstance.timerCurrentState = currentState!
+            Timer.shareInstance.timerAction()
         }else{
             Timer.shareInstance.currentTime = 0
         }

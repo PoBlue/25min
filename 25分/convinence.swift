@@ -32,13 +32,14 @@ func playBackgroundMusic(filename:String,cycle:Bool){
         backgroundMusicPlayer.numberOfLoops = -1
     }
     
-    backgroundMusicPlayer.prepareToPlay()
-    backgroundMusicPlayer.play()
     do {
         try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
     }catch{
         print(error)
     }
+    
+    backgroundMusicPlayer.prepareToPlay()
+    backgroundMusicPlayer.play()
 }
 
 struct bgmFilename {
