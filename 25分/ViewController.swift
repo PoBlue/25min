@@ -34,15 +34,15 @@ class ViewController: UIViewController , timerDelegate{
         switch timerWillState{
         case timerState.start:
             self.timerLabel.text = formatToDisplayTime(self.myTimer.fireTime)
-            self.timerButton.setTitle(timerState.start, forState: .Normal)
+            self.timerButton.setImage(UIImage(named: "startButton"), forState: .Normal)
         case timerState.giveUp:
-            self.timerButton.setTitle(timerState.giveUp, forState: .Normal)
+            self.timerButton.setImage(UIImage(named: "giveUpButton"), forState: .Normal)
         case timerState.workingComplete:
-            self.timerButton.setTitle(timerState.workingComplete, forState: .Normal)
+            self.timerButton.setImage(UIImage(named: "restButton"), forState: .Normal)
         case timerState.rest:
-            self.timerButton.setTitle(timerState.rest, forState: .Normal)
+            self.timerButton.setImage(UIImage(named: "restButton"), forState: .Normal)
         case timerState.restComplete:
-            self.timerButton.setTitle(timerState.restComplete, forState: .Normal)
+            self.timerButton.setImage(UIImage(named: "workButton"), forState: .Normal)
         default:
             print("error : \(timerWillState)")
         }
