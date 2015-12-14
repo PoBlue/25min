@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="33" id="LIk-Oe-Nt8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgO-2t-rdZ">
@@ -38,18 +38,29 @@
                                     <action selector="touchUpTimerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bf5-RN-j3m"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XkA-md-dqp">
+                                <rect key="frame" x="31" y="361" width="538" height="31"/>
+                                <connections>
+                                    <action selector="selectingTime:" destination="BYZ-38-t0r" eventType="touchDragInside" id="HIi-a8-bKQ"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kgO-2t-rdZ" firstAttribute="top" secondItem="tfV-YI-F69" secondAttribute="bottom" constant="92" id="197-Zk-Gck"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XkA-md-dqp" secondAttribute="trailing" constant="13" id="1JL-Rn-1lE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XkA-md-dqp" secondAttribute="bottom" constant="209" id="2xf-5I-j8r"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tfV-YI-F69" secondAttribute="trailing" constant="-20" id="6j9-kq-cMx"/>
+                            <constraint firstItem="XkA-md-dqp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="13" id="Ee5-94-7Kw"/>
                             <constraint firstItem="tfV-YI-F69" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Hg5-gW-dMA"/>
+                            <constraint firstItem="XkA-md-dqp" firstAttribute="top" secondItem="kgO-2t-rdZ" secondAttribute="bottom" constant="46" id="oLX-2g-XXB"/>
                             <constraint firstItem="kgO-2t-rdZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="of5-hQ-khI"/>
                             <constraint firstItem="kgO-2t-rdZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ttq-jo-Gcq"/>
                             <constraint firstItem="tfV-YI-F69" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yYV-GW-LBy"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="timeSelectSlider" destination="XkA-md-dqp" id="aar-j8-MNU"/>
                         <outlet property="timerButton" destination="kgO-2t-rdZ" id="aX4-WK-Lio"/>
                         <outlet property="timerLabel" destination="tfV-YI-F69" id="Yv1-jb-0Fo"/>
                     </connections>

@@ -14,9 +14,20 @@ class ViewController: UIViewController , timerDelegate{
     @IBOutlet weak var timerLabel: UILabel!
     let myTimer = Timer.shareInstance
     
+    @IBOutlet weak var timeSelectSlider: UISlider!
+    
+    @IBAction func selectingTime(sender: AnyObject) {
+        let slider = sender as! UISlider
+        myTimer.fireTime = Int(25 * 60 * slider.value)
+        myTimer.restFireTime = Int(10 * 60 * slider.value)
+        
+        timerLabel.text = formatToDisplayTime(myTimer.fireTime)
+    }
+    
     @IBAction func touchUpTimerButton(sender: AnyObject) {
         myTimer.timerWillAction()
     }
+    
     
     func timerStateToController(timerWillState: String){
         print("timerWillState\(timerWillState)")
@@ -50,7 +61,39 @@ class ViewController: UIViewController , timerDelegate{
         timerLabel.text = formatToDisplayTime(myTimer.fireTime)
         self.myTimer.delegate = self
         
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+        self.becomeFirstResponder()
+        print("viewDidLoad")
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        print("viewWillDisapper")
+        UIApplication.sharedApplication().resignFirstResponder()
+        self.resignFirstResponder()
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        if event == nil {
+           return
+        }
+        if event?.type == UIEventType.RemoteControl{
+            print(event?.type)
+            switch(event!.subtype){
+            case .RemoteControlPlay:
+                backgroundMusicPlayer.play()
+            case .RemoteControlPause:
+                backgroundMusicPlayer.pause()
+            default:
+                print(event!.subtype)
+            }
+        
+        }
+    }
+    
     
 
     override func didReceiveMemoryWarning() {

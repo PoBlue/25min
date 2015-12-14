@@ -104,6 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         NSUserDefaults.standardUserDefaults().setObject(myTimer.timerCurrentState, forKey: timerCurrentStateKey)
         NSUserDefaults.standardUserDefaults().setObject(myTimer.fireDate, forKey: timerFireDateKey)
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         completionHandler()
     }
 
