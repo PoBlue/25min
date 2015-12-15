@@ -18,52 +18,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgO-2t-rdZ">
-                                <rect key="frame" x="226" y="276" width="149" height="67"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfV-YI-F69">
+                                <rect key="frame" x="0.0" y="100" width="600" height="130"/>
+                                <color key="backgroundColor" red="0.98834043560606055" green="0.34513638030611749" blue="0.20984562266656087" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="149" id="YaD-Ae-tGh"/>
-                                    <constraint firstAttribute="height" constant="67" id="u2L-tq-i2x"/>
+                                    <constraint firstAttribute="height" constant="130" id="Opc-j6-xPH"/>
                                 </constraints>
-                                <state key="normal" title="开始" image="startButton"/>
-                                <connections>
-                                    <action selector="touchUpTimerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bf5-RN-j3m"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="61"/>
+                                <color key="textColor" red="1" green="0.91747283975314142" blue="0.96479207700990166" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="-1" height="-2"/>
+                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XkA-md-dqp">
                                 <rect key="frame" x="31" y="361" width="538" height="31"/>
                                 <connections>
                                     <action selector="selectingTime:" destination="BYZ-38-t0r" eventType="touchDragInside" id="HIi-a8-bKQ"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfV-YI-F69">
-                                <rect key="frame" x="0.0" y="100" width="600" height="130"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q16-nz-iyl">
+                                <rect key="frame" x="529" y="28" width="30" height="30"/>
+                                <state key="normal" title="静音"/>
+                                <connections>
+                                    <action selector="keepSlience:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6zz-pg-8vo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgO-2t-rdZ">
+                                <rect key="frame" x="226" y="456" width="149" height="81"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="ZNG-Uq-JVT"/>
+                                    <constraint firstAttribute="width" constant="149" id="Jbb-KS-7Oc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="61"/>
-                                <color key="textColor" red="1" green="0.95034621190000002" blue="0.16412728269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="1" green="0.95034621190000002" blue="0.16412728269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="-1" height="-2"/>
-                            </label>
+                                <state key="normal" title="开始" image="startButton"/>
+                                <connections>
+                                    <action selector="touchUpTimerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bf5-RN-j3m"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.63575205176767668" green="0.11191731275533834" blue="0.086345146696479275" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.97198817078385857" green="1" blue="0.95183895337531643" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="kgO-2t-rdZ" firstAttribute="top" secondItem="XkA-md-dqp" secondAttribute="bottom" constant="65" id="0uf-l4-1eU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XkA-md-dqp" secondAttribute="trailing" constant="13" id="1JL-Rn-1lE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XkA-md-dqp" secondAttribute="bottom" constant="209" id="2xf-5I-j8r"/>
-                            <constraint firstItem="tfV-YI-F69" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3yF-Cd-BHz"/>
-                            <constraint firstItem="kgO-2t-rdZ" firstAttribute="top" secondItem="tfV-YI-F69" secondAttribute="bottom" constant="46" id="8yp-yA-Kcn"/>
-                            <constraint firstItem="tfV-YI-F69" firstAttribute="centerX" secondItem="kgO-2t-rdZ" secondAttribute="centerX" id="Ct9-cc-jBU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kgO-2t-rdZ" secondAttribute="bottom" constant="63" id="6Pp-uO-EQO"/>
                             <constraint firstItem="XkA-md-dqp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="13" id="Ee5-94-7Kw"/>
-                            <constraint firstItem="kgO-2t-rdZ" firstAttribute="centerX" secondItem="XkA-md-dqp" secondAttribute="centerX" id="kII-Tr-SNF"/>
-                            <constraint firstItem="XkA-md-dqp" firstAttribute="top" secondItem="kgO-2t-rdZ" secondAttribute="bottom" constant="18" id="tYB-B7-sBB"/>
+                            <constraint firstItem="Q16-nz-iyl" firstAttribute="trailing" secondItem="XkA-md-dqp" secondAttribute="trailing" constant="-8" id="IC8-Fo-iMr"/>
+                            <constraint firstItem="Q16-nz-iyl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="KNi-5e-enC"/>
+                            <constraint firstItem="tfV-YI-F69" firstAttribute="centerX" secondItem="XkA-md-dqp" secondAttribute="centerX" id="QO5-a1-lFa"/>
+                            <constraint firstItem="tfV-YI-F69" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="c9w-XM-qbV"/>
+                            <constraint firstItem="kgO-2t-rdZ" firstAttribute="centerX" secondItem="XkA-md-dqp" secondAttribute="centerX" id="j7x-Nj-iPu"/>
+                            <constraint firstItem="tfV-YI-F69" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="rnB-rA-sTl"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="timeSelectSlider" destination="XkA-md-dqp" id="aar-j8-MNU"/>
                         <outlet property="timerButton" destination="kgO-2t-rdZ" id="aX4-WK-Lio"/>
                         <outlet property="timerLabel" destination="tfV-YI-F69" id="Yv1-jb-0Fo"/>
+                        <outlet property="voiceButton" destination="Q16-nz-iyl" id="DCc-qU-46C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -72,6 +81,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="startButton" width="459" height="201"/>
+        <image name="startButton" width="155" height="69"/>
     </resources>
 </document>

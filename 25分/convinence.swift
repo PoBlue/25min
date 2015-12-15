@@ -11,10 +11,19 @@ import UIKit
 import AVFoundation
 
 var backgroundMusicPlayer: AVAudioPlayer!
+var voice = true
+let voiceKey = "voice"
+
+
 
 func playBackgroundMusic(filename:String,cycle:Bool){
+    
+    if voice == false{
+        return
+    }
+    
     let url = NSBundle.mainBundle().URLForResource(filename, withExtension: "mp3")
-    print("play music in path : \(url)")
+    
     if url == nil{
         print("could not find file \(filename)")
         return

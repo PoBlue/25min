@@ -12,9 +12,25 @@ class ViewController: UIViewController , timerDelegate{
 
     @IBOutlet weak var timerButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var voiceButton: UIButton!
     let myTimer = Timer.shareInstance
     
     @IBOutlet weak var timeSelectSlider: UISlider!
+    
+    func voiceModeSwich(voiceMode:Bool){
+        if voiceMode{
+           voiceButton.setTitle("静音", forState: .Normal)
+            if backgroundMusicPlayer != nil {
+               backgroundMusicPlayer.play()
+            }
+           return
+        }
+        
+        voiceButton.setTitle("开启声音", forState: .Normal)
+        if (backgroundMusicPlayer != nil) {
+            backgroundMusicPlayer.pause()
+        }
+    }
     
     @IBAction func selectingTime(sender: AnyObject) {
         let slider = sender as! UISlider
@@ -24,13 +40,17 @@ class ViewController: UIViewController , timerDelegate{
         timerLabel.text = formatToDisplayTime(myTimer.fireTime)
     }
     
+    @IBAction func keepSlience(sender: AnyObject) {
+        voice = !voice
+        voiceModeSwich(voice)
+    }
+    
     @IBAction func touchUpTimerButton(sender: AnyObject) {
         myTimer.timerWillAction()
     }
     
     
     func timerStateToController(timerWillState: String){
-        print("timerWillState\(timerWillState)")
         switch timerWillState{
         case timerState.start:
             self.timerLabel.text = formatToDisplayTime(self.myTimer.fireTime)
@@ -63,11 +83,12 @@ class ViewController: UIViewController , timerDelegate{
         
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         self.becomeFirstResponder()
-        print("viewDidLoad")
+        
+        voice = !NSUserDefaults.standardUserDefaults().boolForKey(voiceKey)
+        voiceModeSwich(voice)
     }
     
     override func viewWillDisappear(animated: Bool) {
-        print("viewWillDisapper")
         UIApplication.sharedApplication().resignFirstResponder()
         self.resignFirstResponder()
     }
@@ -81,7 +102,6 @@ class ViewController: UIViewController , timerDelegate{
            return
         }
         if event?.type == UIEventType.RemoteControl{
-            print(event?.type)
             switch(event!.subtype){
             case .RemoteControlPlay:
                 backgroundMusicPlayer.play()

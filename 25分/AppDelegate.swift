@@ -78,7 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case "completeRemindRater":
                 let remindRaterNotification = setNotification("已再工作5分钟", timeToNotification: 5, soundName: bgmFilename.winMusic + mp3Extension, category: completeCategory)
                 application.scheduleLocalNotification(remindRaterNotification)
-                print("completeRemindRater")
             case "relaxNow":
                 myTimer.timerCurrentState = timerState.rest
                 myTimer.fireDate = NSDate(timeIntervalSinceNow: Double(myTimer.restFireTime))
@@ -86,18 +85,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 playBackgroundMusic(bgmFilename.restMusic, cycle: true)
                 UIApplication.sharedApplication().scheduleLocalNotification(restNotification)
 
-                print("relaxNow")
             case "restRemindRater":
                 let remindRaterNotification = setNotification("已再休息5分钟", timeToNotification: 5, soundName: bgmFilename.restFinishMusic + mp3Extension, category:restCategory)
                 application.scheduleLocalNotification(remindRaterNotification)
-                print("restRemindRater")
             case "workingNow":
                 myTimer.timerCurrentState = timerState.start
                 myTimer.fireDate = NSDate(timeIntervalSinceNow: Double(myTimer.fireTime))
                 let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: Double(myTimer.fireTime),soundName: bgmFilename.winMusic + mp3Extension,category: "COMPLETE_CATEGORY")
                 playBackgroundMusic(bgmFilename.musicFile, cycle: true)
                 UIApplication.sharedApplication().scheduleLocalNotification(completeNotification)
-                print("workingNow")
             default:
                 print("error :\(identifier)")
             }
@@ -119,7 +115,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let restTime = timer.fireDate.timeIntervalSinceDate(NSDate(timeIntervalSinceNow: 0))
         NSUserDefaults.standardUserDefaults().setObject(timer.fireDate, forKey: timerFireDateKey)
         NSUserDefaults.standardUserDefaults().setObject(timer.timerCurrentState, forKey: timerCurrentStateKey)
-        print(restTime)
         if restTime < 0 {
             return
         }
@@ -179,6 +174,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        NSUserDefaults.standardUserDefaults().setBool(!voice, forKey: voiceKey)
         NSUserDefaults.standardUserDefaults().setObject(Timer.shareInstance.fireDate, forKey: timerFireDateKey)
     }
 
