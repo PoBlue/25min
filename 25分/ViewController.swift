@@ -17,20 +17,6 @@ class ViewController: UIViewController , timerDelegate{
     
     @IBOutlet weak var timeSelectSlider: UISlider!
     
-    func voiceModeSwich(voiceMode:Bool){
-        if voiceMode{
-           voiceButton.setTitle("静音", forState: .Normal)
-            if backgroundMusicPlayer != nil {
-               backgroundMusicPlayer.play()
-            }
-           return
-        }
-        
-        voiceButton.setTitle("开启声音", forState: .Normal)
-        if (backgroundMusicPlayer != nil) {
-            backgroundMusicPlayer.pause()
-        }
-    }
     
     @IBAction func selectingTime(sender: AnyObject) {
         let slider = sender as! UISlider
@@ -40,10 +26,21 @@ class ViewController: UIViewController , timerDelegate{
         timerLabel.text = formatToDisplayTime(myTimer.fireTime)
     }
     
+    func switchVoiceButton(voice:Bool){
+        if voice {
+            voiceButton.setTitle("静音", forState: .Normal)
+        }else{
+            voiceButton.setTitle("开启声音", forState: .Normal)
+        }
+    }
+    
     @IBAction func keepSlience(sender: AnyObject) {
         voice = !voice
+        switchVoiceButton(voice)
         voiceModeSwich(voice)
     }
+    
+    
     
     @IBAction func touchUpTimerButton(sender: AnyObject) {
         myTimer.timerWillAction()
@@ -85,6 +82,7 @@ class ViewController: UIViewController , timerDelegate{
         self.becomeFirstResponder()
         
         voice = !NSUserDefaults.standardUserDefaults().boolForKey(voiceKey)
+        switchVoiceButton(voice)
         voiceModeSwich(voice)
     }
     

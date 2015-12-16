@@ -131,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplication.sharedApplication().scheduleLocalNotification(restNotification)
             
         }else{
-            print("error")
+            print("current state :\(timer.timerCurrentState)")
         }
     }
 
@@ -176,6 +176,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         NSUserDefaults.standardUserDefaults().setBool(!voice, forKey: voiceKey)
         NSUserDefaults.standardUserDefaults().setObject(Timer.shareInstance.fireDate, forKey: timerFireDateKey)
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
     }
 
 

@@ -15,12 +15,20 @@ var voice = true
 let voiceKey = "voice"
 
 
+func voiceModeSwich(voiceMode:Bool){
+    if voiceMode{
+        if backgroundMusicPlayer != nil {
+           backgroundMusicPlayer.volume = 1
+        }
+       return
+    }
+    
+    if (backgroundMusicPlayer != nil) {
+        backgroundMusicPlayer.volume = 0
+    }
+}
 
 func playBackgroundMusic(filename:String,cycle:Bool){
-    
-    if voice == false{
-        return
-    }
     
     let url = NSBundle.mainBundle().URLForResource(filename, withExtension: "mp3")
     
@@ -48,6 +56,7 @@ func playBackgroundMusic(filename:String,cycle:Bool){
     }
     
     backgroundMusicPlayer.prepareToPlay()
+    voiceModeSwich(voice)
     backgroundMusicPlayer.play()
 }
 
