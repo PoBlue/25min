@@ -13,6 +13,7 @@ import AVFoundation
 var backgroundMusicPlayer: AVAudioPlayer!
 var voice = true
 let voiceKey = "voice"
+var lastContentOffsetX:CGFloat = 0
 
 
 func voiceModeSwich(voiceMode:Bool){

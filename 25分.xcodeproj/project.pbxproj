@@ -22,6 +22,15 @@
 		13AFA9161C1DA38800D25542 /* 02 - Menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13AFA9151C1DA38800D25542 /* 02 - Menu.mp3 */; };
 		13AFA9191C1DA39D00D25542 /* 65 - Harp ~ Thank You!.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13AFA9171C1DA39D00D25542 /* 65 - Harp ~ Thank You!.mp3 */; };
 		13AFA91A1C1DA39D00D25542 /* 84 - All Star Coins Collected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13AFA9181C1DA39D00D25542 /* 84 - All Star Coins Collected.mp3 */; };
+		13C39EAD1C2176CA009AEB96 /* bg-dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13C39EA71C2176CA009AEB96 /* bg-dark.jpg */; };
+		13C39EAE1C2176CA009AEB96 /* CircularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */; };
+		13C39EAF1C2176CA009AEB96 /* CircularCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13C39EA91C2176CA009AEB96 /* CircularCollectionViewCell.xib */; };
+		13C39EB01C2176CA009AEB96 /* CircularCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EAA1C2176CA009AEB96 /* CircularCollectionViewLayout.swift */; };
+		13C39EB11C2176CA009AEB96 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EAB1C2176CA009AEB96 /* CollectionViewController.swift */; };
+		13C39EB21C2176CA009AEB96 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 13C39EAC1C2176CA009AEB96 /* Images */; };
+		13C39EB41C217F3D009AEB96 /* TransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EB31C217F3D009AEB96 /* TransitionDelegate.swift */; };
+		13C39EB61C21804E009AEB96 /* CollectionViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EB51C21804E009AEB96 /* CollectionViewAnimator.swift */; };
+		13C39EB81C218E8F009AEB96 /* CustomPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EB71C218E8F009AEB96 /* CustomPresent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +72,15 @@
 		13AFA9151C1DA38800D25542 /* 02 - Menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02 - Menu.mp3"; sourceTree = "<group>"; };
 		13AFA9171C1DA39D00D25542 /* 65 - Harp ~ Thank You!.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "65 - Harp ~ Thank You!.mp3"; sourceTree = "<group>"; };
 		13AFA9181C1DA39D00D25542 /* 84 - All Star Coins Collected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "84 - All Star Coins Collected.mp3"; sourceTree = "<group>"; };
+		13C39EA71C2176CA009AEB96 /* bg-dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-dark.jpg"; sourceTree = "<group>"; };
+		13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularCollectionViewCell.swift; sourceTree = "<group>"; };
+		13C39EA91C2176CA009AEB96 /* CircularCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircularCollectionViewCell.xib; sourceTree = "<group>"; };
+		13C39EAA1C2176CA009AEB96 /* CircularCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularCollectionViewLayout.swift; sourceTree = "<group>"; };
+		13C39EAB1C2176CA009AEB96 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		13C39EAC1C2176CA009AEB96 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		13C39EB31C217F3D009AEB96 /* TransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDelegate.swift; sourceTree = "<group>"; };
+		13C39EB51C21804E009AEB96 /* CollectionViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewAnimator.swift; sourceTree = "<group>"; };
+		13C39EB71C218E8F009AEB96 /* CustomPresent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,11 +131,20 @@
 		135C15F71C1A6969005F53D3 /* 25分 */ = {
 			isa = PBXGroup;
 			children = (
+				13C39EA71C2176CA009AEB96 /* bg-dark.jpg */,
+				13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */,
+				13C39EA91C2176CA009AEB96 /* CircularCollectionViewCell.xib */,
+				13C39EAA1C2176CA009AEB96 /* CircularCollectionViewLayout.swift */,
+				13C39EAB1C2176CA009AEB96 /* CollectionViewController.swift */,
+				13C39EAC1C2176CA009AEB96 /* Images */,
 				13AFA9101C1D9C2500D25542 /* BGM */,
 				135C15F81C1A6969005F53D3 /* AppDelegate.swift */,
 				135C16261C1AEC68005F53D3 /* convinence.swift */,
 				135C16281C1BD282005F53D3 /* Timer.swift */,
 				135C15FA1C1A6969005F53D3 /* ViewController.swift */,
+				13C39EB31C217F3D009AEB96 /* TransitionDelegate.swift */,
+				13C39EB51C21804E009AEB96 /* CollectionViewAnimator.swift */,
+				13C39EB71C218E8F009AEB96 /* CustomPresent.swift */,
 				135C15FC1C1A6969005F53D3 /* Main.storyboard */,
 				135C15FF1C1A6969005F53D3 /* Assets.xcassets */,
 				135C16011C1A6969005F53D3 /* LaunchScreen.storyboard */,
@@ -266,10 +293,13 @@
 			files = (
 				135C16031C1A6969005F53D3 /* LaunchScreen.storyboard in Resources */,
 				13AFA9141C1DA04800D25542 /* 07 - Course Clear.mp3 in Resources */,
+				13C39EAD1C2176CA009AEB96 /* bg-dark.jpg in Resources */,
 				13AFA90F1C1D9B3200D25542 /* 09 - Underground.mp3 in Resources */,
+				13C39EB21C2176CA009AEB96 /* Images in Resources */,
 				13AFA9161C1DA38800D25542 /* 02 - Menu.mp3 in Resources */,
 				13AFA9121C1DA03600D25542 /* 68 - Lose.mp3 in Resources */,
 				13AFA9191C1DA39D00D25542 /* 65 - Harp ~ Thank You!.mp3 in Resources */,
+				13C39EAF1C2176CA009AEB96 /* CircularCollectionViewCell.xib in Resources */,
 				135C16001C1A6969005F53D3 /* Assets.xcassets in Resources */,
 				135C15FE1C1A6969005F53D3 /* Main.storyboard in Resources */,
 				13AFA91A1C1DA39D00D25542 /* 84 - All Star Coins Collected.mp3 in Resources */,
@@ -297,8 +327,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C39EB61C21804E009AEB96 /* CollectionViewAnimator.swift in Sources */,
 				135C16271C1AEC68005F53D3 /* convinence.swift in Sources */,
+				13C39EB41C217F3D009AEB96 /* TransitionDelegate.swift in Sources */,
 				135C15FB1C1A6969005F53D3 /* ViewController.swift in Sources */,
+				13C39EAE1C2176CA009AEB96 /* CircularCollectionViewCell.swift in Sources */,
+				13C39EB01C2176CA009AEB96 /* CircularCollectionViewLayout.swift in Sources */,
+				13C39EB81C218E8F009AEB96 /* CustomPresent.swift in Sources */,
+				13C39EB11C2176CA009AEB96 /* CollectionViewController.swift in Sources */,
 				135C15F91C1A6969005F53D3 /* AppDelegate.swift in Sources */,
 				135C16291C1BD282005F53D3 /* Timer.swift in Sources */,
 			);

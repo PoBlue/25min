@@ -20,19 +20,23 @@ class ViewController: UIViewController , timerDelegate{
     
     @IBAction func selectingTime(sender: AnyObject) {
         let slider = sender as! UISlider
-        myTimer.fireTime = Int(25 * 60 * slider.value)
-        myTimer.restFireTime = Int(10 * 60 * slider.value)
+        myTimer.fireTime = Int(25 * slider.value)
+        myTimer.restFireTime = Int(10 * slider.value)
         
         timerLabel.text = formatToDisplayTime(myTimer.fireTime)
     }
     
-    func switchVoiceButton(voice:Bool){
-        if voice {
-            voiceButton.setTitle("静音", forState: .Normal)
-        }else{
-            voiceButton.setTitle("开启声音", forState: .Normal)
-        }
+    @IBAction func presentCollectionViewController(sender: AnyObject) {
+        let collectionViewControllerIns = self.storyboard?.instantiateViewControllerWithIdentifier("collection") as! CollectionViewController
+        
+        //1 set modal PreStyle
+        collectionViewControllerIns.modalPresentationStyle = UIModalPresentationStyle.Custom
+        //2 set transition delegate
+        let transitionDelegate = TransitionDelegate()
+        collectionViewControllerIns.transitioningDelegate = transitionDelegate
+        self.presentViewController(collectionViewControllerIns, animated: true, completion: nil)
     }
+    
     
     @IBAction func keepSlience(sender: AnyObject) {
         voice = !voice
@@ -112,16 +116,16 @@ class ViewController: UIViewController , timerDelegate{
         }
     }
     
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK: -easy method
-    
-
-
 }
+
+extension ViewController{
+    func switchVoiceButton(voice:Bool){
+        if voice {
+            voiceButton.setTitle("静音", forState: .Normal)
+        }else{
+            voiceButton.setTitle("开启声音", forState: .Normal)
+        }
+    }
+}
+
 

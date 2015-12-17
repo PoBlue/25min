@@ -16,9 +16,9 @@ protocol timerDelegate{
 
 class Timer : NSObject{
     
-    var timerCurrentState = timerState.start
-    var fireTime = 25 * 60
-    var restFireTime = 5 * 60
+    var timerCurrentState = timerState.giveUp
+    var fireTime = 25
+    var restFireTime = 5 
     var fireDate:NSDate!
     var currentTime = 60 * 25
     var time:NSTimer!
@@ -28,6 +28,12 @@ class Timer : NSObject{
     var delegate:timerDelegate?
     
     static var shareInstance = Timer()
+    
+    override init(){
+        //set timer
+        super.init()
+        self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
+    }
     
     func timerAction(){
         switch timerCurrentState{
@@ -58,8 +64,6 @@ class Timer : NSObject{
             
             //set fire Date
             fireDate = NSDate(timeIntervalSinceNow: Double(fireTime))
-            //set timer
-            self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
             
             
             delegate?.timerStateToController(timerState.giveUp)
@@ -67,7 +71,6 @@ class Timer : NSObject{
         case timerState.giveUp:
             self.timerCurrentState = timerState.giveUp
             self.currentTime = fireTime
-            time.invalidate()
             playBackgroundMusic(bgmFilename.giveUpMusic, cycle: false)
             delegate?.timerStateToController(timerState.start)
             timerWillState = timerState.start
@@ -102,16 +105,21 @@ class Timer : NSObject{
     }
     
     func timeUp(timer:NSTimer) -> Void{
+        
+        if timerCurrentState == timerState.giveUp{
+            return
+        }
+        
         delegate?.updateingTime(currentTime)
         
         if currentTime > 0{
             currentTime--
         }else if timerCurrentState == timerState.start{
-            timer.invalidate()
+            timerCurrentState = timerState.giveUp
             timerWillState = timerState.workingComplete
             timerWillAction()
         }else if timerCurrentState == timerState.rest{
-            timer.invalidate()
+            timerCurrentState = timerState.giveUp
             timerWillState = timerState.restComplete
             timerWillAction()
         }
