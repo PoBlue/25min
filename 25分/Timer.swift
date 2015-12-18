@@ -17,8 +17,8 @@ protocol timerDelegate{
 class Timer : NSObject{
     
     var timerCurrentState = timerState.giveUp
-    var fireTime = 25
-    var restFireTime = 5 
+    var fireTime = 25 * 60
+    var restFireTime = 5 * 60
     var fireDate:NSDate!
     var currentTime = 60 * 25
     var time:NSTimer!
@@ -71,7 +71,11 @@ class Timer : NSObject{
         case timerState.giveUp:
             self.timerCurrentState = timerState.giveUp
             self.currentTime = fireTime
-            playBackgroundMusic(selectMusicToPlay.giveUpMusic, cycle: false)
+            if timerCurrentState != timerState.giveUp{
+                playBackgroundMusic(selectMusicToPlay.giveUpMusic, cycle: false)
+            }else{
+                backgroundMusicPlayer.pause()
+            }
             delegate?.timerStateToController(timerState.start)
             timerWillState = timerState.start
             

@@ -47,6 +47,9 @@ extension CollectionViewController {
         self.transitioningDelegate = delegate
         lastContentOffsetX = collectionView.contentOffset.x
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        selectMusicToPlay = bgmArray[indexPath.row]
+    
     }
     
     

@@ -14,18 +14,25 @@ class SelectViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    func setTimerFiretime(time:Int){
+        Timer.shareInstance.fireTime = time
+        Timer.shareInstance.timerCurrentState = timerState.giveUp
+        Timer.shareInstance.timerWillState = timerState.giveUp
+        Timer.shareInstance.timerWillAction()
+    }
+    
     @IBAction func min10fireTimeSetup(sender: AnyObject) {
-        print("10 min")
+        setTimerFiretime(10 * 60)
         dismissSelfController()
     }
     
     @IBAction func min25fireTimeSetup(sender: AnyObject) {
-        print("25 min")
+        setTimerFiretime(25 * 60)
         dismissSelfController()
     }
     
     @IBAction func min45FireTimeSetup(sender: AnyObject) {
-        print("45 min")
+        setTimerFiretime(45 * 60)
         dismissSelfController()
     }
     

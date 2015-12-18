@@ -45,6 +45,7 @@ func setMusicToPlay(){
     let RestMusicFiles = filePathesInDir("/Bgm/RestMusic")
     let winMusicFiles = filePathesInDir("/Bgm/WinMusic")
     
+    let randomCount = Int(arc4random())
     
     bgmArray = (0..<adventureFiles.count).map{
         (i) -> BgmFilename in
@@ -52,17 +53,14 @@ func setMusicToPlay(){
             BgmFilename.Keys.AdventureFile : adventureFiles[i],
             BgmFilename.Keys.RestMusic : RestMusicFiles[i],
             BgmFilename.Keys.GiveUpMusic : giveUpFiles[0],
-            BgmFilename.Keys.RestFinishMusic : restFinishFiles[i],
-            BgmFilename.Keys.WinMusic : winMusicFiles[i],
+            BgmFilename.Keys.RestFinishMusic : restFinishFiles[randomCount % restFinishFiles.count],
+            BgmFilename.Keys.WinMusic : winMusicFiles[randomCount % winMusicFiles.count],
             BgmFilename.Keys.Image : images[i]
         ]
         let bgmIns = BgmFilename(dataDict: dataDict)
         return bgmIns
     }
     selectMusicToPlay = bgmArray[0]
-    
-    
-    
 }
 
 
