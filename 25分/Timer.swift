@@ -74,7 +74,9 @@ class Timer : NSObject{
             if timerCurrentState != timerState.giveUp{
                 playBackgroundMusic(selectMusicToPlay.giveUpMusic, cycle: false)
             }else{
-                backgroundMusicPlayer.pause()
+                if backgroundMusicPlayer != nil{
+                    backgroundMusicPlayer.pause()
+                }
             }
             delegate?.timerStateToController(timerState.start)
             timerWillState = timerState.start
