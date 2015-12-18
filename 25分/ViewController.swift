@@ -26,15 +26,11 @@ class ViewController: UIViewController , timerDelegate{
         timerLabel.text = formatToDisplayTime(myTimer.fireTime)
     }
     
+    @IBAction func swipeUp(sender: AnyObject) {
+        presentSwichMusicController()
+    }
     @IBAction func presentCollectionViewController(sender: AnyObject) {
-        let collectionViewControllerIns = self.storyboard?.instantiateViewControllerWithIdentifier("collection") as! CollectionViewController
-        
-        //1 set modal PreStyle
-        collectionViewControllerIns.modalPresentationStyle = UIModalPresentationStyle.Custom
-        //2 set transition delegate
-        let transitionDelegate = TransitionDelegate()
-        collectionViewControllerIns.transitioningDelegate = transitionDelegate
-        self.presentViewController(collectionViewControllerIns, animated: true, completion: nil)
+        presentSwichMusicController()   
     }
     
     
@@ -125,6 +121,16 @@ extension ViewController{
         }else{
             voiceButton.setTitle("开启声音", forState: .Normal)
         }
+    }
+    
+    func presentSwichMusicController(){
+        let collectionViewControllerIns = self.storyboard?.instantiateViewControllerWithIdentifier("collection") as! CollectionViewController
+        //1 set modal PreStyle
+        collectionViewControllerIns.modalPresentationStyle = UIModalPresentationStyle.Custom
+        //2 set transition delegate
+        let transitionDelegate = TransitionDelegate()
+        collectionViewControllerIns.transitioningDelegate = transitionDelegate
+        self.presentViewController(collectionViewControllerIns, animated: true, completion: nil)
     }
 }
 

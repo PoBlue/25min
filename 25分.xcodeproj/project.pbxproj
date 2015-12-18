@@ -131,20 +131,13 @@
 		135C15F71C1A6969005F53D3 /* 25分 */ = {
 			isa = PBXGroup;
 			children = (
-				13C39EA71C2176CA009AEB96 /* bg-dark.jpg */,
-				13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */,
-				13C39EA91C2176CA009AEB96 /* CircularCollectionViewCell.xib */,
-				13C39EAA1C2176CA009AEB96 /* CircularCollectionViewLayout.swift */,
-				13C39EAB1C2176CA009AEB96 /* CollectionViewController.swift */,
-				13C39EAC1C2176CA009AEB96 /* Images */,
+				13C39EBC1C23A457009AEB96 /* transitionAnimation */,
+				13C39EBA1C23A408009AEB96 /* collectionView */,
 				13AFA9101C1D9C2500D25542 /* BGM */,
 				135C15F81C1A6969005F53D3 /* AppDelegate.swift */,
 				135C16261C1AEC68005F53D3 /* convinence.swift */,
 				135C16281C1BD282005F53D3 /* Timer.swift */,
 				135C15FA1C1A6969005F53D3 /* ViewController.swift */,
-				13C39EB31C217F3D009AEB96 /* TransitionDelegate.swift */,
-				13C39EB51C21804E009AEB96 /* CollectionViewAnimator.swift */,
-				13C39EB71C218E8F009AEB96 /* CustomPresent.swift */,
 				135C15FC1C1A6969005F53D3 /* Main.storyboard */,
 				135C15FF1C1A6969005F53D3 /* Assets.xcassets */,
 				135C16011C1A6969005F53D3 /* LaunchScreen.storyboard */,
@@ -182,6 +175,29 @@
 				13AFA90E1C1D9B3200D25542 /* 09 - Underground.mp3 */,
 			);
 			name = BGM;
+			sourceTree = "<group>";
+		};
+		13C39EBA1C23A408009AEB96 /* collectionView */ = {
+			isa = PBXGroup;
+			children = (
+				13C39EA71C2176CA009AEB96 /* bg-dark.jpg */,
+				13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */,
+				13C39EA91C2176CA009AEB96 /* CircularCollectionViewCell.xib */,
+				13C39EAA1C2176CA009AEB96 /* CircularCollectionViewLayout.swift */,
+				13C39EAB1C2176CA009AEB96 /* CollectionViewController.swift */,
+				13C39EAC1C2176CA009AEB96 /* Images */,
+			);
+			name = collectionView;
+			sourceTree = "<group>";
+		};
+		13C39EBC1C23A457009AEB96 /* transitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				13C39EB31C217F3D009AEB96 /* TransitionDelegate.swift */,
+				13C39EB51C21804E009AEB96 /* CollectionViewAnimator.swift */,
+				13C39EB71C218E8F009AEB96 /* CustomPresent.swift */,
+			);
+			name = transitionAnimation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

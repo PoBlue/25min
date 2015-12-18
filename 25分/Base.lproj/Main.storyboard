@@ -18,23 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfV-YI-F69">
-                                <rect key="frame" x="0.0" y="100" width="600" height="130"/>
-                                <color key="backgroundColor" red="0.98834043560606055" green="0.34513638030611749" blue="0.20984562266656087" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="Opc-j6-xPH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="61"/>
-                                <color key="textColor" red="1" green="0.91747283975314142" blue="0.96479207700990166" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="-1" height="-2"/>
-                            </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XkA-md-dqp">
-                                <rect key="frame" x="31" y="361" width="538" height="31"/>
-                                <connections>
-                                    <action selector="selectingTime:" destination="BYZ-38-t0r" eventType="touchDragInside" id="HIi-a8-bKQ"/>
-                                </connections>
-                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgO-2t-rdZ">
                                 <rect key="frame" x="226" y="456" width="149" height="81"/>
                                 <constraints>
@@ -63,33 +46,60 @@
                                     <action selector="keepSlience:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6zz-pg-8vo"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDE-3d-Yl0">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="301"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfV-YI-F69">
+                                        <rect key="frame" x="161" y="94" width="279" height="113"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="279" id="N4j-yN-sLA"/>
+                                            <constraint firstAttribute="height" constant="113" id="u1W-hv-DOd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="89"/>
+                                        <color key="textColor" red="0.99804255341314263" green="0.99822321522135959" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="-1" height="-2"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.22352941176470587" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="tfV-YI-F69" firstAttribute="centerY" secondItem="kDE-3d-Yl0" secondAttribute="centerY" id="Pri-Wo-YU1"/>
+                                    <constraint firstItem="tfV-YI-F69" firstAttribute="centerX" secondItem="kDE-3d-Yl0" secondAttribute="centerX" id="exI-Nv-z4j"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97198817078385857" green="1" blue="0.95183895337531643" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="kgO-2t-rdZ" firstAttribute="top" secondItem="XkA-md-dqp" secondAttribute="bottom" constant="65" id="0uf-l4-1eU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XkA-md-dqp" secondAttribute="trailing" constant="13" id="1JL-Rn-1lE"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XkA-md-dqp" secondAttribute="bottom" constant="209" id="2xf-5I-j8r"/>
+                            <constraint firstItem="kgO-2t-rdZ" firstAttribute="centerY" secondItem="Q16-nz-iyl" secondAttribute="centerY" id="4Et-Zz-sv9"/>
+                            <constraint firstItem="kgO-2t-rdZ" firstAttribute="top" secondItem="kDE-3d-Yl0" secondAttribute="bottom" constant="155" id="4ZM-rQ-aiT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="meW-DD-59e" secondAttribute="bottom" constant="88" id="5Zy-Pc-y6g"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kgO-2t-rdZ" secondAttribute="bottom" constant="63" id="6Pp-uO-EQO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tfV-YI-F69" secondAttribute="trailing" constant="-20" id="6kE-Im-rZb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q16-nz-iyl" secondAttribute="trailing" constant="13" id="8hn-8V-ilK"/>
-                            <constraint firstItem="XkA-md-dqp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="13" id="Ee5-94-7Kw"/>
                             <constraint firstItem="meW-DD-59e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="13" id="GY2-hl-cJ3"/>
-                            <constraint firstItem="XkA-md-dqp" firstAttribute="top" secondItem="tfV-YI-F69" secondAttribute="bottom" constant="131" id="Osf-5M-pRY"/>
-                            <constraint firstItem="tfV-YI-F69" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WsN-oT-Suz"/>
-                            <constraint firstItem="tfV-YI-F69" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="c9w-XM-qbV"/>
+                            <constraint firstItem="kDE-3d-Yl0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="MuF-tV-lSb"/>
+                            <constraint firstItem="kgO-2t-rdZ" firstAttribute="centerX" secondItem="kDE-3d-Yl0" secondAttribute="centerX" id="PNN-5b-MO0"/>
+                            <constraint firstItem="kDE-3d-Yl0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="WDn-VS-izm"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Q16-nz-iyl" secondAttribute="bottom" constant="88" id="ibS-VP-HQQ"/>
-                            <constraint firstItem="kgO-2t-rdZ" firstAttribute="centerX" secondItem="XkA-md-dqp" secondAttribute="centerX" id="j7x-Nj-iPu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kDE-3d-Yl0" secondAttribute="trailing" constant="-20" id="l4D-Eu-UtJ"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="tkB-Wv-RsV" appends="YES" id="GmN-bw-jWq"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="timeSelectSlider" destination="XkA-md-dqp" id="aar-j8-MNU"/>
                         <outlet property="timerButton" destination="kgO-2t-rdZ" id="aX4-WK-Lio"/>
                         <outlet property="timerLabel" destination="tfV-YI-F69" id="Yv1-jb-0Fo"/>
                         <outlet property="voiceButton" destination="Q16-nz-iyl" id="DCc-qU-46C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="tkB-Wv-RsV">
+                    <connections>
+                        <action selector="swipeUp:" destination="BYZ-38-t0r" id="CMZ-vK-r47"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="423" y="319"/>
         </scene>
