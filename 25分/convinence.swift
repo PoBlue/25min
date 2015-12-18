@@ -14,6 +14,7 @@ var backgroundMusicPlayer: AVAudioPlayer!
 var voice = true
 let voiceKey = "voice"
 var lastContentOffsetX:CGFloat = 0
+let transitionDelegate = TransitionDelegate()
 
 
 func voiceModeSwich(voiceMode:Bool){

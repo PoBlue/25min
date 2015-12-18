@@ -26,6 +26,12 @@ class ViewController: UIViewController , timerDelegate{
         timerLabel.text = formatToDisplayTime(myTimer.fireTime)
     }
     
+    @IBAction func swipeDown(sender: AnyObject) {
+        let selectVC = self.storyboard!.instantiateViewControllerWithIdentifier("selectTimeVC")
+        selectVC.modalPresentationStyle = .Custom
+        selectVC.transitioningDelegate = transitionDelegate
+        self.presentViewController(selectVC, animated: true, completion: nil)
+    }
     @IBAction func swipeUp(sender: AnyObject) {
         presentSwichMusicController()
     }
@@ -128,7 +134,6 @@ extension ViewController{
         //1 set modal PreStyle
         collectionViewControllerIns.modalPresentationStyle = UIModalPresentationStyle.Custom
         //2 set transition delegate
-        let transitionDelegate = TransitionDelegate()
         collectionViewControllerIns.transitioningDelegate = transitionDelegate
         self.presentViewController(collectionViewControllerIns, animated: true, completion: nil)
     }

@@ -86,6 +86,7 @@
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="tkB-Wv-RsV" appends="YES" id="GmN-bw-jWq"/>
+                            <outletCollection property="gestureRecognizers" destination="pRf-59-Uvj" appends="YES" id="qff-xO-XhG"/>
                         </connections>
                     </view>
                     <connections>
@@ -100,8 +101,62 @@
                         <action selector="swipeUp:" destination="BYZ-38-t0r" id="CMZ-vK-r47"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="pRf-59-Uvj">
+                    <connections>
+                        <action selector="swipeDown:" destination="BYZ-38-t0r" id="dzp-tR-h7A"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="423" y="319"/>
+        </scene>
+        <!--Select View Controller-->
+        <scene sceneID="cot-T4-bQ0">
+            <objects>
+                <viewController storyboardIdentifier="selectTimeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w0d-W2-Yl7" customClass="SelectViewController" customModule="_5分" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Dr-xA-Z9G"/>
+                        <viewControllerLayoutGuide type="bottom" id="i6g-BJ-yTA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VT1-vF-670">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQh-sa-Jlu">
+                                <rect key="frame" x="20" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="min10fireTimeSetup:" destination="w0d-W2-Yl7" eventType="touchUpInside" id="5Ld-U0-W3m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw2-MH-eA1">
+                                <rect key="frame" x="534" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="min45FireTimeSetup:" destination="w0d-W2-Yl7" eventType="touchUpInside" id="0JK-Ma-j1o"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LME-W6-st3">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="min25fireTimeSetup:" destination="w0d-W2-Yl7" eventType="touchUpInside" id="5Wu-g1-oV1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.27571344375610352" green="0.21033394336700439" blue="0.060719609260559082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gw2-MH-eA1" firstAttribute="trailing" secondItem="VT1-vF-670" secondAttribute="trailingMargin" id="7DS-b7-22P"/>
+                            <constraint firstItem="LQh-sa-Jlu" firstAttribute="leading" secondItem="VT1-vF-670" secondAttribute="leadingMargin" id="B3Z-q5-cQd"/>
+                            <constraint firstItem="LME-W6-st3" firstAttribute="centerY" secondItem="VT1-vF-670" secondAttribute="centerY" id="QPh-4f-euD"/>
+                            <constraint firstItem="LQh-sa-Jlu" firstAttribute="centerY" secondItem="VT1-vF-670" secondAttribute="centerY" id="SeW-dW-aYN"/>
+                            <constraint firstItem="LME-W6-st3" firstAttribute="centerX" secondItem="VT1-vF-670" secondAttribute="centerX" id="ayj-Mq-ckU"/>
+                            <constraint firstItem="gw2-MH-eA1" firstAttribute="centerY" secondItem="VT1-vF-670" secondAttribute="centerY" id="ikX-Pc-ZaY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RpK-gz-IvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="423" y="-325"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="RQy-dH-o83">

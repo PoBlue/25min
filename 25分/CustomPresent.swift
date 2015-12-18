@@ -13,8 +13,13 @@ class CustomPresent: UIPresentationController {
     
     
     var dimingView:UIView!
+    var top = true
     
     override func frameOfPresentedViewInContainerView() -> CGRect {
+        
+        if top{
+            return CGRectMake(0, 0, CGRectGetWidth(containerView!.bounds), 1 * CGRectGetHeight(containerView!.bounds) / 4)
+        }
         
         return CGRectMake(0, 2 * CGRectGetHeight(containerView!.bounds) / 3, CGRectGetWidth(containerView!.bounds), 1 * CGRectGetHeight(containerView!.bounds) / 3)
     }
@@ -30,8 +35,7 @@ class CustomPresent: UIPresentationController {
     
     func dimingViewTap(){
         presentedViewController.modalPresentationStyle = .Custom
-        let delegate = TransitionDelegate()
-        presentedViewController.transitioningDelegate = delegate
+        presentedViewController.transitioningDelegate = transitionDelegate
         
         presentedViewController.dismissViewControllerAnimated(true, completion: nil)
     }

@@ -31,6 +31,8 @@
 		13C39EB41C217F3D009AEB96 /* TransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EB31C217F3D009AEB96 /* TransitionDelegate.swift */; };
 		13C39EB61C21804E009AEB96 /* CollectionViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EB51C21804E009AEB96 /* CollectionViewAnimator.swift */; };
 		13C39EB81C218E8F009AEB96 /* CustomPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EB71C218E8F009AEB96 /* CustomPresent.swift */; };
+		13C39EC51C23B7A6009AEB96 /* SelectTimeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EC41C23B7A6009AEB96 /* SelectTimeAnimator.swift */; };
+		13C39EC91C23BD17009AEB96 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EC81C23BD17009AEB96 /* SelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		13C39EB31C217F3D009AEB96 /* TransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDelegate.swift; sourceTree = "<group>"; };
 		13C39EB51C21804E009AEB96 /* CollectionViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewAnimator.swift; sourceTree = "<group>"; };
 		13C39EB71C218E8F009AEB96 /* CustomPresent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresent.swift; sourceTree = "<group>"; };
+		13C39EC41C23B7A6009AEB96 /* SelectTimeAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTimeAnimator.swift; sourceTree = "<group>"; };
+		13C39EC81C23BD17009AEB96 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,7 @@
 				13AFA9101C1D9C2500D25542 /* BGM */,
 				135C15F81C1A6969005F53D3 /* AppDelegate.swift */,
 				135C16261C1AEC68005F53D3 /* convinence.swift */,
+				13C39EC81C23BD17009AEB96 /* SelectViewController.swift */,
 				135C16281C1BD282005F53D3 /* Timer.swift */,
 				135C15FA1C1A6969005F53D3 /* ViewController.swift */,
 				135C15FC1C1A6969005F53D3 /* Main.storyboard */,
@@ -196,6 +201,7 @@
 				13C39EB31C217F3D009AEB96 /* TransitionDelegate.swift */,
 				13C39EB51C21804E009AEB96 /* CollectionViewAnimator.swift */,
 				13C39EB71C218E8F009AEB96 /* CustomPresent.swift */,
+				13C39EC41C23B7A6009AEB96 /* SelectTimeAnimator.swift */,
 			);
 			name = transitionAnimation;
 			sourceTree = "<group>";
@@ -343,9 +349,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C39EC51C23B7A6009AEB96 /* SelectTimeAnimator.swift in Sources */,
 				13C39EB61C21804E009AEB96 /* CollectionViewAnimator.swift in Sources */,
 				135C16271C1AEC68005F53D3 /* convinence.swift in Sources */,
 				13C39EB41C217F3D009AEB96 /* TransitionDelegate.swift in Sources */,
+				13C39EC91C23BD17009AEB96 /* SelectViewController.swift in Sources */,
 				135C15FB1C1A6969005F53D3 /* ViewController.swift in Sources */,
 				13C39EAE1C2176CA009AEB96 /* CircularCollectionViewCell.swift in Sources */,
 				13C39EB01C2176CA009AEB96 /* CircularCollectionViewLayout.swift in Sources */,
