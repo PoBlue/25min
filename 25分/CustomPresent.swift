@@ -10,10 +10,61 @@ import Foundation
 import UIKit
 
 class CustomPresent: UIPresentationController {
+    
+    
+    var dimingView:UIView!
+    
     override func frameOfPresentedViewInContainerView() -> CGRect {
         
         return CGRectMake(0, 2 * CGRectGetHeight(containerView!.bounds) / 3, CGRectGetWidth(containerView!.bounds), 1 * CGRectGetHeight(containerView!.bounds) / 3)
     }
     
+    override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
+        super.init(presentedViewController: presentedViewController, presentingViewController: presentingViewController)
+        self.dimingView = UIView()
+        self.dimingView.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
+        self.dimingView.alpha = 0
+        let touchUpGecture = UITapGestureRecognizer(target: self, action: "dimingViewTap")
+        self.dimingView.addGestureRecognizer(touchUpGecture)
+    }
+    
+    func dimingViewTap(){
+        presentedViewController.modalPresentationStyle = .Custom
+        let delegate = TransitionDelegate()
+        presentedViewController.transitioningDelegate = delegate
+        
+        presentedViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func presentationTransitionWillBegin() {
+        let containerView = self.containerView!
+        self.dimingView.frame = containerView.bounds
+        self.dimingView.alpha = 0
+        containerView.insertSubview(self.dimingView, atIndex: 0)
+        
+        presentedViewController.transitionCoordinator()?.animateAlongsideTransition({
+            i  in
+            self.dimingView.alpha = 1.0
+            }, completion: nil)
+    }
+    
+    override func presentationTransitionDidEnd(completed: Bool) {
+        if(!completed){
+            self.dimingView.removeFromSuperview()
+        }
+    }
+    
+    override func dismissalTransitionWillBegin() {
+        presentingViewController.transitionCoordinator()?.animateAlongsideTransition({
+            i in
+            self.dimingView.alpha = 0.0
+            }, completion: nil)
+    }
+    
+    override func dismissalTransitionDidEnd(completed: Bool) {
+        if(completed){
+            self.dimingView.removeFromSuperview()
+        }
+    }
     
 }

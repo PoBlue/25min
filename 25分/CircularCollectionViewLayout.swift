@@ -55,6 +55,26 @@ class CircularCollectionViewLayout: UICollectionViewLayout{
   override func collectionViewContentSize() -> CGSize {
     return CGSize(width: CGFloat(collectionView!.numberOfItemsInSection(0)) * self.itmeSize.width, height: CGRectGetHeight(collectionView!.bounds))
   }
+    
+    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        var finalContentOffset = proposedContentOffset
+        let factor = -angleAtExtreme / (collectionViewContentSize().width - CGRectGetWidth(collectionView!.bounds))
+        let proposeAngle = proposedContentOffset.x * factor
+        let ratio = proposeAngle / anglePerItem
+        
+        var multiplier: CGFloat
+        
+        if (velocity.x > 0){
+            multiplier = ceil(ratio)
+        }else if(velocity.x < 0){
+            multiplier = floor(ratio)
+        }else{
+            multiplier = round(ratio)
+        }
+        
+        finalContentOffset.x = multiplier * anglePerItem / factor
+        return finalContentOffset
+    }
   
   override class func layoutAttributesClass() -> AnyClass {
     return CircularCollectionViewLayoutAttributes.self

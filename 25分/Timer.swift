@@ -82,7 +82,6 @@ class Timer : NSObject{
             fireDate = NSDate(timeIntervalSinceNow: Double(restFireTime))
             //set timer
             currentTime = restFireTime
-            self.time = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timeUp:", userInfo: nil, repeats: true)
             
             delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp

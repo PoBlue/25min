@@ -81,6 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case "relaxNow":
                 myTimer.timerCurrentState = timerState.rest
                 myTimer.fireDate = NSDate(timeIntervalSinceNow: Double(myTimer.restFireTime))
+                myTimer.currentTime = Int((myTimer.fireDate.timeIntervalSinceDate(NSDate(timeIntervalSinceNow: 0))))
+                
                 let restNotification = setNotification("时间到了，休息完毕",timeToNotification: Double(myTimer.restFireTime),soundName: bgmFilename.restFinishMusic + mp3Extension,category: "REST_COMPLETE_CATEGORY")
                 playBackgroundMusic(bgmFilename.restMusic, cycle: true)
                 UIApplication.sharedApplication().scheduleLocalNotification(restNotification)
@@ -91,6 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case "workingNow":
                 myTimer.timerCurrentState = timerState.start
                 myTimer.fireDate = NSDate(timeIntervalSinceNow: Double(myTimer.fireTime))
+                myTimer.currentTime = Int((myTimer.fireDate.timeIntervalSinceDate(NSDate(timeIntervalSinceNow: 0))))
                 let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: Double(myTimer.fireTime),soundName: bgmFilename.winMusic + mp3Extension,category: "COMPLETE_CATEGORY")
                 playBackgroundMusic(bgmFilename.musicFile, cycle: true)
                 UIApplication.sharedApplication().scheduleLocalNotification(completeNotification)
