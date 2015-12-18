@@ -76,26 +76,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let identifier = identifier{
             switch identifier{
             case "completeRemindRater":
-                let remindRaterNotification = setNotification("已再工作5分钟", timeToNotification: 5, soundName: bgmFilename.winMusic + mp3Extension, category: completeCategory)
+                let remindRaterNotification = setNotification("已再工作5分钟", timeToNotification: 5, soundName:selectMusicToPlay.winMusic + mp3Extension, category: completeCategory)
                 application.scheduleLocalNotification(remindRaterNotification)
             case "relaxNow":
                 myTimer.timerCurrentState = timerState.rest
                 myTimer.fireDate = NSDate(timeIntervalSinceNow: Double(myTimer.restFireTime))
                 myTimer.currentTime = Int((myTimer.fireDate.timeIntervalSinceDate(NSDate(timeIntervalSinceNow: 0))))
                 
-                let restNotification = setNotification("时间到了，休息完毕",timeToNotification: Double(myTimer.restFireTime),soundName: bgmFilename.restFinishMusic + mp3Extension,category: "REST_COMPLETE_CATEGORY")
-                playBackgroundMusic(bgmFilename.restMusic, cycle: true)
+                let restNotification = setNotification("时间到了，休息完毕",timeToNotification: Double(myTimer.restFireTime),soundName: selectMusicToPlay.restFinishMusic + mp3Extension,category: "REST_COMPLETE_CATEGORY")
+                playBackgroundMusic(selectMusicToPlay.restMusic, cycle: true)
                 UIApplication.sharedApplication().scheduleLocalNotification(restNotification)
 
             case "restRemindRater":
-                let remindRaterNotification = setNotification("已再休息5分钟", timeToNotification: 5, soundName: bgmFilename.restFinishMusic + mp3Extension, category:restCategory)
+                let remindRaterNotification = setNotification("已再休息5分钟", timeToNotification: 5, soundName:selectMusicToPlay.restFinishMusic + mp3Extension, category:restCategory)
                 application.scheduleLocalNotification(remindRaterNotification)
             case "workingNow":
                 myTimer.timerCurrentState = timerState.start
                 myTimer.fireDate = NSDate(timeIntervalSinceNow: Double(myTimer.fireTime))
                 myTimer.currentTime = Int((myTimer.fireDate.timeIntervalSinceDate(NSDate(timeIntervalSinceNow: 0))))
-                let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: Double(myTimer.fireTime),soundName: bgmFilename.winMusic + mp3Extension,category: "COMPLETE_CATEGORY")
-                playBackgroundMusic(bgmFilename.musicFile, cycle: true)
+                let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: Double(myTimer.fireTime),soundName: selectMusicToPlay.winMusic + mp3Extension,category: "COMPLETE_CATEGORY")
+                playBackgroundMusic(selectMusicToPlay.adventureMusic, cycle: true)
                 UIApplication.sharedApplication().scheduleLocalNotification(completeNotification)
             default:
                 print("error :\(identifier)")
@@ -125,12 +125,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: -notification
         if timer.timerCurrentState == timerState.start{
             //present notification
-            let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: restTime,soundName: bgmFilename.winMusic + mp3Extension,category: "COMPLETE_CATEGORY")
+            let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: restTime,soundName:selectMusicToPlay.winMusic + mp3Extension,category: "COMPLETE_CATEGORY")
             UIApplication.sharedApplication().scheduleLocalNotification(completeNotification)
 
         }else if timer.timerCurrentState == timerState.rest{
             //present notification
-            let restNotification = setNotification("时间到了，休息完毕",timeToNotification: restTime,soundName: bgmFilename.restFinishMusic + mp3Extension,category: "REST_COMPLETE_CATEGORY")
+            let restNotification = setNotification("时间到了，休息完毕",timeToNotification: restTime,soundName:selectMusicToPlay.restFinishMusic + mp3Extension,category: "REST_COMPLETE_CATEGORY")
             UIApplication.sharedApplication().scheduleLocalNotification(restNotification)
             
         }else{

@@ -12,7 +12,6 @@ let reuseIdentifier = "Cell"
 
 class CollectionViewController: UICollectionViewController {
   
-  let images: [String] = NSBundle.mainBundle().pathsForResourcesOfType("png", inDirectory: "Images") 
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,13 +30,13 @@ extension CollectionViewController {
   
   override func collectionView(collectionView: UICollectionView,
     numberOfItemsInSection section: Int) -> Int {
-      return images.count
+      return bgmArray.count
   }
   
   override func collectionView(collectionView: UICollectionView,
     cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
       let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CircularCollectionViewCell
-      cell.imageName = images[indexPath.row]
+      cell.imageName = bgmArray[indexPath.row].image
       return cell
   }
     

@@ -58,7 +58,7 @@ class Timer : NSObject{
     func timerWillAction() {
         switch timerWillState{
         case timerState.start :
-            playBackgroundMusic(bgmFilename.musicFile,cycle: true)
+            playBackgroundMusic(selectMusicToPlay.adventureMusic,cycle: true)
             timerCurrentState = timerState.start
             currentTime = fireTime
             
@@ -71,12 +71,12 @@ class Timer : NSObject{
         case timerState.giveUp:
             self.timerCurrentState = timerState.giveUp
             self.currentTime = fireTime
-            playBackgroundMusic(bgmFilename.giveUpMusic, cycle: false)
+            playBackgroundMusic(selectMusicToPlay.giveUpMusic, cycle: false)
             delegate?.timerStateToController(timerState.start)
             timerWillState = timerState.start
             
         case timerState.rest:
-            playBackgroundMusic(bgmFilename.restMusic, cycle: false)
+            playBackgroundMusic(selectMusicToPlay.restMusic, cycle: false)
             timerCurrentState = timerState.rest
             //set fireDate
             fireDate = NSDate(timeIntervalSinceNow: Double(restFireTime))
@@ -86,13 +86,13 @@ class Timer : NSObject{
             delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
         case timerState.workingComplete:
-            playBackgroundMusic(bgmFilename.winMusic, cycle: false)
+            playBackgroundMusic(selectMusicToPlay.winMusic, cycle: false)
             delegate?.timerStateToController(timerState.workingComplete)
             timerWillState = timerState.rest
             
             
         case timerState.restComplete:
-            playBackgroundMusic(bgmFilename.restFinishMusic, cycle: false)
+            playBackgroundMusic(selectMusicToPlay.restFinishMusic, cycle: false)
             delegate?.timerStateToController(timerState.restComplete)
             
             timerWillState = timerState.start

@@ -90,6 +90,7 @@ class ViewController: UIViewController , timerDelegate{
         voice = !NSUserDefaults.standardUserDefaults().boolForKey(voiceKey)
         switchVoiceButton(voice)
         voiceModeSwich(voice)
+        setMusicToPlay()
     }
     
     override func viewWillDisappear(animated: Bool) {
