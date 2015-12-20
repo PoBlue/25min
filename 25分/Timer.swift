@@ -69,15 +69,10 @@ class Timer : NSObject{
             delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
         case timerState.giveUp:
-            self.timerCurrentState = timerState.giveUp
             self.currentTime = fireTime
-            if timerCurrentState != timerState.giveUp{
-                playBackgroundMusic(selectMusicToPlay.giveUpMusic, cycle: false)
-            }else{
-                if backgroundMusicPlayer != nil{
-                    backgroundMusicPlayer.pause()
-                }
-            }
+            self.timerCurrentState = timerState.giveUp
+            
+            playBackgroundMusic(selectMusicToPlay.giveUpMusic, cycle: false)
             delegate?.timerStateToController(timerState.start)
             timerWillState = timerState.start
             

@@ -27,6 +27,8 @@
 		13C39EC51C23B7A6009AEB96 /* SelectTimeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EC41C23B7A6009AEB96 /* SelectTimeAnimator.swift */; };
 		13C39EC91C23BD17009AEB96 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EC81C23BD17009AEB96 /* SelectViewController.swift */; };
 		13C39ECB1C240A6D009AEB96 /* Bgm in Resources */ = {isa = PBXBuildFile; fileRef = 13C39ECA1C240A6D009AEB96 /* Bgm */; };
+		13FE33A11C26B22000A57103 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FE33A01C26B22000A57103 /* ColorViewController.swift */; };
+		13FE33A31C26B23300A57103 /* SetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FE33A21C26B23300A57103 /* SetingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		13C39EC41C23B7A6009AEB96 /* SelectTimeAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTimeAnimator.swift; sourceTree = "<group>"; };
 		13C39EC81C23BD17009AEB96 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		13C39ECA1C240A6D009AEB96 /* Bgm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bgm; sourceTree = "<group>"; };
+		13FE33A01C26B22000A57103 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		13FE33A21C26B23300A57103 /* SetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +130,10 @@
 				13C39ECA1C240A6D009AEB96 /* Bgm */,
 				13C39EBC1C23A457009AEB96 /* transitionAnimation */,
 				13C39EBA1C23A408009AEB96 /* collectionView */,
+				13FE339F1C26A84B00A57103 /* Controller */,
 				135C15F81C1A6969005F53D3 /* AppDelegate.swift */,
 				135C16261C1AEC68005F53D3 /* convinence.swift */,
 				135C16281C1BD282005F53D3 /* Timer.swift */,
-				13C39EC81C23BD17009AEB96 /* SelectViewController.swift */,
-				135C15FA1C1A6969005F53D3 /* ViewController.swift */,
 				135C15FC1C1A6969005F53D3 /* Main.storyboard */,
 				135C15FF1C1A6969005F53D3 /* Assets.xcassets */,
 				135C16011C1A6969005F53D3 /* LaunchScreen.storyboard */,
@@ -164,7 +167,6 @@
 				13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */,
 				13C39EA91C2176CA009AEB96 /* CircularCollectionViewCell.xib */,
 				13C39EAA1C2176CA009AEB96 /* CircularCollectionViewLayout.swift */,
-				13C39EAB1C2176CA009AEB96 /* CollectionViewController.swift */,
 			);
 			name = collectionView;
 			sourceTree = "<group>";
@@ -178,6 +180,18 @@
 				13C39EC41C23B7A6009AEB96 /* SelectTimeAnimator.swift */,
 			);
 			name = transitionAnimation;
+			sourceTree = "<group>";
+		};
+		13FE339F1C26A84B00A57103 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				13C39EAB1C2176CA009AEB96 /* CollectionViewController.swift */,
+				13FE33A21C26B23300A57103 /* SetingViewController.swift */,
+				13FE33A01C26B22000A57103 /* ColorViewController.swift */,
+				13C39EC81C23BD17009AEB96 /* SelectViewController.swift */,
+				135C15FA1C1A6969005F53D3 /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,10 +332,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				13C39EC51C23B7A6009AEB96 /* SelectTimeAnimator.swift in Sources */,
+				13FE33A11C26B22000A57103 /* ColorViewController.swift in Sources */,
 				13C39EB61C21804E009AEB96 /* CollectionViewAnimator.swift in Sources */,
 				135C16271C1AEC68005F53D3 /* convinence.swift in Sources */,
 				13C39EB41C217F3D009AEB96 /* TransitionDelegate.swift in Sources */,
 				13C39EC91C23BD17009AEB96 /* SelectViewController.swift in Sources */,
+				13FE33A31C26B23300A57103 /* SetingViewController.swift in Sources */,
 				135C15FB1C1A6969005F53D3 /* ViewController.swift in Sources */,
 				13C39EAE1C2176CA009AEB96 /* CircularCollectionViewCell.swift in Sources */,
 				13C39EB01C2176CA009AEB96 /* CircularCollectionViewLayout.swift in Sources */,

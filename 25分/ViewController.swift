@@ -33,10 +33,12 @@ class ViewController: UIViewController , timerDelegate{
         self.presentViewController(selectVC, animated: true, completion: nil)
     }
     @IBAction func swipeUp(sender: AnyObject) {
-        presentSwichMusicController()
+        presentColorController()
     }
     @IBAction func presentCollectionViewController(sender: AnyObject) {
-        presentSwichMusicController()   
+       let setingVC = self.storyboard?.instantiateViewControllerWithIdentifier("SetingVC") as! SetingViewController
+        self.presentViewController(setingVC, animated: true, completion: nil)
+        
     }
     
     
@@ -130,13 +132,14 @@ extension ViewController{
         }
     }
     
-    func presentSwichMusicController(){
-        let collectionViewControllerIns = self.storyboard?.instantiateViewControllerWithIdentifier("collection") as! CollectionViewController
+    func presentColorController(){
+        let colorVC = ColorViewController()
+        colorVC.view.frame = CGRect(x: 0, y: 0, width: colorVC.view.frame.width, height: colorVC.view.frame.height / 3)
         //1 set modal PreStyle
-        collectionViewControllerIns.modalPresentationStyle = UIModalPresentationStyle.Custom
+        colorVC.modalPresentationStyle = UIModalPresentationStyle.Custom
         //2 set transition delegate
-        collectionViewControllerIns.transitioningDelegate = transitionDelegate
-        self.presentViewController(collectionViewControllerIns, animated: true, completion: nil)
+        colorVC.transitioningDelegate = transitionDelegate
+        self.presentViewController(colorVC, animated: true, completion: nil)
     }
 }
 

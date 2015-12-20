@@ -20,6 +20,8 @@ class CollectionViewController: UICollectionViewController {
     let imageView = UIImageView(image: UIImage(named: "bg-dark.jpg"))
     imageView.contentMode = UIViewContentMode.ScaleAspectFill
     collectionView!.backgroundView = imageView
+    
+    initView()
   }
   
 }
@@ -55,4 +57,29 @@ extension CollectionViewController {
     
     
   
+}
+
+extension CollectionViewController{
+    func initView(){
+        let btnA = UIButton()
+        let btnB = UIButton()
+        
+        let viewH = CGRectGetHeight(self.view.bounds)
+        let viewW = CGRectGetWidth(self.view.bounds)
+        let btnW = viewW / 6
+        let btnH = btnW
+        let btnY = viewH * 3 / 4
+        
+        
+        btnA.center = CGPoint(x: (viewW / 2) - btnW, y: btnY)
+        btnB.center = CGPoint(x: (viewW / 2) + btnW, y: btnY)
+        btnA.bounds = CGRect(x: 0, y: 0, width: btnW, height: btnH)
+        btnB.bounds = CGRect(x: 0, y: 0, width: btnW, height: btnH)
+        
+        btnA.setTitle("A", forState: .Normal)
+        btnB.setTitle("B", forState: .Normal)
+        
+        self.view.addSubview(btnA)
+        self.view.addSubview(btnB)
+    }
 }

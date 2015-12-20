@@ -15,7 +15,7 @@ class TransitionDelegate:NSObject,UIViewControllerTransitioningDelegate {
     let selectTimeAnimator = SelectTimeAnimator()
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch presented{
-        case is CollectionViewController:
+        case is ColorViewController:
             collectionAnimator.presenting = true
             return collectionAnimator
         case is SelectViewController:
@@ -29,7 +29,7 @@ class TransitionDelegate:NSObject,UIViewControllerTransitioningDelegate {
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch dismissed{
-        case is CollectionViewController:
+        case is ColorViewController:
             collectionAnimator.presenting = false
             return collectionAnimator
         case is SelectViewController:
@@ -47,7 +47,7 @@ class TransitionDelegate:NSObject,UIViewControllerTransitioningDelegate {
         let customPresent = CustomPresent.init(presentedViewController: presented,presentingViewController: presenting)
         
         switch presented{
-        case is CollectionViewController:
+        case is ColorViewController:
             customPresent.top = false
         case is SelectViewController:
             customPresent.top = true
