@@ -10,8 +10,14 @@ import UIKit
 
 class SelectViewController: UIViewController {
 
+    @IBOutlet weak var set10MinBtn: UIButton!
+    @IBOutlet weak var set25MinBtn: UIButton!
+    
+    @IBOutlet weak var set45MinBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initView()
     }
     
     func setTimerFiretime(time:Int){
@@ -42,4 +48,12 @@ class SelectViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+}
+
+extension SelectViewController{
+    func initView(){
+        makeRadiusBtn(set10MinBtn,borderColor: UIColor(red: 23 / 256, green: 106 / 256, blue: 213 / 256, alpha: 1.0).CGColor)
+        makeRadiusBtn(set25MinBtn,borderColor: UIColor(red: 237 / 256, green: 242 / 256, blue:  11 / 256, alpha: 1.0).CGColor)
+        makeRadiusBtn(set45MinBtn,borderColor: UIColor(red: 11 / 256, green: 242 / 256, blue: 32 / 256, alpha: 1.0).CGColor)
+    }
 }

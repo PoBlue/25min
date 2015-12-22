@@ -113,8 +113,7 @@ extension ViewController{
     }
     
     func presentColorController(){
-        let colorVC = ColorViewController()
-        colorVC.view.frame = CGRect(x: 0, y: 0, width: colorVC.view.frame.width, height: colorVC.view.frame.height / 3)
+        let colorVC = self.storyboard!.instantiateViewControllerWithIdentifier("colorVC") as! ColorViewController
         //1 set modal PreStyle
         colorVC.modalPresentationStyle = UIModalPresentationStyle.Custom
         //2 set transition delegate

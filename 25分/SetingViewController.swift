@@ -73,10 +73,4 @@ extension SetingViewController{
         
     }
     
-    func makeRadiusBtn(btn:UIButton,borderColor:CGColor){
-        let btnH:CGFloat = CGRectGetHeight(btn.bounds)
-        btn.layer.borderColor = borderColor
-        btn.layer.borderWidth = 1.0
-        btn.layer.cornerRadius = btnH / 2
-    }
 }

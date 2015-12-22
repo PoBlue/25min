@@ -111,6 +111,92 @@
             </objects>
             <point key="canvasLocation" x="423" y="319"/>
         </scene>
+        <!--Color View Controller-->
+        <scene sceneID="VCA-IC-2hT">
+            <objects>
+                <viewController storyboardIdentifier="colorVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m6I-BY-cx0" customClass="ColorViewController" customModule="_5分" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tXm-AU-2qV"/>
+                        <viewControllerLayoutGuide type="bottom" id="7pl-xU-Idp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u7F-li-eOx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SoR-Nu-c2d">
+                                <rect key="frame" x="10" y="28" width="187" height="269"/>
+                                <color key="backgroundColor" red="0.043137254901960784" green="0.94901960784313721" blue="0.054901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="轻">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOS-Py-Z6m">
+                                <rect key="frame" x="207" y="28" width="186" height="269"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.043137254901960784" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="中">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5G-BM-zrZ">
+                                <rect key="frame" x="403" y="28" width="187" height="269"/>
+                                <color key="backgroundColor" red="0.043137254901960784" green="0.49803921568627452" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
+                                <state key="normal" title="重">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUd-gt-OxE">
+                                <rect key="frame" x="207" y="312" width="186" height="268"/>
+                                <state key="normal" title="换一批"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nUd-gt-OxE" firstAttribute="width" secondItem="tOS-Py-Z6m" secondAttribute="width" id="0SS-q8-ayY"/>
+                            <constraint firstItem="SoR-Nu-c2d" firstAttribute="top" secondItem="tXm-AU-2qV" secondAttribute="bottom" constant="8" id="3AF-I0-aLD"/>
+                            <constraint firstItem="tOS-Py-Z6m" firstAttribute="height" secondItem="nUd-gt-OxE" secondAttribute="height" id="3br-vt-tYp"/>
+                            <constraint firstItem="SoR-Nu-c2d" firstAttribute="leading" secondItem="u7F-li-eOx" secondAttribute="leadingMargin" id="Aeh-7c-2e0"/>
+                            <constraint firstItem="z5G-BM-zrZ" firstAttribute="trailing" secondItem="u7F-li-eOx" secondAttribute="trailingMargin" id="ApQ-Cr-4hb"/>
+                            <constraint firstItem="7pl-xU-Idp" firstAttribute="top" secondItem="nUd-gt-OxE" secondAttribute="bottom" constant="20" id="DxA-6v-uZj"/>
+                            <constraint firstItem="SoR-Nu-c2d" firstAttribute="width" secondItem="tOS-Py-Z6m" secondAttribute="width" id="GGp-sF-tEs"/>
+                            <constraint firstItem="tOS-Py-Z6m" firstAttribute="leading" secondItem="SoR-Nu-c2d" secondAttribute="trailing" constant="10" id="JHa-B9-6nv"/>
+                            <constraint firstItem="nUd-gt-OxE" firstAttribute="top" secondItem="tOS-Py-Z6m" secondAttribute="bottom" constant="15" id="NgL-yX-pBc"/>
+                            <constraint firstItem="SoR-Nu-c2d" firstAttribute="leading" secondItem="u7F-li-eOx" secondAttribute="leading" constant="10" id="SFP-Wu-3RM"/>
+                            <constraint firstItem="z5G-BM-zrZ" firstAttribute="leading" secondItem="tOS-Py-Z6m" secondAttribute="trailing" constant="10" id="TmJ-W0-fco"/>
+                            <constraint firstItem="tOS-Py-Z6m" firstAttribute="top" secondItem="tXm-AU-2qV" secondAttribute="bottom" constant="8" id="Tvr-DG-5VK"/>
+                            <constraint firstItem="tOS-Py-Z6m" firstAttribute="height" secondItem="z5G-BM-zrZ" secondAttribute="height" id="WxS-50-rtC"/>
+                            <constraint firstAttribute="trailing" secondItem="z5G-BM-zrZ" secondAttribute="trailing" constant="10" id="XkI-xG-ih4"/>
+                            <constraint firstItem="z5G-BM-zrZ" firstAttribute="top" secondItem="tXm-AU-2qV" secondAttribute="bottom" constant="8" id="hjc-Uc-E1O"/>
+                            <constraint firstItem="tOS-Py-Z6m" firstAttribute="centerX" secondItem="u7F-li-eOx" secondAttribute="centerX" id="mqi-av-LKN"/>
+                            <constraint firstItem="z5G-BM-zrZ" firstAttribute="trailing" secondItem="u7F-li-eOx" secondAttribute="trailingMargin" id="mxk-y7-5aM"/>
+                            <constraint firstItem="SoR-Nu-c2d" firstAttribute="leading" secondItem="u7F-li-eOx" secondAttribute="leadingMargin" id="p98-Qf-ZGn"/>
+                            <constraint firstItem="tOS-Py-Z6m" firstAttribute="width" secondItem="z5G-BM-zrZ" secondAttribute="width" id="pj0-kd-zww"/>
+                            <constraint firstItem="nUd-gt-OxE" firstAttribute="centerX" secondItem="u7F-li-eOx" secondAttribute="centerX" id="vGC-RJ-VtP"/>
+                            <constraint firstItem="SoR-Nu-c2d" firstAttribute="height" secondItem="tOS-Py-Z6m" secondAttribute="height" id="yMC-IN-wjI"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Aeh-7c-2e0"/>
+                                <exclude reference="p98-Qf-ZGn"/>
+                                <exclude reference="ApQ-Cr-4hb"/>
+                                <exclude reference="mxk-y7-5aM"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="heavyColorBtn" destination="z5G-BM-zrZ" id="4mI-G6-WDE"/>
+                        <outlet property="lightColorBtn" destination="SoR-Nu-c2d" id="BRz-Ud-But"/>
+                        <outlet property="midColorBtn" destination="tOS-Py-Z6m" id="cZ2-qc-caE"/>
+                        <outlet property="randomBtn" destination="nUd-gt-OxE" id="Yg3-LT-Uir"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0He-0k-SuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="423" y="996"/>
+        </scene>
         <!--Select View Controller-->
         <scene sceneID="cot-T4-bQ0">
             <objects>
@@ -123,38 +209,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQh-sa-Jlu">
-                                <rect key="frame" x="20" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="min10fireTimeSetup:" destination="w0d-W2-Yl7" eventType="touchUpInside" id="5Ld-U0-W3m"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw2-MH-eA1">
-                                <rect key="frame" x="534" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="400" y="281" width="180" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Gv8-n5-Yp2"/>
+                                </constraints>
+                                <state key="normal" title="45Min">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Gv8-n5-Yp2"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="min45FireTimeSetup:" destination="w0d-W2-Yl7" eventType="touchUpInside" id="0JK-Ma-j1o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LME-W6-st3">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="210" y="280" width="180" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="W9K-gV-p3X"/>
+                                </constraints>
+                                <state key="normal" title="25Min">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="W9K-gV-p3X"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="min25fireTimeSetup:" destination="w0d-W2-Yl7" eventType="touchUpInside" id="5Wu-g1-oV1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQh-sa-Jlu">
+                                <rect key="frame" x="20" y="280" width="180" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CWm-zh-mJf"/>
+                                </constraints>
+                                <state key="normal" title="10Min">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="min10fireTimeSetup:" destination="w0d-W2-Yl7" eventType="touchUpInside" id="5Ld-U0-W3m"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.27571344375610352" green="0.21033394336700439" blue="0.060719609260559082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="gw2-MH-eA1" firstAttribute="leading" secondItem="LME-W6-st3" secondAttribute="trailing" constant="10" id="268-PJ-rDU"/>
+                            <constraint firstItem="gw2-MH-eA1" firstAttribute="trailing" secondItem="VT1-vF-670" secondAttribute="trailingMargin" id="4w8-sC-ix7"/>
                             <constraint firstItem="gw2-MH-eA1" firstAttribute="trailing" secondItem="VT1-vF-670" secondAttribute="trailingMargin" id="7DS-b7-22P"/>
                             <constraint firstItem="LQh-sa-Jlu" firstAttribute="leading" secondItem="VT1-vF-670" secondAttribute="leadingMargin" id="B3Z-q5-cQd"/>
+                            <constraint firstItem="LME-W6-st3" firstAttribute="height" secondItem="LQh-sa-Jlu" secondAttribute="height" id="Dk0-7O-TSh"/>
+                            <constraint firstItem="LME-W6-st3" firstAttribute="width" secondItem="LQh-sa-Jlu" secondAttribute="width" id="NHy-L1-TW6"/>
+                            <constraint firstItem="LME-W6-st3" firstAttribute="leading" secondItem="LQh-sa-Jlu" secondAttribute="trailing" constant="10" id="Nwd-RE-X9n"/>
                             <constraint firstItem="LME-W6-st3" firstAttribute="centerY" secondItem="VT1-vF-670" secondAttribute="centerY" id="QPh-4f-euD"/>
                             <constraint firstItem="LQh-sa-Jlu" firstAttribute="centerY" secondItem="VT1-vF-670" secondAttribute="centerY" id="SeW-dW-aYN"/>
                             <constraint firstItem="LME-W6-st3" firstAttribute="centerX" secondItem="VT1-vF-670" secondAttribute="centerX" id="ayj-Mq-ckU"/>
-                            <constraint firstItem="gw2-MH-eA1" firstAttribute="centerY" secondItem="VT1-vF-670" secondAttribute="centerY" id="ikX-Pc-ZaY"/>
+                            <constraint firstItem="gw2-MH-eA1" firstAttribute="height" secondItem="LME-W6-st3" secondAttribute="height" id="bNt-oy-YN5"/>
+                            <constraint firstItem="gw2-MH-eA1" firstAttribute="trailing" secondItem="VT1-vF-670" secondAttribute="trailingMargin" id="cwL-sI-Gi8"/>
+                            <constraint firstItem="gw2-MH-eA1" firstAttribute="centerY" secondItem="VT1-vF-670" secondAttribute="centerY" constant="1" id="ikX-Pc-ZaY"/>
+                            <constraint firstItem="LQh-sa-Jlu" firstAttribute="leading" secondItem="VT1-vF-670" secondAttribute="leadingMargin" id="mgG-h8-1gs"/>
+                            <constraint firstItem="gw2-MH-eA1" firstAttribute="width" secondItem="LME-W6-st3" secondAttribute="width" id="qLA-iY-8o1"/>
+                            <constraint firstItem="LQh-sa-Jlu" firstAttribute="leading" secondItem="VT1-vF-670" secondAttribute="leadingMargin" id="xT8-jF-Kxj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="set10MinBtn" destination="LQh-sa-Jlu" id="DCB-UK-oHb"/>
+                        <outlet property="set25MinBtn" destination="LME-W6-st3" id="kYL-EV-ovv"/>
+                        <outlet property="set45MinBtn" destination="gw2-MH-eA1" id="fdB-cb-egC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RpK-gz-IvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
