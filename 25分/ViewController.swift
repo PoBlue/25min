@@ -8,23 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController , timerDelegate{
+class ViewController: UIViewController{
 
+    let tDelegate = BubbleTransiton()
+    
+    @IBOutlet var dataView: UIView!
     @IBOutlet weak var timerButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var voiceButton: UIButton!
+    
+    @IBOutlet weak var labelView: UIView!
     let myTimer = Timer.shareInstance
     
-    @IBOutlet weak var timeSelectSlider: UISlider!
-    
-    
-    @IBAction func selectingTime(sender: AnyObject) {
-        let slider = sender as! UISlider
-        myTimer.fireTime = Int(25 * slider.value)
-        myTimer.restFireTime = Int(10 * slider.value)
-        
-        timerLabel.text = formatToDisplayTime(myTimer.fireTime)
-    }
     
     @IBAction func swipeDown(sender: AnyObject) {
         let selectVC = self.storyboard!.instantiateViewControllerWithIdentifier("selectTimeVC")
@@ -37,10 +32,14 @@ class ViewController: UIViewController , timerDelegate{
     }
     @IBAction func presentCollectionViewController(sender: AnyObject) {
        let setingVC = self.storyboard?.instantiateViewControllerWithIdentifier("SetingVC") as! SetingViewController
-        self.presentViewController(setingVC, animated: true, completion: nil)
+        setingVC.modalTransitionStyle = .FlipHorizontal
         
+        self.presentViewController(setingVC, animated: true, completion: nil)
     }
     
+    @IBAction func tabSetingButton(sender: AnyObject) {
+        
+    }
     
     @IBAction func keepSlience(sender: AnyObject) {
         voice = !voice
@@ -55,27 +54,6 @@ class ViewController: UIViewController , timerDelegate{
     }
     
     
-    func timerStateToController(timerWillState: String){
-        switch timerWillState{
-        case timerState.start:
-            self.timerLabel.text = formatToDisplayTime(self.myTimer.fireTime)
-            self.timerButton.setImage(UIImage(named: "startButton"), forState: .Normal)
-        case timerState.giveUp:
-            self.timerButton.setImage(UIImage(named: "giveUpButton"), forState: .Normal)
-        case timerState.workingComplete:
-            self.timerButton.setImage(UIImage(named: "restButton"), forState: .Normal)
-        case timerState.rest:
-            self.timerButton.setImage(UIImage(named: "restButton"), forState: .Normal)
-        case timerState.restComplete:
-            self.timerButton.setImage(UIImage(named: "workButton"), forState: .Normal)
-        default:
-            print("error : \(timerWillState)")
-        }
-    }
-    
-    func updateingTime(currentTime:Int){
-        timerLabel.text = formatToDisplayTime(currentTime)
-    }
     
     
     
@@ -93,6 +71,8 @@ class ViewController: UIViewController , timerDelegate{
         switchVoiceButton(voice)
         voiceModeSwich(voice)
         setMusicToPlay()
+        
+        NSBundle.mainBundle().loadNibNamed("LabelBackgroundView", owner: self, options: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -140,6 +120,30 @@ extension ViewController{
         //2 set transition delegate
         colorVC.transitioningDelegate = transitionDelegate
         self.presentViewController(colorVC, animated: true, completion: nil)
+    }
+}
+
+extension ViewController:timerDelegate{
+    func timerStateToController(timerWillState: String){
+        switch timerWillState{
+        case timerState.start:
+            self.timerLabel.text = formatToDisplayTime(self.myTimer.fireTime)
+            self.timerButton.setImage(UIImage(named: "startButton"), forState: .Normal)
+        case timerState.giveUp:
+            self.timerButton.setImage(UIImage(named: "giveUpButton"), forState: .Normal)
+        case timerState.workingComplete:
+            self.timerButton.setImage(UIImage(named: "restButton"), forState: .Normal)
+        case timerState.rest:
+            self.timerButton.setImage(UIImage(named: "restButton"), forState: .Normal)
+        case timerState.restComplete:
+            self.timerButton.setImage(UIImage(named: "workButton"), forState: .Normal)
+        default:
+            print("error : \(timerWillState)")
+        }
+    }
+    
+    func updateingTime(currentTime:Int){
+        timerLabel.text = formatToDisplayTime(currentTime)
     }
 }
 

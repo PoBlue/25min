@@ -16,6 +16,7 @@
 		135C16191C1A6969005F53D3 /* _5_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C16181C1A6969005F53D3 /* _5_UITests.swift */; };
 		135C16271C1AEC68005F53D3 /* convinence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C16261C1AEC68005F53D3 /* convinence.swift */; };
 		135C16291C1BD282005F53D3 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C16281C1BD282005F53D3 /* Timer.swift */; };
+		13A8ED141C279BF5005656E6 /* LabelBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A8ED131C279BF5005656E6 /* LabelBackgroundView.xib */; };
 		13C39EAD1C2176CA009AEB96 /* bg-dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13C39EA71C2176CA009AEB96 /* bg-dark.jpg */; };
 		13C39EAE1C2176CA009AEB96 /* CircularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */; };
 		13C39EAF1C2176CA009AEB96 /* CircularCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13C39EA91C2176CA009AEB96 /* CircularCollectionViewCell.xib */; };
@@ -27,8 +28,10 @@
 		13C39EC51C23B7A6009AEB96 /* SelectTimeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EC41C23B7A6009AEB96 /* SelectTimeAnimator.swift */; };
 		13C39EC91C23BD17009AEB96 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EC81C23BD17009AEB96 /* SelectViewController.swift */; };
 		13C39ECB1C240A6D009AEB96 /* Bgm in Resources */ = {isa = PBXBuildFile; fileRef = 13C39ECA1C240A6D009AEB96 /* Bgm */; };
+		13EA0B371C28252B00215356 /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EA0B361C28252B00215356 /* BubbleTransition.swift */; };
 		13FE33A11C26B22000A57103 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FE33A01C26B22000A57103 /* ColorViewController.swift */; };
 		13FE33A31C26B23300A57103 /* SetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FE33A21C26B23300A57103 /* SetingViewController.swift */; };
+		3A896B1CE110AECFC1008C02 /* Pods_25_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5507DAED6AF27E10042B1C /* Pods_25_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,7 @@
 		135C161A1C1A6969005F53D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		135C16261C1AEC68005F53D3 /* convinence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = convinence.swift; sourceTree = "<group>"; };
 		135C16281C1BD282005F53D3 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		13A8ED131C279BF5005656E6 /* LabelBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelBackgroundView.xib; sourceTree = "<group>"; };
 		13C39EA71C2176CA009AEB96 /* bg-dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-dark.jpg"; sourceTree = "<group>"; };
 		13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularCollectionViewCell.swift; sourceTree = "<group>"; };
 		13C39EA91C2176CA009AEB96 /* CircularCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircularCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -75,8 +79,12 @@
 		13C39EC41C23B7A6009AEB96 /* SelectTimeAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTimeAnimator.swift; sourceTree = "<group>"; };
 		13C39EC81C23BD17009AEB96 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		13C39ECA1C240A6D009AEB96 /* Bgm */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bgm; sourceTree = "<group>"; };
+		13EA0B361C28252B00215356 /* BubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTransition.swift; sourceTree = "<group>"; };
 		13FE33A01C26B22000A57103 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		13FE33A21C26B23300A57103 /* SetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetingViewController.swift; sourceTree = "<group>"; };
+		2880A694661319B1A89D383F /* Pods-25分.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-25分.debug.xcconfig"; path = "Pods/Target Support Files/Pods-25分/Pods-25分.debug.xcconfig"; sourceTree = "<group>"; };
+		2F5507DAED6AF27E10042B1C /* Pods_25_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_25_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFC3EC85CF5FA37A7FE0E656 /* Pods-25分.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-25分.release.xcconfig"; path = "Pods/Target Support Files/Pods-25分/Pods-25分.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A896B1CE110AECFC1008C02 /* Pods_25_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +120,8 @@
 				135C160C1C1A6969005F53D3 /* 25分Tests */,
 				135C16171C1A6969005F53D3 /* 25分UITests */,
 				135C15F61C1A6969005F53D3 /* Products */,
+				DEB310554B3392324ABF779A /* Pods */,
+				DE3BB6BDD8F24904858C66E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +146,7 @@
 				135C16261C1AEC68005F53D3 /* convinence.swift */,
 				135C16281C1BD282005F53D3 /* Timer.swift */,
 				135C15FC1C1A6969005F53D3 /* Main.storyboard */,
+				13A8ED131C279BF5005656E6 /* LabelBackgroundView.xib */,
 				135C15FF1C1A6969005F53D3 /* Assets.xcassets */,
 				135C16011C1A6969005F53D3 /* LaunchScreen.storyboard */,
 				135C16041C1A6969005F53D3 /* Info.plist */,
@@ -178,6 +190,7 @@
 				13C39EB51C21804E009AEB96 /* CollectionViewAnimator.swift */,
 				13C39EB71C218E8F009AEB96 /* CustomPresent.swift */,
 				13C39EC41C23B7A6009AEB96 /* SelectTimeAnimator.swift */,
+				13EA0B361C28252B00215356 /* BubbleTransition.swift */,
 			);
 			name = transitionAnimation;
 			sourceTree = "<group>";
@@ -194,6 +207,23 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		DE3BB6BDD8F24904858C66E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F5507DAED6AF27E10042B1C /* Pods_25_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DEB310554B3392324ABF779A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2880A694661319B1A89D383F /* Pods-25分.debug.xcconfig */,
+				DFC3EC85CF5FA37A7FE0E656 /* Pods-25分.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,9 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 135C161D1C1A6969005F53D3 /* Build configuration list for PBXNativeTarget "25分" */;
 			buildPhases = (
+				AFCD722B396274D3B39D19B8 /* Check Pods Manifest.lock */,
 				135C15F11C1A6969005F53D3 /* Sources */,
 				135C15F21C1A6969005F53D3 /* Frameworks */,
 				135C15F31C1A6969005F53D3 /* Resources */,
+				4AF23E85818855FE4A5A2710 /* Embed Pods Frameworks */,
+				AF7B56B21C1345AEF7D54BF7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13A8ED141C279BF5005656E6 /* LabelBackgroundView.xib in Resources */,
 				135C16031C1A6969005F53D3 /* LaunchScreen.storyboard in Resources */,
 				13C39EAD1C2176CA009AEB96 /* bg-dark.jpg in Resources */,
 				13C39EAF1C2176CA009AEB96 /* CircularCollectionViewCell.xib in Resources */,
@@ -326,11 +360,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4AF23E85818855FE4A5A2710 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-25分/Pods-25分-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF7B56B21C1345AEF7D54BF7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-25分/Pods-25分-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFCD722B396274D3B39D19B8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		135C15F11C1A6969005F53D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13EA0B371C28252B00215356 /* BubbleTransition.swift in Sources */,
 				13C39EC51C23B7A6009AEB96 /* SelectTimeAnimator.swift in Sources */,
 				13FE33A11C26B22000A57103 /* ColorViewController.swift in Sources */,
 				13C39EB61C21804E009AEB96 /* CollectionViewAnimator.swift in Sources */,
@@ -482,6 +565,7 @@
 		};
 		135C161E1C1A6969005F53D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2880A694661319B1A89D383F /* Pods-25分.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "25分/Info.plist";
@@ -493,6 +577,7 @@
 		};
 		135C161F1C1A6969005F53D3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFC3EC85CF5FA37A7FE0E656 /* Pods-25分.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "25分/Info.plist";

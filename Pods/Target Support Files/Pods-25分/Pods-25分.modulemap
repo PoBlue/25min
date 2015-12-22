@@ -1,0 +1,6 @@
+framework module Pods_25_ {
+  umbrella header "Pods-25分-umbrella.h"
+
+  export *
+  module * { export * }
+}

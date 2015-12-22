@@ -44,9 +44,6 @@ extension CollectionViewController {
     
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.modalPresentationStyle = .Custom
-        let delegate = TransitionDelegate()
-        self.transitioningDelegate = delegate
         lastContentOffsetX = collectionView.contentOffset.x
         self.dismissViewControllerAnimated(true, completion: nil)
         
