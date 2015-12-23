@@ -72,12 +72,12 @@ class Timer : NSObject{
             self.currentTime = fireTime
             self.timerCurrentState = timerState.giveUp
             
-            playBackgroundMusic(selectMusicToPlay.giveUpMusic, cycle: false)
+            backgroundMusicPlayer.pause()
             delegate?.timerStateToController(timerState.start)
             timerWillState = timerState.start
             
         case timerState.rest:
-            playBackgroundMusic(selectMusicToPlay.restMusic, cycle: false)
+            playBackgroundMusic(selectMusicToPlay.restMusic, cycle: true)
             timerCurrentState = timerState.rest
             //set fireDate
             fireDate = NSDate(timeIntervalSinceNow: Double(restFireTime))
