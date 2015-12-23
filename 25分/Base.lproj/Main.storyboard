@@ -130,6 +130,9 @@
                                 <state key="normal" title="轻">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="lightBtnTap:" destination="m6I-BY-cx0" eventType="touchUpInside" id="1Qo-ge-1Cl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOS-Py-Z6m">
                                 <rect key="frame" x="207" y="28" width="186" height="269"/>
@@ -138,6 +141,9 @@
                                 <state key="normal" title="中">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="midBtnTap:" destination="m6I-BY-cx0" eventType="touchUpInside" id="jTX-ab-7IB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5G-BM-zrZ">
                                 <rect key="frame" x="403" y="28" width="187" height="269"/>
@@ -147,10 +153,19 @@
                                 <state key="normal" title="重">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="heavyBtnTap:" destination="m6I-BY-cx0" eventType="touchUpInside" id="zQE-XX-n9S"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUd-gt-OxE">
                                 <rect key="frame" x="207" y="312" width="186" height="268"/>
-                                <state key="normal" title="换一批"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="换一批">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="randomBtnTap:" destination="m6I-BY-cx0" eventType="touchUpInside" id="viP-Nt-NAN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

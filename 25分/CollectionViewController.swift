@@ -51,8 +51,10 @@ extension CollectionViewController {
     
     }
     
-    
-    
+    func tapBtn(sender: AnyObject){
+        let btn = sender as! UIButton
+        print(btn.titleLabel!.text!)
+    }
   
 }
 
@@ -61,11 +63,12 @@ extension CollectionViewController{
         let btnA = UIButton()
         let btnB = UIButton()
         
+        
         let viewH = CGRectGetHeight(self.view.bounds)
         let viewW = CGRectGetWidth(self.view.bounds)
-        let btnW = viewW / 6
+        let btnW = viewW / 7
         let btnH = btnW
-        let btnY = viewH * 3 / 4
+        let btnY = viewH - btnH - 20
         
         
         btnA.center = CGPoint(x: (viewW / 2) - btnW, y: btnY)
@@ -73,8 +76,17 @@ extension CollectionViewController{
         btnA.bounds = CGRect(x: 0, y: 0, width: btnW, height: btnH)
         btnB.bounds = CGRect(x: 0, y: 0, width: btnW, height: btnH)
         
-        btnA.setTitle("A", forState: .Normal)
-        btnB.setTitle("B", forState: .Normal)
+        btnA.setTitle("确定", forState: .Normal)
+        btnB.setTitle("取消", forState: .Normal)
+        
+        btnA.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+        btnB.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        
+        btnA.addTarget(self, action: "tapBtn:", forControlEvents: .TouchUpInside)
+        btnB.addTarget(self, action: "tapBtn:", forControlEvents: .TouchUpInside)
+        
+        makeBorderBtn(btnA, borderColor: UIColor.yellowColor().CGColor, radious: 3)
+        makeBorderBtn(btnB, borderColor: UIColor.whiteColor().CGColor, radious: 3)
         
         self.view.addSubview(btnA)
         self.view.addSubview(btnB)

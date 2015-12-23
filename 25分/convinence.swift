@@ -164,11 +164,15 @@ func formatToDisplayTime(currentTime:Int) -> String{
     return time
 }
 
-func makeRadiusBtn(btn:UIButton,borderColor:CGColor){
-    let btnH:CGFloat = CGRectGetHeight(btn.bounds)
+func makeBorderBtn(btn:UIButton,borderColor:CGColor,radious:CGFloat){
     btn.layer.borderColor = borderColor
     btn.layer.borderWidth = 1.0
-    btn.layer.cornerRadius = btnH / 2
+    btn.layer.cornerRadius = radious
+}
+
+func makeRadiusBtn(btn:UIButton,borderColor:CGColor){
+    let btnH:CGFloat = CGRectGetHeight(btn.bounds)
+    makeBorderBtn(btn, borderColor: borderColor, radious: btnH / 2)
 }
 
 

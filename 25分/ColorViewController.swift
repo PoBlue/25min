@@ -19,38 +19,24 @@ class ColorViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    @IBAction func lightBtnTap(sender: AnyObject) {
+        print("light")
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        initView()
+    @IBAction func midBtnTap(sender: AnyObject) {
+        print("mid")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    @IBAction func heavyBtnTap(sender: AnyObject) {
+        print("heavy")
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func randomBtnTap(sender: AnyObject) {
+        print("random")
     }
-    */
 
 }
 
 extension ColorViewController{
     func initView(){
-//        makeRadiusBtn(lightColorBtn, borderColor: lightColorBtn.backgroundColor!.CGColor)
-//        makeRadiusBtn(midColorBtn, borderColor: midColorBtn.backgroundColor!.CGColor)
-//        makeRadiusBtn(heavyColorBtn, borderColor: heavyColorBtn.backgroundColor!.CGColor)
-        
-        setBtnShadow(lightColorBtn)
-        
         makeRadiusBtn(randomBtn, borderColor: UIColor.yellowColor().CGColor)
     }
     
