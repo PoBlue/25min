@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ColorViewController: UIViewController {
 
     @IBOutlet weak var lightColorBtn: UIButton!
@@ -15,19 +16,26 @@ class ColorViewController: UIViewController {
     @IBOutlet weak var heavyColorBtn: UIButton!
     @IBOutlet weak var randomBtn: UIButton!
     
+    var labelView:UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func lightBtnTap(sender: AnyObject) {
         print("light")
+        self.labelView.backgroundColor = lightColorBtn.backgroundColor
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func midBtnTap(sender: AnyObject) {
-        print("mid")
+        self.labelView.backgroundColor = midColorBtn.backgroundColor
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    @IBAction func heavyBtnTap(sender: AnyObject) {
-        print("heavy")
+    @IBAction func heavyBtnTap(sender: AnyObject){
+        self.labelView.backgroundColor = heavyColorBtn.backgroundColor
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func randomBtnTap(sender: AnyObject) {
         print("random")

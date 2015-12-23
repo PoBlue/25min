@@ -12,12 +12,13 @@ class ViewController: UIViewController{
 
     let tDelegate = BubbleTransiton()
     
+    
     @IBOutlet var dataView: UIView!
     @IBOutlet weak var timerButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var voiceButton: UIButton!
-    
     @IBOutlet weak var labelView: UIView!
+    
     let myTimer = Timer.shareInstance
     
     
@@ -30,6 +31,7 @@ class ViewController: UIViewController{
     @IBAction func swipeUp(sender: AnyObject) {
         presentColorController()
     }
+    
     @IBAction func presentCollectionViewController(sender: AnyObject) {
        let setingVC = self.storyboard?.instantiateViewControllerWithIdentifier("SetingVC") as! SetingViewController
         setingVC.modalTransitionStyle = .FlipHorizontal
@@ -73,7 +75,9 @@ class ViewController: UIViewController{
         setMusicToPlay()
         
         NSBundle.mainBundle().loadNibNamed("LabelBackgroundView", owner: self, options: nil)
+        
     }
+    
     
     override func viewWillDisappear(animated: Bool) {
         UIApplication.sharedApplication().resignFirstResponder()
@@ -116,6 +120,7 @@ extension ViewController{
         let colorVC = self.storyboard!.instantiateViewControllerWithIdentifier("colorVC") as! ColorViewController
         //1 set modal PreStyle
         colorVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+        colorVC.labelView = self.labelView
         //2 set transition delegate
         colorVC.transitioningDelegate = transitionDelegate
         self.presentViewController(colorVC, animated: true, completion: nil)
@@ -145,5 +150,6 @@ extension ViewController:timerDelegate{
         timerLabel.text = formatToDisplayTime(currentTime)
     }
 }
+
 
 
