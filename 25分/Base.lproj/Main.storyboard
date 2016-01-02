@@ -324,7 +324,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="giveUpMusic:" destination="uOk-Mt-ESp" eventType="touchUpInside" id="YqZ-xG-V8p"/>
+                                    <action selector="musicBtnTap:" destination="uOk-Mt-ESp" eventType="touchUpInside" id="Qet-Rf-0fi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pc-DK-dJs">
@@ -342,7 +342,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="giveUpMusic:" destination="uOk-Mt-ESp" eventType="touchUpInside" id="ooE-zM-ruO"/>
+                                    <action selector="musicBtnTap:" destination="uOk-Mt-ESp" eventType="touchUpInside" id="10S-Rn-3ek"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6e0-Sr-Hs4">
@@ -356,7 +356,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="giveUpMusic:" destination="uOk-Mt-ESp" eventType="touchUpInside" id="rI7-LY-yG7"/>
+                                    <action selector="musicBtnTap:" destination="uOk-Mt-ESp" eventType="touchUpInside" id="xg6-Tt-0KG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yj0-rg-olH">
@@ -378,7 +378,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="Bbutton:" destination="uOk-Mt-ESp" eventType="touchUpInside" id="2gN-TE-81Q"/>
+                                    <action selector="setingTap:" destination="uOk-Mt-ESp" eventType="touchUpInside" id="gn5-qL-X0t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAE-dv-S00">
@@ -392,7 +392,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="giveUpMusic:" destination="uOk-Mt-ESp" eventType="touchUpInside" id="Ub6-46-EHV"/>
+                                    <action selector="musicBtnTap:" destination="uOk-Mt-ESp" eventType="touchUpInside" id="j2K-Wn-r1d"/>
                                 </connections>
                             </button>
                         </subviews>

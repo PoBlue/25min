@@ -27,30 +27,16 @@ class SetingViewController: UIViewController ,UIViewControllerTransitioningDeleg
     }
 
     
-    
-    
-    @IBAction func giveUpMusic(sender: AnyObject) {
+    @IBAction func musicBtnTap(sender: AnyObject) {
         self.collectionVC = self.storyboard?.instantiateViewControllerWithIdentifier("collection") as! CollectionViewController
         let button = sender as! UIButton
         collectionViewPresent(button)
     }
     
-    @IBAction func Abutton(sender: AnyObject) {
+    @IBAction func setingTap(sender: AnyObject){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
-    @IBAction func Bbutton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 }
 
 extension SetingViewController{
