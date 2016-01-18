@@ -9,6 +9,7 @@
 import UIKit
 
 let reuseIdentifier = "Cell"
+var tmpMusicSet: MusicSet!
 
 class CollectionViewController: UICollectionViewController{
   
@@ -33,6 +34,8 @@ class CollectionViewController: UICollectionViewController{
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    //init set 
+    tmpMusicSet = musicSet.copy(nil)
     // Register cell classes
     collectionView!.registerNib(UINib(nibName: "CircularCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     let imageView = UIImageView(image: UIImage(named: "bg-dark.jpg"))
@@ -44,6 +47,7 @@ class CollectionViewController: UICollectionViewController{
     
     initView()
     lbSongTitle.text = musicSet.getTitle()
+    
   }
   
 }
@@ -67,8 +71,7 @@ extension CollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         //select Music to Play
-//        selectMusicToPlay = bgmArray[indexPath.row]
-        dismissViewController()
+        yesFunc()
     }
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
@@ -138,10 +141,23 @@ extension CollectionViewController{
     }
     
     func yesFunc(){
+        switch musicSet.musicKey{
+        case BgmFilename.Keys.AdventureFile:
+            selectMusicToPlay.adventureMusic = musicSet.path
+        case BgmFilename.Keys.RestFinishMusic:
+            selectMusicToPlay.restFinishMusic = musicSet.path
+        case BgmFilename.Keys.RestMusic:
+            selectMusicToPlay.restMusic = musicSet.path
+        case BgmFilename.Keys.WinMusic:
+            selectMusicToPlay.winMusic = musicSet.path
+        default:
+            print("error in YesFunc")
+        }
         dismissViewController()
     }
     
     func noFunc(){
+        musicSet.copy(tmpMusicSet)
         dismissViewController()
     }
     

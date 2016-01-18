@@ -206,6 +206,20 @@ class MusicSet {
         self.musicKey = musicKey
     }
     
+    func copy(copyFrom:MusicSet?) -> MusicSet {
+        if let copy = copyFrom{
+            self.path = copy.path
+            self.lastContentOffset = copy.lastContentOffset
+            self.musicKey = copy.musicKey
+            self.indexPath = copy.indexPath
+            return self
+        }
+        let copyIns = MusicSet(path: self.path, musicKey: self.musicKey)
+        copyIns.lastContentOffset = self.lastContentOffset
+        copyIns.indexPath = self.indexPath
+        return copyIns
+    }
+    
     func getTitle() -> String{
         let pathUrl = NSURL(fileURLWithPath: path).URLByDeletingPathExtension!
         let fileName = pathUrl.lastPathComponent!
