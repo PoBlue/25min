@@ -33,6 +33,11 @@ class ViewController: UIViewController{
     }
     
     @IBAction func presentCollectionViewController(sender: AnyObject) {
+        //give up 
+        Timer.shareInstance.timerWillState = timerState.giveUp
+        Timer.shareInstance.timerWillAction()
+        
+        //present
        let setingVC = self.storyboard?.instantiateViewControllerWithIdentifier("SetingVC") as! SetingViewController
         setingVC.modalTransitionStyle = .FlipHorizontal
         
