@@ -12,15 +12,23 @@ let reuseIdentifier = "Cell"
 
 class CollectionViewController: UICollectionViewController{
   
+    var bgmArray = [Bgm]()
+    var musicSet : MusicSet!
+    
     let lbSongTitle = UILabel()
     //MARK: -scrollViewDelegate
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        print(CircularCollectionViewLayout.lastCenterIndex)
-        lbSongTitle.text = String(CircularCollectionViewLayout.lastCenterIndex)
+        print(musicSet.indexPath)
+        musicSet.path = bgmArray[musicSet.indexPath].musicPath
+        lbSongTitle.text = String(musicSet.getTitle())
+        
     }
     
+    
     override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        lastContentOffsetX = collectionView!.contentOffset.x
+        musicSet.lastContentOffset = collectionView!.contentOffset.x
+        lastContentOffsetX = musicSet.lastContentOffset
+        playTmpMusic(musicSet.path)
     }
   
   override func viewDidLoad() {
@@ -35,7 +43,7 @@ class CollectionViewController: UICollectionViewController{
     self.collectionView?.delegate = self
     
     initView()
-    lbSongTitle.text = "0"
+    lbSongTitle.text = musicSet.getTitle()
   }
   
 }
@@ -58,8 +66,9 @@ extension CollectionViewController {
     
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        selectMusicToPlay = bgmArray[indexPath.row]
-        
+        //select Music to Play
+//        selectMusicToPlay = bgmArray[indexPath.row]
+        dismissViewController()
     }
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
@@ -129,11 +138,16 @@ extension CollectionViewController{
     }
     
     func yesFunc(){
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewController()
     }
     
     func noFunc(){
-        self.dismissViewControllerAnimated(true, completion: nil)
-    
+        dismissViewController()
     }
+    
+    func dismissViewController(){
+        tmpMusicPlayer.pause()
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }

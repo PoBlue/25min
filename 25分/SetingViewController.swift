@@ -29,8 +29,14 @@ class SetingViewController: UIViewController ,UIViewControllerTransitioningDeleg
     
     @IBAction func musicBtnTap(sender: AnyObject) {
         self.collectionVC = self.storyboard?.instantiateViewControllerWithIdentifier("collection") as! CollectionViewController
-        let button = sender as! UIButton
-        collectionViewPresent(button)
+        
+        let tapBtn = sender as! UIButton
+        let (bgmArray,musicSetObj) = btnArrayAndObj(tapBtn)
+        self.collectionVC.bgmArray = bgmArray
+        self.collectionVC.musicSet = musicSetObj
+        CircularCollectionViewLayout.musicSet = musicSetObj
+        lastContentOffsetX = musicSetObj.lastContentOffset
+        collectionViewPresent(tapBtn)
     }
     
     @IBAction func setingTap(sender: AnyObject){
@@ -40,6 +46,26 @@ class SetingViewController: UIViewController ,UIViewControllerTransitioningDeleg
 }
 
 extension SetingViewController{
+    
+    func btnArrayAndObj(tapButton:UIButton) -> ([Bgm] , MusicSet){
+        switch tapButton.titleLabel!.text!{
+        case "休息提醒":
+            print("rest")
+            return (restFinArray,restFinMusicSet)
+        case "工作提醒":
+            print("working")
+            return (winArray,winMusicSet)
+        case "休息音乐":
+            print("restMusic")
+            return (restArray,restMusicSet)
+        case "主音乐":
+            print("mainMusic")
+            return (advArray,mainMusicSet)
+        default:
+            print("error in btnArrayAndObj Function")
+            return ([Bgm](),MusicSet(path: "nil",musicKey: "nil"))
+        }
+    }
     
     func collectionViewPresent(tapButton:UIButton){
         tDelegate.tapButton = tapButton

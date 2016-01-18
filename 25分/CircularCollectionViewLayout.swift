@@ -30,7 +30,7 @@ class CircularCollectionViewLayoutAttributes:UICollectionViewLayoutAttributes {
 
 class CircularCollectionViewLayout: UICollectionViewLayout{
 
-  static var lastCenterIndex = 0
+    static var musicSet: MusicSet!
     
   var fristPrsent = true
   let itmeSize = CGSize(width: 133, height: 173)
@@ -115,7 +115,7 @@ class CircularCollectionViewLayout: UICollectionViewLayout{
       attributes.size = self.itmeSize
       attributes.center = CGPoint(x: centerX, y: CGRectGetMidY(self.collectionView!.bounds))
       attributes.angle = self.angle + (self.anglePerItem * CGFloat(i))
-      attributes.anchorPoint = CGPoint(x: 0.5, y: anchorPointY)
+        attributes.anchorPoint = CGPoint(x: 0.5, y: anchorPointY)
         saveLastCenterIndex()
       return attributes
     }
@@ -141,7 +141,7 @@ extension CircularCollectionViewLayout{
     func saveLastCenterIndex(){
         let indexPath = Int(round(-angle / anglePerItem))
         if indexPath >= 0 && indexPath < collectionView!.numberOfItemsInSection(0)  {
-            CircularCollectionViewLayout.lastCenterIndex = indexPath
+            CircularCollectionViewLayout.musicSet.indexPath = indexPath
             }
     }
 }

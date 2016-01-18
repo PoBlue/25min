@@ -11,6 +11,7 @@ import UIKit
 import AVFoundation
 
 var backgroundMusicPlayer: AVAudioPlayer!
+var tmpMusicPlayer: AVAudioPlayer!
 var voice = true
 let voiceKey = "voice"
 var lastContentOffsetX:CGFloat = 0
@@ -18,7 +19,17 @@ let transitionDelegate = TransitionDelegate()
 
 
 var selectMusicToPlay: BgmFilename!
-var bgmArray = [BgmFilename]()
+//array
+var advArray = [Bgm]()
+var restArray = [Bgm]()
+var giveUpArray = [Bgm]()
+var winArray = [Bgm]()
+var restFinArray = [Bgm]()
+//obj
+var restMusicSet : MusicSet!
+var mainMusicSet : MusicSet!
+var restFinMusicSet : MusicSet!
+var winMusicSet : MusicSet!
 
 func filePathesInDir(dirPath:String) -> [String]{
     var filePathes = [String]()
@@ -36,8 +47,10 @@ func filePathesInDir(dirPath:String) -> [String]{
     return filePathes
 }
 
-func setMusicToPlay(){
+func initSeting(){
     
+    
+    //init Array
     let images = filePathesInDir("/Bgm/Images")
     let adventureFiles  = filePathesInDir("/Bgm/AdventureMusic")
     let giveUpFiles = filePathesInDir("/Bgm/GiveUpMusic")
@@ -45,22 +58,73 @@ func setMusicToPlay(){
     let RestMusicFiles = filePathesInDir("/Bgm/RestMusic")
     let winMusicFiles = filePathesInDir("/Bgm/WinMusic")
     
-    let randomCount = Int(arc4random())
-    
-    bgmArray = (0..<adventureFiles.count).map{
-        (i) -> BgmFilename in
+    advArray = (0..<adventureFiles.count).map{
+        (i) -> Bgm in
         let dataDict = [
-            BgmFilename.Keys.AdventureFile : adventureFiles[i],
-            BgmFilename.Keys.RestMusic : RestMusicFiles[i],
-            BgmFilename.Keys.GiveUpMusic : giveUpFiles[0],
-            BgmFilename.Keys.RestFinishMusic : restFinishFiles[randomCount % restFinishFiles.count],
-            BgmFilename.Keys.WinMusic : winMusicFiles[randomCount % winMusicFiles.count],
-            BgmFilename.Keys.Image : images[i]
+            Bgm.Keys.MusicPath : adventureFiles[i],
+            Bgm.Keys.Image : images[i]
         ]
-        let bgmIns = BgmFilename(dataDict: dataDict)
+        let bgmIns = Bgm(dataDict: dataDict)
         return bgmIns
     }
-    selectMusicToPlay = bgmArray[0]
+    
+    giveUpArray = (0..<giveUpFiles.count).map{
+        (i) -> Bgm in
+        let dataDict = [
+            Bgm.Keys.MusicPath : giveUpFiles[i],
+            Bgm.Keys.Image : images[i]
+        ]
+        let bgmIns = Bgm(dataDict: dataDict)
+        return bgmIns
+    }
+    
+    restFinArray = (0..<restFinishFiles.count).map{
+        (i) -> Bgm in
+        let dataDict = [
+            Bgm.Keys.MusicPath : restFinishFiles[i],
+            Bgm.Keys.Image : images[i]
+        ]
+        let bgmIns = Bgm(dataDict: dataDict)
+        return bgmIns
+    }
+    
+    restArray = (0..<RestMusicFiles.count).map{
+        (i) -> Bgm in
+        let dataDict = [
+            Bgm.Keys.MusicPath : RestMusicFiles[i],
+            Bgm.Keys.Image : images[i]
+        ]
+        let bgmIns = Bgm(dataDict: dataDict)
+        return bgmIns
+    }
+    
+    winArray = (0..<winMusicFiles.count).map{
+        (i) -> Bgm in
+        let dataDict = [
+            Bgm.Keys.MusicPath : winMusicFiles[i],
+            Bgm.Keys.Image : images[i]
+        ]
+        let bgmIns = Bgm(dataDict: dataDict)
+        return bgmIns
+    }
+    
+    
+    
+    let dataDict = [
+        BgmFilename.Keys.AdventureFile : advArray[0].musicPath,
+        BgmFilename.Keys.RestMusic : restArray[0].musicPath,
+        BgmFilename.Keys.GiveUpMusic : giveUpArray[0].musicPath,
+        BgmFilename.Keys.RestFinishMusic : restFinArray[0].musicPath,
+        BgmFilename.Keys.WinMusic : winArray[0].musicPath,
+        BgmFilename.Keys.Image : advArray[0].image
+    ]
+    selectMusicToPlay = BgmFilename(dataDict: dataDict)
+    
+    //init Obj
+    restMusicSet = MusicSet(path: selectMusicToPlay.restMusic , musicKey: BgmFilename.Keys.RestMusic)
+    mainMusicSet = MusicSet(path: selectMusicToPlay.adventureMusic, musicKey: BgmFilename.Keys.AdventureFile)
+    restFinMusicSet = MusicSet(path: selectMusicToPlay.restFinishMusic, musicKey: BgmFilename.Keys.RestFinishMusic)
+    winMusicSet = MusicSet(path: selectMusicToPlay.winMusic, musicKey: BgmFilename.Keys.WinMusic)
 }
 
 
@@ -75,6 +139,28 @@ func voiceModeSwich(voiceMode:Bool){
     if (backgroundMusicPlayer != nil) {
         backgroundMusicPlayer.volume = 0
     }
+}
+
+func playTmpMusic(pathURL:String){
+    
+    let url = NSURL(fileURLWithPath: pathURL)
+    
+    do{
+        try tmpMusicPlayer = AVAudioPlayer(contentsOfURL: url)
+    }catch{
+        print("could not cteate backgroundMusic")
+        print(error)
+        return
+    }
+    
+    do {
+        try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+    }catch{
+        print(error)
+    }
+    
+    tmpMusicPlayer.prepareToPlay()
+    tmpMusicPlayer.play()
 }
 
 func playBackgroundMusic(pathURL:String,cycle:Bool){
@@ -109,6 +195,24 @@ func playBackgroundMusic(pathURL:String,cycle:Bool){
     backgroundMusicPlayer.play()
 }
 
+class MusicSet {
+    var lastContentOffset : CGFloat = 0.0
+    var path:String
+    var indexPath:Int = 0
+    var musicKey :String
+    
+    init(path : String, musicKey:String){
+        self.path = path
+        self.musicKey = musicKey
+    }
+    
+    func getTitle() -> String{
+        let pathUrl = NSURL(fileURLWithPath: path).URLByDeletingPathExtension!
+        let fileName = pathUrl.lastPathComponent!
+        return fileName
+    }
+}
+
 class BgmFilename {
     var adventureMusic:String
     var giveUpMusic:String
@@ -133,6 +237,27 @@ class BgmFilename {
         restMusic = dataDict[Keys.RestMusic] as! String
         restFinishMusic = dataDict[Keys.RestFinishMusic] as! String
         image = dataDict[Keys.Image] as! String
+    }
+}
+
+class Bgm {
+    var musicPath : String
+    var image : String
+    
+    struct Keys {
+        static let MusicPath = "musicPath"
+        static let Image = "image"
+    }
+    
+    init(dataDict: [ String : AnyObject ]){
+        musicPath = dataDict[Keys.MusicPath] as! String
+        image = dataDict[Keys.Image] as! String
+    }
+    
+    func getTitle() -> String{
+        let pathUrl = NSURL(fileURLWithPath: musicPath).URLByDeletingPathExtension!
+        let fileName = pathUrl.lastPathComponent!
+        return fileName
     }
 }
 

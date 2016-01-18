@@ -72,7 +72,7 @@ class ViewController: UIViewController{
         voice = !NSUserDefaults.standardUserDefaults().boolForKey(voiceKey)
         switchVoiceButton(voice)
         voiceModeSwich(voice)
-        setMusicToPlay()
+        initSeting()
         
         NSBundle.mainBundle().loadNibNamed("LabelBackgroundView", owner: self, options: nil)
         
