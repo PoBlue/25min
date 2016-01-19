@@ -15,11 +15,12 @@ class CollectionViewController: UICollectionViewController{
   
     var bgmArray = [Bgm]()
     var musicSet : MusicSet!
+    var playing = false
+    let btnVoice = UIButton()
     
     let lbSongTitle = UILabel()
     //MARK: -scrollViewDelegate
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        print(musicSet.indexPath)
         musicSet.path = bgmArray[musicSet.indexPath].musicPath
         lbSongTitle.text = String(musicSet.getTitle())
         
@@ -29,7 +30,9 @@ class CollectionViewController: UICollectionViewController{
     override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         musicSet.lastContentOffset = collectionView!.contentOffset.x
         lastContentOffsetX = musicSet.lastContentOffset
-        playTmpMusic(musicSet.path)
+        if playing{
+            playTmpMusic(musicSet.path)
+        }
     }
   
   override func viewDidLoad() {
@@ -86,6 +89,10 @@ extension CollectionViewController {
                 yesFunc()
             case "取消":
                 noFunc()
+            case "Play":
+                playMusicFunc(true)
+            case "停止":
+                playMusicFunc(false)
         default:
             print("其它")
         }
@@ -103,41 +110,60 @@ extension CollectionViewController{
         let btnB = UIButton()
         
         let lbSongTitleH = viewW / 6
-        let lbSongTitleW = viewW / 2
+        let lbSongTitleW = viewW
         let lbSongTitleY = viewH / 4
         
         let btnW = viewW / 7
         let btnH = btnW
         let btnY = viewH - btnH - 20
+        let voiceBtnW = btnW * 3
+        let voiceBtnH = btnW * 1.5
+        let voiceBtnY = btnY - 10
         
         lbSongTitle.center = CGPoint(x: viewW / 2, y: lbSongTitleY)
         lbSongTitle.bounds = CGRect(x: 0, y: 0, width: lbSongTitleW, height: lbSongTitleH)
         
-        btnA.center = CGPoint(x: (viewW / 2) - btnW, y: btnY)
-        btnB.center = CGPoint(x: (viewW / 2) + btnW, y: btnY)
+        btnVoice.frame = CGRect(x: viewW - voiceBtnW  , y: 0, width: voiceBtnW, height: voiceBtnH)
+        
+        btnVoice.center = CGPoint(x: viewW / 2, y: voiceBtnY)
+        btnA.center = CGPoint(x: (viewW / 2) - btnW - (voiceBtnW / 2), y: voiceBtnY)
+        btnB.center = CGPoint(x: (viewW / 2) + btnW + (voiceBtnW / 2), y: voiceBtnY)
+        
+        btnVoice.bounds = CGRect(x: 0, y: 0, width: voiceBtnW, height: voiceBtnH)
         btnA.bounds = CGRect(x: 0, y: 0, width: btnW, height: btnH)
         btnB.bounds = CGRect(x: 0, y: 0, width: btnW, height: btnH)
         
-        lbSongTitle.font = lbSongTitle.font.fontWithSize(lbSongTitleH / 2)
+        lbSongTitle.font = lbSongTitle.font.fontWithSize(lbSongTitleH / 4)
         lbSongTitle.textColor = UIColor.whiteColor()
         lbSongTitle.textAlignment = .Center
-        lbSongTitle.adjustsFontSizeToFitWidth = true
+        lbSongTitle.adjustsFontSizeToFitWidth = false
         
         btnA.setTitle("确定", forState: .Normal)
         btnB.setTitle("取消", forState: .Normal)
+        btnVoice.setTitle("Play", forState: .Normal)
+        btnVoice.titleLabel?.font = btnVoice.titleLabel!.font.fontWithSize(voiceBtnH / 2.8)
         
-        btnA.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+        btnA.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         btnB.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        btnVoice.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        
+        btnA.setTitleColor(UIColor.grayColor(), forState: .Highlighted)
+        btnB.setTitleColor(UIColor.grayColor(), forState: .Highlighted)
+        btnVoice.setTitleColor(UIColor.grayColor(), forState: .Highlighted)
+        
         
         btnA.addTarget(self, action: "tapBtn:", forControlEvents: .TouchUpInside)
         btnB.addTarget(self, action: "tapBtn:", forControlEvents: .TouchUpInside)
+        btnVoice.addTarget(self, action: "tapBtn:", forControlEvents: .TouchUpInside)
         
-        makeBorderBtn(btnA, borderColor: UIColor.yellowColor().CGColor, radious: 3)
-        makeBorderBtn(btnB, borderColor: UIColor.whiteColor().CGColor, radious: 3)
+//        makeBorderBtn(btnA, borderColor: UIColor.blackColor().CGColor, radious: 3)
+//        makeBorderBtn(btnB, borderColor: UIColor.blackColor().CGColor, radious: 3)
+        makeRadiusBtn(btnVoice, borderColor: UIColor.yellowColor().CGColor)
         
         self.view.addSubview(lbSongTitle)
         self.view.addSubview(btnA)
         self.view.addSubview(btnB)
+        self.view.addSubview(btnVoice)
     }
     
     func yesFunc(){
@@ -161,8 +187,25 @@ extension CollectionViewController{
         dismissViewController()
     }
     
+    func playMusicFunc(mode:Bool){
+        if mode {
+            btnVoice.setTitle("停止", forState: .Normal)
+            makeRadiusBtn(btnVoice, borderColor: UIColor.redColor().CGColor)
+            playing = true
+            playTmpMusic(musicSet.path)
+        }else{
+            btnVoice.setTitle("Play", forState: .Normal)
+            makeRadiusBtn(btnVoice, borderColor: UIColor.yellowColor().CGColor)
+            playing = false
+            tmpMusicPlayer.pause()
+        }
+        print("mode \(mode)")
+    }
+    
     func dismissViewController(){
-        tmpMusicPlayer.pause()
+        if tmpMusicPlayer != nil{
+            tmpMusicPlayer.pause()
+        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

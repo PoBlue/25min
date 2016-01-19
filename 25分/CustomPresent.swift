@@ -29,8 +29,6 @@ class CustomPresent: UIPresentationController {
         self.dimingView = UIView()
         self.dimingView.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
         self.dimingView.alpha = 0
-        let touchUpGecture = UITapGestureRecognizer(target: self, action: "dimingViewTap")
-        self.dimingView.addGestureRecognizer(touchUpGecture)
     }
     
     func dimingViewTap(){
@@ -41,6 +39,20 @@ class CustomPresent: UIPresentationController {
     }
     
     override func presentationTransitionWillBegin() {
+        //add gesture
+        let touchUpGecture = UITapGestureRecognizer(target: self, action: "dimingViewTap")
+        var swipeGesture:UISwipeGestureRecognizer!
+        if top{
+            swipeGesture = UISwipeGestureRecognizer(target: self, action: "dimingViewTap")
+            swipeGesture.direction = UISwipeGestureRecognizerDirection.Up
+        }else{
+            swipeGesture = UISwipeGestureRecognizer(target: self, action: "dimingViewTap")
+            swipeGesture.direction = UISwipeGestureRecognizerDirection.Down
+        }
+        self.dimingView.addGestureRecognizer(touchUpGecture)
+        self.dimingView.addGestureRecognizer(swipeGesture)
+       
+        //transition
         let containerView = self.containerView!
         self.dimingView.frame = containerView.bounds
         self.dimingView.alpha = 0

@@ -50,16 +50,12 @@ extension SetingViewController{
     func btnArrayAndObj(tapButton:UIButton) -> ([Bgm] , MusicSet){
         switch tapButton.titleLabel!.text!{
         case "休息提醒":
-            print("rest")
             return (restFinArray,restFinMusicSet)
         case "工作提醒":
-            print("working")
             return (winArray,winMusicSet)
         case "休息音乐":
-            print("restMusic")
             return (restArray,restMusicSet)
         case "主音乐":
-            print("mainMusic")
             return (advArray,mainMusicSet)
         default:
             print("error in btnArrayAndObj Function")
