@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RandomColorSwift
 
 
 class ColorViewController: UIViewController {
@@ -17,6 +18,7 @@ class ColorViewController: UIViewController {
     @IBOutlet weak var randomBtn: UIButton!
     
     var labelView:UIView!
+    
     
     
     override func viewDidLoad() {
@@ -38,7 +40,7 @@ class ColorViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func randomBtnTap(sender: AnyObject) {
-        print("random")
+        randomAndSetColor()
     }
 
 }
@@ -52,5 +54,17 @@ extension ColorViewController{
         btn.layer.shadowRadius = 5
         btn.layer.shadowOffset = CGSize(width: 0, height: 4)
         btn.layer.shadowOpacity = 0.9
+        
     }
+    
+    func randomAndSetColor(){
+        let lightColor = randomColor(hue: .Random, luminosity: .Bright)
+        let midColor = randomColor(hue: .Random, luminosity: .Light)
+        let heavyColor = randomColor(hue: .Random, luminosity: .Dark)
+        
+        lightColorBtn.backgroundColor = lightColor
+        midColorBtn.backgroundColor = midColor
+        heavyColorBtn.backgroundColor = heavyColor
+    }
+    
 }

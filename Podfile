@@ -5,6 +5,7 @@ use_frameworks!
 
 target '25分' do
 	pod 'BubbleTransition', '~> 1.0.0'
+	pod 'RandomColorSwift'
 end
 
 

@@ -85,7 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-25分/BubbleTransition.framework"
+  install_framework "Pods-25分/RandomColorSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-25分/BubbleTransition.framework"
+  install_framework "Pods-25分/RandomColorSwift.framework"
 fi

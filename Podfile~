@@ -7,11 +7,4 @@ target '25分' do
 	pod 'BubbleTransition', '~> 1.0.0'
 end
 
-target 'podTestTests' do
-
-end
-
-target 'podTestUITests' do
-
-end
 

@@ -1,10 +1,13 @@
 PODS:
   - BubbleTransition (1.0.1)
+  - RandomColorSwift (0.1.0)
 
 DEPENDENCIES:
   - BubbleTransition (~> 1.0.0)
+  - RandomColorSwift
 
 SPEC CHECKSUMS:
   BubbleTransition: 76d5e306dbda0f622260ea7d082c971d976422ab
+  RandomColorSwift: b2e95d6d3670def6d2f907ec7b7041138b268ac9
 
 COCOAPODS: 0.39.0
