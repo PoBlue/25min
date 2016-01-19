@@ -9,6 +9,9 @@
 import UIKit
 import RandomColorSwift
 
+var lightColor:UIColor!
+var midColor:UIColor!
+var heavyColor:UIColor!
 
 class ColorViewController: UIViewController {
 
@@ -23,6 +26,11 @@ class ColorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if lightColor != nil{
+            lightColorBtn.backgroundColor = lightColor
+            midColorBtn.backgroundColor = midColor
+            heavyColorBtn.backgroundColor = heavyColor
+        }
     }
     
     @IBAction func lightBtnTap(sender: AnyObject) {
@@ -58,9 +66,9 @@ extension ColorViewController{
     }
     
     func randomAndSetColor(){
-        let lightColor = randomColor(hue: .Random, luminosity: .Bright)
-        let midColor = randomColor(hue: .Random, luminosity: .Light)
-        let heavyColor = randomColor(hue: .Random, luminosity: .Dark)
+        lightColor = randomColor(hue: .Random, luminosity: .Bright)
+        midColor = randomColor(hue: .Random, luminosity: .Light)
+        heavyColor = randomColor(hue: .Random, luminosity: .Dark)
         
         lightColorBtn.backgroundColor = lightColor
         midColorBtn.backgroundColor = midColor
