@@ -17,8 +17,8 @@ protocol timerDelegate{
 class Timer : NSObject{
     
     var timerCurrentState = timerState.giveUp
-    var fireTime = 25 * 60
-    var restFireTime = 5 * 60
+    var fireTime = 25 
+    var restFireTime = 5
     var fireDate:NSDate!
     var currentTime = 60 * 25
     var time:NSTimer!

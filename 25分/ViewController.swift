@@ -74,7 +74,7 @@ class ViewController: UIViewController{
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         self.becomeFirstResponder()
         
-        voice = !NSUserDefaults.standardUserDefaults().boolForKey(voiceKey)
+        voice = NSUserDefaults.standardUserDefaults().boolForKey(voiceKey)
         switchVoiceButton(voice)
         voiceModeSwich(voice)
         initSeting()

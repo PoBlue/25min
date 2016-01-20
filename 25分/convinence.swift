@@ -266,6 +266,7 @@ class BgmFilename {
         restFinishMusic = dataDict[Keys.RestFinishMusic] as! String
         image = dataDict[Keys.Image] as! String
     }
+    
 }
 
 class Bgm {
@@ -326,6 +327,12 @@ func makeBorderBtn(btn:UIButton,borderColor:CGColor,radious:CGFloat){
 func makeRadiusBtn(btn:UIButton,borderColor:CGColor){
     let btnH:CGFloat = CGRectGetHeight(btn.bounds)
     makeBorderBtn(btn, borderColor: borderColor, radious: btnH / 2)
+}
+
+func getPathTitle(path:String) -> String{
+    let pathUrl = NSURL(fileURLWithPath: path).URLByDeletingPathExtension!
+    let fileName = pathUrl.lastPathComponent!
+    return fileName
 }
 
 
