@@ -30,11 +30,11 @@ var restMusicSet : MusicSet!
 var mainMusicSet : MusicSet!
 var restFinMusicSet : MusicSet!
 var winMusicSet : MusicSet!
+let appMainBundlePath = NSBundle.mainBundle().bundlePath
 
 func filePathesInDir(dirPath:String,ext:String?) -> [String]{
     var filePathes = [String]()
     
-    let appMainBundlePath = NSBundle.mainBundle().bundlePath
     let fileManager = NSFileManager.defaultManager()
     
     
@@ -72,57 +72,15 @@ func initSeting(){
     let RestMusicFiles = filePathesInDir("/Bgm/RestMusic",ext: "mp3")
     let winMusicFiles = filePathesInDir("/Bgm/WinMusic",ext: "mp3")
     
-    advArray = (0..<adventureFiles.count).map{
-        (i) -> Bgm in
-        let dataDict = [
-            Bgm.Keys.MusicPath : adventureFiles[i],
-            Bgm.Keys.Image : advImages[i]
-        ]
-        let bgmIns = Bgm(dataDict: dataDict)
-        return bgmIns
-    }
+    advArray = bgmArrayWithFile(adventureFiles, musicImages: advImages)
     
-    giveUpArray = (0..<giveUpFiles.count).map{
-        (i) -> Bgm in
-        let dataDict = [
-            Bgm.Keys.MusicPath : giveUpFiles[i],
-            Bgm.Keys.Image : giveUpImages[i]
-        ]
-        let bgmIns = Bgm(dataDict: dataDict)
-        return bgmIns
-    }
+    giveUpArray = bgmArrayWithFile(giveUpFiles, musicImages: giveUpImages)
     
-    restFinArray = (0..<restFinishFiles.count).map{
-        (i) -> Bgm in
-        let dataDict = [
-            Bgm.Keys.MusicPath : restFinishFiles[i],
-            Bgm.Keys.Image : restFinImages[i]
-        ]
-        let bgmIns = Bgm(dataDict: dataDict)
-        return bgmIns
-    }
+    restFinArray = bgmArrayWithFile(restFinishFiles, musicImages: restFinImages)
     
-    restArray = (0..<RestMusicFiles.count).map{
-        (i) -> Bgm in
-        let dataDict = [
-            Bgm.Keys.MusicPath : RestMusicFiles[i],
-            Bgm.Keys.Image : restImages[i]
-        ]
-        let bgmIns = Bgm(dataDict: dataDict)
-        return bgmIns
-    }
+    restArray = bgmArrayWithFile(RestMusicFiles, musicImages: restImages)
     
-    winArray = (0..<winMusicFiles.count).map{
-        (i) -> Bgm in
-        let dataDict = [
-            Bgm.Keys.MusicPath : winMusicFiles[i],
-            Bgm.Keys.Image : winImages[i]
-        ]
-        let bgmIns = Bgm(dataDict: dataDict)
-        return bgmIns
-    }
-    
-    
+    winArray = bgmArrayWithFile(winMusicFiles, musicImages: winImages)
     
     let dataDict = [
         BgmFilename.Keys.AdventureFile : advArray[0].musicPath,
@@ -333,6 +291,25 @@ func getPathTitle(path:String) -> String{
     let pathUrl = NSURL(fileURLWithPath: path).URLByDeletingPathExtension!
     let fileName = pathUrl.lastPathComponent!
     return fileName
+}
+
+let defaultImagePath = appMainBundlePath + "/Bgm/default.png"
+func bgmArrayWithFile(musicFiles:[String],musicImages:[String]) -> [Bgm] {
+    let tmpArray = (0..<musicFiles.count).map{
+        (i) -> Bgm in
+        var dataDict = [
+            Bgm.Keys.MusicPath : musicFiles[i],
+        ]
+        
+        dataDict[Bgm.Keys.Image] = defaultImagePath
+        if i < musicImages.count{
+            dataDict[Bgm.Keys.Image] = musicImages[i]
+        }
+        
+        let bgmIns = Bgm(dataDict: dataDict)
+        return bgmIns
+    }
+    return tmpArray
 }
 
 
