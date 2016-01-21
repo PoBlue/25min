@@ -182,6 +182,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSUserDefaults.standardUserDefaults().setBool(voice, forKey: voiceKey)
         NSUserDefaults.standardUserDefaults().setObject(Timer.shareInstance.timerCurrentState, forKey: timerCurrentStateKey)
         NSUserDefaults.standardUserDefaults().setObject(Timer.shareInstance.fireDate, forKey: timerFireDateKey)
+        
+        let musicSet:[MusicSet] = [mainMusicSet,restMusicSet,winMusicSet,restFinMusicSet]
+        NSKeyedArchiver.archiveRootObject(musicSet, toFile: musicSetFilePath)
+        
         UIApplication.sharedApplication().cancelAllLocalNotifications()
     }
 

@@ -67,6 +67,7 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSThread.sleepForTimeInterval(1.0)
         // Do any additional setup after loading the view, typically from a nib.
         timerLabel.text = formatToDisplayTime(myTimer.fireTime)
         self.myTimer.delegate = self
@@ -117,7 +118,7 @@ extension ViewController{
         if voice {
             voiceButton.setTitle("静音", forState: .Normal)
         }else{
-            voiceButton.setTitle("开启声音", forState: .Normal)
+            voiceButton.setTitle("音乐", forState: .Normal)
         }
     }
     

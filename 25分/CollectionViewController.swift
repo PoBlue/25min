@@ -38,7 +38,7 @@ class CollectionViewController: UICollectionViewController{
   override func viewDidLoad() {
     super.viewDidLoad()
     //init set 
-    tmpMusicSet = musicSet.copy(nil)
+    tmpMusicSet = musicSet.copySelf(nil)
     // Register cell classes
     collectionView!.registerNib(UINib(nibName: "CircularCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     let imageView = UIImageView(image: UIImage(named: "bg-dark.jpg"))
@@ -183,7 +183,7 @@ extension CollectionViewController{
     }
     
     func noFunc(){
-        musicSet.copy(tmpMusicSet)
+        musicSet.copySelf(tmpMusicSet)
         dismissViewController()
     }
     

@@ -16,6 +16,12 @@ var voice = true
 let voiceKey = "voice"
 var lastContentOffsetX:CGFloat = 0
 let transitionDelegate = TransitionDelegate()
+struct musicSetKeys {
+    static let adv = "advMusicKey"
+    static let rest = "restMusicKey"
+    static let restFin = "restFinMusicKey"
+    static let win = "winMusicKey"
+}
 
 
 var selectMusicToPlay: BgmFilename!
@@ -97,6 +103,8 @@ func initSeting(){
     mainMusicSet = MusicSet(path: selectMusicToPlay.adventureMusic, musicKey: BgmFilename.Keys.AdventureFile)
     restFinMusicSet = MusicSet(path: selectMusicToPlay.restFinishMusic, musicKey: BgmFilename.Keys.RestFinishMusic)
     winMusicSet = MusicSet(path: selectMusicToPlay.winMusic, musicKey: BgmFilename.Keys.WinMusic)
+    
+    restoreMusicSet()
 }
 
 
@@ -167,18 +175,25 @@ func playBackgroundMusic(pathURL:String,cycle:Bool){
     backgroundMusicPlayer.play()
 }
 
-class MusicSet {
+class MusicSet : NSObject, NSCoding{
     var lastContentOffset : CGFloat = 0.0
-    var path:String
+    var path:String = ""
     var indexPath:Int = 0
-    var musicKey :String
+    var musicKey :String = ""
+    
+    struct Keys {
+        static let LastCOffset = "lastContentOffset"
+        static let Path = "path"
+        static let IndexPath = "indexPath"
+        static let musicKey = "musicKey"
+    }
     
     init(path : String, musicKey:String){
         self.path = path
         self.musicKey = musicKey
     }
     
-    func copy(copyFrom:MusicSet?) -> MusicSet {
+    func copySelf(copyFrom:MusicSet?) -> MusicSet {
         if let copy = copyFrom{
             self.path = copy.path
             self.lastContentOffset = copy.lastContentOffset
@@ -196,6 +211,27 @@ class MusicSet {
         let pathUrl = NSURL(fileURLWithPath: path).URLByDeletingPathExtension!
         let fileName = pathUrl.lastPathComponent!
         return fileName
+    }
+    
+
+    // MARK: - NSCoding
+    
+    func encodeWithCoder(archiver: NSCoder) {
+        
+        // archive the information inside the Person, one property at a time
+        archiver.encodeObject(lastContentOffset, forKey: Keys.LastCOffset)
+        archiver.encodeObject(self.path, forKey: Keys.Path)
+        archiver.encodeObject(indexPath, forKey: Keys.IndexPath)
+        archiver.encodeObject(musicKey, forKey: Keys.musicKey)
+    }
+
+    required init(coder unarchiver: NSCoder) {
+        super.init()
+        // Unarchive the data, one property at a time
+        lastContentOffset = unarchiver.decodeObjectForKey(Keys.LastCOffset) as! CGFloat
+        indexPath = unarchiver.decodeObjectForKey(Keys.IndexPath) as! Int
+        musicKey = unarchiver.decodeObjectForKey(Keys.musicKey) as! String
+        path = unarchiver.decodeObjectForKey(Keys.Path) as! String
     }
 }
 
@@ -302,8 +338,10 @@ func bgmArrayWithFile(musicFiles:[String],musicImages:[String]) -> [Bgm] {
         ]
         
         dataDict[Bgm.Keys.Image] = defaultImagePath
-        if i < musicImages.count{
-            dataDict[Bgm.Keys.Image] = musicImages[i]
+        for(var ind = 0 ; ind < musicImages.count; ind += 1){
+            if getPathTitle(dataDict[Bgm.Keys.MusicPath]!) == getPathTitle(musicImages[ind]){
+                dataDict[Bgm.Keys.Image] = musicImages[ind]
+            }
         }
         
         let bgmIns = Bgm(dataDict: dataDict)
@@ -312,6 +350,23 @@ func bgmArrayWithFile(musicFiles:[String],musicImages:[String]) -> [Bgm] {
     return tmpArray
 }
 
+var musicSetFilePath : String {
+    let manager = NSFileManager.defaultManager()
+    let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    return url.URLByAppendingPathComponent("musicSet").path!
+}
 
 
-
+func restoreMusicSet(){
+    if let ins = NSKeyedUnarchiver.unarchiveObjectWithFile(musicSetFilePath) as? [MusicSet]{
+        mainMusicSet = ins[0]
+        restMusicSet = ins[1]
+        winMusicSet = ins[2]
+        restFinMusicSet = ins[3]
+        
+        selectMusicToPlay.adventureMusic = mainMusicSet.path
+        selectMusicToPlay.restMusic = restMusicSet.path
+        selectMusicToPlay.winMusic = winMusicSet.path
+        selectMusicToPlay.restFinishMusic = restFinMusicSet.path
+    }
+}
