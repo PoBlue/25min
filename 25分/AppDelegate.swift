@@ -24,48 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // Override point for customization after application launch.
-        //MARK: - Notification Action
-        let notificationActionOk : UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionOk.identifier = "completeRemindRater"
-        notificationActionOk.title = "再工作一会儿"
-        notificationActionOk.destructive = false
-        notificationActionOk.authenticationRequired = false
-        notificationActionOk.activationMode = UIUserNotificationActivationMode.Background
-        
-        let notificationActionCancel: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionCancel.identifier = "relaxNow"
-        notificationActionCancel.title = "休息"
-        notificationActionCancel.destructive = false
-        notificationActionCancel.authenticationRequired = false
-        notificationActionCancel.activationMode = UIUserNotificationActivationMode.Background
-        
-        let notificationActionRest:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionRest.identifier = "restRemindRater"
-        notificationActionRest.title = "再休息一会儿"
-        notificationActionRest.destructive = false
-        notificationActionRest.authenticationRequired = false
-        notificationActionRest.activationMode = UIUserNotificationActivationMode.Background
-        
-        let notificationActionWoring:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionWoring.identifier = "workingNow"
-        notificationActionWoring.title = "工作"
-        notificationActionWoring.destructive = false
-        notificationActionWoring.authenticationRequired = false
-        notificationActionWoring.activationMode = UIUserNotificationActivationMode.Background
-        
-        
-        //MARK: -Notification Category
-        let notificationCompleteCategory: UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
-        notificationCompleteCategory.identifier = completeCategory
-        notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Default)
-        notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Minimal)
-        
-        let notificationRestCompletCategory:UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
-        notificationRestCompletCategory.identifier = restCategory
-        notificationRestCompletCategory.setActions([notificationActionRest,notificationActionWoring], forContext: .Default)
-        notificationRestCompletCategory.setActions([notificationActionRest,notificationActionWoring], forContext: .Minimal)
-        
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound , .Alert , .Badge], categories: NSSet(array: [notificationCompleteCategory,notificationRestCompletCategory]) as? Set<UIUserNotificationCategory>))
+        initSetNotification(application)
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
         return true
     }
     
@@ -112,7 +72,112 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        saveTimerAndNotification()
+    }
 
+    func applicationDidEnterBackground(application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        //cacel notification and bandage
+   
+
+    }
+
+    func applicationWillEnterForeground(application: UIApplication) {
+        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        //cacel notification and bandage
+        loadTimer()
+    }
+
+    func applicationDidBecomeActive(application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+
+    func applicationWillTerminate(application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        NSUserDefaults.standardUserDefaults().setBool(voice, forKey: voiceKey)
+        NSUserDefaults.standardUserDefaults().setObject(Timer.shareInstance.timerCurrentState, forKey: timerCurrentStateKey)
+        NSUserDefaults.standardUserDefaults().setObject(Timer.shareInstance.fireDate, forKey: timerFireDateKey)
+        
+        let musicSet:[MusicSet] = [mainMusicSet,restMusicSet,winMusicSet,restFinMusicSet]
+        NSKeyedArchiver.archiveRootObject(musicSet, toFile: musicSetFilePath)
+        
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
+    }
+
+
+}
+
+extension AppDelegate{
+    func initSetNotification(application:UIApplication){
+        //MARK: - Notification Action
+        let notificationActionOk : UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionOk.identifier = "completeRemindRater"
+        notificationActionOk.title = "再工作一会儿"
+        notificationActionOk.destructive = false
+        notificationActionOk.authenticationRequired = false
+        notificationActionOk.activationMode = UIUserNotificationActivationMode.Background
+        
+        let notificationActionCancel: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionCancel.identifier = "relaxNow"
+        notificationActionCancel.title = "休息"
+        notificationActionCancel.destructive = false
+        notificationActionCancel.authenticationRequired = false
+        notificationActionCancel.activationMode = UIUserNotificationActivationMode.Background
+        
+        let notificationActionRest:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionRest.identifier = "restRemindRater"
+        notificationActionRest.title = "再休息一会儿"
+        notificationActionRest.destructive = false
+        notificationActionRest.authenticationRequired = false
+        notificationActionRest.activationMode = UIUserNotificationActivationMode.Background
+        
+        let notificationActionWoring:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionWoring.identifier = "workingNow"
+        notificationActionWoring.title = "工作"
+        notificationActionWoring.destructive = false
+        notificationActionWoring.authenticationRequired = false
+        notificationActionWoring.activationMode = UIUserNotificationActivationMode.Background
+        
+        
+        //MARK: -Notification Category
+        let notificationCompleteCategory: UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
+        notificationCompleteCategory.identifier = completeCategory
+        notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Default)
+        notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Minimal)
+        
+        let notificationRestCompletCategory:UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
+        notificationRestCompletCategory.identifier = restCategory
+        notificationRestCompletCategory.setActions([notificationActionRest,notificationActionWoring], forContext: .Default)
+        notificationRestCompletCategory.setActions([notificationActionRest,notificationActionWoring], forContext: .Minimal)
+        
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound , .Alert , .Badge], categories: NSSet(array: [notificationCompleteCategory,notificationRestCompletCategory]) as? Set<UIUserNotificationCategory>))
+    }
+    
+    func loadTimer(){
+        let fireDate = NSUserDefaults.standardUserDefaults().objectForKey(timerFireDateKey) as? NSDate
+        let currentState = NSUserDefaults.standardUserDefaults().objectForKey(timerCurrentStateKey) as? String
+        if fireDate == nil || currentState == nil{
+            return
+        }
+        
+
+
+        let timeInterval = Int((fireDate!.timeIntervalSinceDate(NSDate(timeIntervalSinceNow: 0))))
+        
+        if timeInterval > 0 {
+            Timer.shareInstance.currentTime = timeInterval
+            Timer.shareInstance.timerCurrentState = currentState!
+            Timer.shareInstance.timerAction()
+        }else{
+            Timer.shareInstance.currentTime = 0
+        }
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
+    }
+    
+    func saveTimerAndNotification(){
         let timer = Timer.shareInstance
         if (timer.fireDate == nil){
             return
@@ -138,57 +203,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
             print("current state :\(timer.timerCurrentState)")
         }
+    
     }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        //cacel notification and bandage
-   
-
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        //cacel notification and bandage
-        let fireDate = NSUserDefaults.standardUserDefaults().objectForKey(timerFireDateKey) as? NSDate
-        let currentState = NSUserDefaults.standardUserDefaults().objectForKey(timerCurrentStateKey) as? String
-        if fireDate == nil || currentState == nil{
-            return
-        }
-        
-
-
-        let timeInterval = Int((fireDate!.timeIntervalSinceDate(NSDate(timeIntervalSinceNow: 0))))
-        
-        if timeInterval > 0 {
-            Timer.shareInstance.currentTime = timeInterval
-            Timer.shareInstance.timerCurrentState = currentState!
-            Timer.shareInstance.timerAction()
-        }else{
-            Timer.shareInstance.currentTime = 0
-        }
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-        
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        NSUserDefaults.standardUserDefaults().setBool(voice, forKey: voiceKey)
-        NSUserDefaults.standardUserDefaults().setObject(Timer.shareInstance.timerCurrentState, forKey: timerCurrentStateKey)
-        NSUserDefaults.standardUserDefaults().setObject(Timer.shareInstance.fireDate, forKey: timerFireDateKey)
-        
-        let musicSet:[MusicSet] = [mainMusicSet,restMusicSet,winMusicSet,restFinMusicSet]
-        NSKeyedArchiver.archiveRootObject(musicSet, toFile: musicSetFilePath)
-        
-        UIApplication.sharedApplication().cancelAllLocalNotifications()
-    }
-
-
 }
 
