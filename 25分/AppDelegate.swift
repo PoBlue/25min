@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let timerFireDateKey = "timerFireDate"
     let timerCurrentStateKey = "timerCurrentStateKey"
     let mp3Extension = ".mp3"
-    let winMusicPath = "Bgm/WinMusic/"
-    let restFinMusicPath = "Bgm/RestFinishMusic/"
+    let winMusicPath = shortMusicDirPath + "/"
+    let restFinMusicPath = shortMusicDirPath + "/"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         

@@ -88,13 +88,13 @@ class Timer : NSObject{
             delegate?.timerStateToController(timerState.giveUp)
             timerWillState = timerState.giveUp
         case timerState.workingComplete:
-            playBackgroundMusic(selectMusicToPlay.winMusic, cycle: false)
+            playTmpMusic(selectMusicToPlay.winMusic)
             delegate?.timerStateToController(timerState.workingComplete)
             timerWillState = timerState.rest
             
             
         case timerState.restComplete:
-            playBackgroundMusic(selectMusicToPlay.restFinishMusic, cycle: false)
+            playTmpMusic(selectMusicToPlay.restFinishMusic)
             delegate?.timerStateToController(timerState.restComplete)
             
             timerWillState = timerState.start
