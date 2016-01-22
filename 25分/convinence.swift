@@ -28,7 +28,6 @@ var selectMusicToPlay: BgmFilename!
 //array
 var advArray = [Bgm]()
 var restArray = [Bgm]()
-var giveUpArray = [Bgm]()
 var winArray = [Bgm]()
 var restFinArray = [Bgm]()
 //obj
@@ -62,25 +61,27 @@ func filePathesInDir(dirPath:String,ext:String?) -> [String]{
     return filePathes
 }
 
+let longMusicDirPath = "/Bgm/LongMusic"
+let longMusicImagesDirPath = longMusicDirPath + "/Images"
+let shortMusicDirPath = "/Bgm/ShortMusic"
+let shortMusicImagesDirPath = shortMusicDirPath + "/Images"
+
 func initSeting(){
     
     
     //init Array
-    let advImages = filePathesInDir("/Bgm/AdventureMusic/Images",ext: nil)
-    let giveUpImages = filePathesInDir("/Bgm/GiveUpMusic/Images",ext: nil)
-    let restFinImages = filePathesInDir("/Bgm/RestFinishMusic/Images",ext: nil)
-    let restImages = filePathesInDir("/Bgm/RestMusic/Images",ext: nil)
-    let winImages = filePathesInDir("/Bgm/WinMusic/Images",ext: nil)
+    let advImages = filePathesInDir(longMusicImagesDirPath,ext: nil)
+    let restFinImages = filePathesInDir(shortMusicImagesDirPath,ext: nil)
+    let restImages = filePathesInDir(longMusicImagesDirPath,ext: nil)
+    let winImages = filePathesInDir(shortMusicImagesDirPath,ext: nil)
     
-    let adventureFiles  = filePathesInDir("/Bgm/AdventureMusic",ext: "mp3")
-    let giveUpFiles = filePathesInDir("/Bgm/GiveUpMusic",ext: "mp3")
-    let restFinishFiles = filePathesInDir("/Bgm/RestFinishMusic",ext: "mp3")
-    let RestMusicFiles = filePathesInDir("/Bgm/RestMusic",ext: "mp3")
-    let winMusicFiles = filePathesInDir("/Bgm/WinMusic",ext: "mp3")
+    let adventureFiles  = filePathesInDir(longMusicDirPath,ext: "mp3")
+    let restFinishFiles = filePathesInDir(shortMusicDirPath,ext: "mp3")
+    let RestMusicFiles = filePathesInDir(longMusicDirPath,ext: "mp3")
+    let winMusicFiles = filePathesInDir(shortMusicDirPath,ext: "mp3")
     
     advArray = bgmArrayWithFile(adventureFiles, musicImages: advImages)
     
-    giveUpArray = bgmArrayWithFile(giveUpFiles, musicImages: giveUpImages)
     
     restFinArray = bgmArrayWithFile(restFinishFiles, musicImages: restFinImages)
     
@@ -91,7 +92,6 @@ func initSeting(){
     let dataDict = [
         BgmFilename.Keys.AdventureFile : advArray[0].musicPath,
         BgmFilename.Keys.RestMusic : restArray[0].musicPath,
-        BgmFilename.Keys.GiveUpMusic : giveUpArray[0].musicPath,
         BgmFilename.Keys.RestFinishMusic : restFinArray[0].musicPath,
         BgmFilename.Keys.WinMusic : winArray[0].musicPath,
         BgmFilename.Keys.Image : advArray[0].image
@@ -237,7 +237,6 @@ class MusicSet : NSObject, NSCoding{
 
 class BgmFilename {
     var adventureMusic:String
-    var giveUpMusic:String
     var winMusic:String
     var restMusic:String
     var restFinishMusic:String
@@ -245,7 +244,6 @@ class BgmFilename {
     
     struct Keys {
         static let AdventureFile = "adventureFile"
-        static let GiveUpMusic = "giveUpMusic"
         static let WinMusic = "winMusic"
         static let RestMusic = "restMusic"
         static let RestFinishMusic = "restFinishMusic"
@@ -254,7 +252,6 @@ class BgmFilename {
     
     init(dataDict: [ String : AnyObject ]){
         adventureMusic = dataDict[Keys.AdventureFile] as! String
-        giveUpMusic = dataDict[Keys.GiveUpMusic] as! String
         winMusic = dataDict[Keys.WinMusic] as! String
         restMusic = dataDict[Keys.RestMusic] as! String
         restFinishMusic = dataDict[Keys.RestFinishMusic] as! String
