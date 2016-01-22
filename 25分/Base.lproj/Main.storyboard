@@ -28,6 +28,16 @@
                                     <action selector="touchUpTimerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bf5-RN-j3m"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meW-DD-59e">
+                                <rect key="frame" x="0.0" y="422" width="226" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="K3d-uF-PAl"/>
+                                </constraints>
+                                <state key="normal" title="设置"/>
+                                <connections>
+                                    <action selector="presentCollectionViewController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dbF-cp-NVq"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDE-3d-Yl0">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="295"/>
                                 <subviews>
@@ -52,43 +62,39 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q16-nz-iyl">
-                                <rect key="frame" x="505" y="422" width="75" height="52"/>
+                                <rect key="frame" x="375" y="422" width="225" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="0vQ-x7-j47"/>
-                                    <constraint firstAttribute="width" constant="75" id="ngs-t3-oyq"/>
                                 </constraints>
                                 <state key="normal" title="静音"/>
                                 <connections>
                                     <action selector="keepSlience:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6zz-pg-8vo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meW-DD-59e">
-                                <rect key="frame" x="20" y="422" width="75" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="5yq-Rn-Sk8"/>
-                                    <constraint firstAttribute="height" constant="52" id="K3d-uF-PAl"/>
-                                </constraints>
-                                <state key="normal" title="设置"/>
-                                <connections>
-                                    <action selector="presentCollectionViewController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dbF-cp-NVq"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97198817078385857" green="1" blue="0.95183895337531643" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q16-nz-iyl" secondAttribute="trailing" constant="-20" id="2MI-g2-2G6"/>
                             <constraint firstItem="kgO-2t-rdZ" firstAttribute="centerY" secondItem="Q16-nz-iyl" secondAttribute="centerY" constant="-0.5" id="4Et-Zz-sv9"/>
                             <constraint firstItem="kgO-2t-rdZ" firstAttribute="top" secondItem="kDE-3d-Yl0" secondAttribute="bottom" constant="109" id="4ZM-rQ-aiT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="meW-DD-59e" secondAttribute="bottom" constant="126" id="5Zy-Pc-y6g"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kgO-2t-rdZ" secondAttribute="bottom" constant="109" id="6Pp-uO-EQO"/>
+                            <constraint firstItem="Q16-nz-iyl" firstAttribute="leading" secondItem="kgO-2t-rdZ" secondAttribute="trailing" id="7Wt-hc-b7m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q16-nz-iyl" secondAttribute="trailing" id="8hn-8V-ilK"/>
-                            <constraint firstItem="meW-DD-59e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="GY2-hl-cJ3"/>
                             <constraint firstItem="kDE-3d-Yl0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="MuF-tV-lSb"/>
                             <constraint firstItem="kgO-2t-rdZ" firstAttribute="centerX" secondItem="kDE-3d-Yl0" secondAttribute="centerX" id="PNN-5b-MO0"/>
                             <constraint firstItem="kDE-3d-Yl0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="WDn-VS-izm"/>
+                            <constraint firstItem="kgO-2t-rdZ" firstAttribute="leading" secondItem="meW-DD-59e" secondAttribute="trailing" id="Xac-y0-Oo6"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Q16-nz-iyl" secondAttribute="bottom" constant="126" id="ibS-VP-HQQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kDE-3d-Yl0" secondAttribute="trailing" constant="-20" id="l4D-Eu-UtJ"/>
+                            <constraint firstItem="meW-DD-59e" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="vaN-te-ed6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8hn-8V-ilK"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="tkB-Wv-RsV" appends="YES" id="GmN-bw-jWq"/>
                             <outletCollection property="gestureRecognizers" destination="pRf-59-Uvj" appends="YES" id="qff-xO-XhG"/>
