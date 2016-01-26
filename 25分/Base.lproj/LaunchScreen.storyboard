@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +22,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5C" translatesAutoresizingMaskIntoConstraints="NO" id="394-rc-2U5">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5C" translatesAutoresizingMaskIntoConstraints="NO" id="1iG-X3-ZZg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="25image" translatesAutoresizingMaskIntoConstraints="NO" id="1iG-X3-ZZg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
@@ -41,10 +42,10 @@
                                 <exclude reference="394-rc-2U5"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="1to-R2-FNS"/>
                                 <exclude reference="4py-h3-MY3"/>
                                 <exclude reference="Dwm-qo-8eD"/>
                                 <exclude reference="VcG-qm-OB5"/>
-                                <exclude reference="1to-R2-FNS"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -52,10 +53,10 @@
                                 <include reference="394-rc-2U5"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="1to-R2-FNS"/>
                                 <include reference="4py-h3-MY3"/>
                                 <include reference="Dwm-qo-8eD"/>
                                 <include reference="VcG-qm-OB5"/>
-                                <include reference="1to-R2-FNS"/>
                             </mask>
                         </variation>
                     </view>
@@ -66,6 +67,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="25image" width="250" height="444"/>
         <image name="5C" width="250" height="444"/>
     </resources>
 </document>

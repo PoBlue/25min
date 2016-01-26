@@ -18,7 +18,8 @@ class Timer : NSObject{
     
     var timerCurrentState = timerState.giveUp
     var fireTime = 25 * 60
-    var restFireTime = 5 * 60 
+    var restFireTime = 5 * 60
+    var duractionTime = 25 * 60
     var fireDate:NSDate!
     var currentTime = 60 * 25
     var time:NSTimer!
@@ -91,6 +92,7 @@ class Timer : NSObject{
             playTmpMusic(selectMusicToPlay.winMusic)
             delegate?.timerStateToController(timerState.workingComplete)
             timerWillState = timerState.rest
+            duractionTime = restFireTime
             
             
         case timerState.restComplete:
@@ -98,6 +100,7 @@ class Timer : NSObject{
             delegate?.timerStateToController(timerState.restComplete)
             
             timerWillState = timerState.start
+            duractionTime = fireTime
             
                     
         default:
@@ -115,6 +118,7 @@ class Timer : NSObject{
         
         if currentTime > 0{
             currentTime--
+            configNowPlaying(Double(duractionTime - currentTime), fireTime: Double(self.duractionTime))
         }else if timerCurrentState == timerState.start{
             timerCurrentState = timerState.giveUp
             timerWillState = timerState.workingComplete

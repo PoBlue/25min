@@ -367,3 +367,85 @@ func restoreMusicSet(){
         selectMusicToPlay.restFinishMusic = restFinMusicSet.path
     }
 }
+
+import MediaPlayer
+let whiteImage = UIImage(named:"whiteImage")!
+let textPoint = CGPoint(x: whiteImage.size.width  / 3, y: whiteImage.size.height / 3 )
+let textSize : CGFloat = 60
+
+func configNowPlaying(currentTime:NSTimeInterval,fireTime:NSTimeInterval){
+    
+    let timeImage = textToImage(formatToDisplayTime(Int(fireTime - currentTime)),inImage: whiteImage,atPoint: textPoint)
+    
+    let mpPlayer = MPNowPlayingInfoCenter.defaultCenter()
+    
+    let tmpPlayingInfo = [ MPMediaItemPropertyTitle : "25min",
+        MPMediaItemPropertyArtwork : MPMediaItemArtwork(image:timeImage) ,
+        MPNowPlayingInfoPropertyElapsedPlaybackTime : NSNumber(double: currentTime),
+        MPNowPlayingInfoPropertyPlaybackRate : 1.0,
+        MPMediaItemPropertyPlaybackDuration: fireTime
+    ]
+    
+    mpPlayer.nowPlayingInfo = tmpPlayingInfo
+    
+    //remote button enable
+   MPRemoteCommandCenter.sharedCommandCenter().previousTrackCommand.enabled = false
+    MPRemoteCommandCenter.sharedCommandCenter().skipBackwardCommand .enabled = false
+    MPRemoteCommandCenter.sharedCommandCenter().seekBackwardCommand.enabled = false
+}
+
+func textToImage(drawText: NSString, inImage: UIImage, atPoint:CGPoint)->UIImage{
+    
+    // Setup the font specific variables
+//    let textColor: UIColor = UIColor.blackColor()
+    let textFont: UIFont = UIFont(name: "Helvetica Bold", size: textSize)!
+    
+    //Setup the image context using the passed image.
+    UIGraphicsBeginImageContext(inImage.size)
+    
+    //Setups up the font attributes that will be later used to dictate how the text should be drawn
+//    let textFontAttributes = [
+//        NSFontAttributeName: textFont,
+//        NSForegroundColorAttributeName: textColor,
+//    ]
+    
+    //Put the image into a rectangle as large as the original image.
+    inImage.drawInRect(CGRectMake(0, 0, inImage.size.width, inImage.size.height))
+    
+    // Creating a point within the space that is as bit as the image.
+//    let rect: CGRect = CGRectMake(atPoint.x, atPoint.y, inImage.size.width, inImage.size.height)
+    
+    //Now Draw the text into an image.
+//    drawText.drawInRect(rect, withAttributes: textFontAttributes)
+    drawSting(drawText, withFont: textFont, inRect: CGRectMake(0, 0, inImage.size.width, inImage.size.height))
+    
+    // Create a new image out of the images we have created
+    let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+    
+    // End the context now that we have the image we need
+    UIGraphicsEndImageContext()
+    
+    //And pass it back up to the caller.
+    return newImage
+    
+}
+
+func drawSting(s:NSString,withFont font:UIFont,inRect contextRect: CGRect){
+    let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
+//    paragraphStyle.lineBreakMode = NSLineBreakMode.ByTruncatingTail
+    paragraphStyle.alignment = NSTextAlignment.Center
+    
+    let attr = [
+        NSFontAttributeName : font,
+        NSForegroundColorAttributeName : UIColor.blackColor(),
+        NSParagraphStyleAttributeName : paragraphStyle
+    ]
+    
+    let size = s.sizeWithAttributes(attr)
+    
+    let xOffset = contextRect.origin.x + floor((contextRect.size.width - size.width) / 2)
+    let yOffset = contextRect.origin.y + floor((contextRect.size.height - size.height) / 2)
+    let textRect = CGRectMake(xOffset, yOffset, size.width, size.height)
+    
+    s.drawInRect(textRect, withAttributes: attr)
+}

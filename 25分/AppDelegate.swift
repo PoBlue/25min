@@ -118,12 +118,12 @@ extension AppDelegate{
         notificationActionOk.authenticationRequired = false
         notificationActionOk.activationMode = UIUserNotificationActivationMode.Background
         
-        let notificationActionCancel: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        notificationActionCancel.identifier = "relaxNow"
-        notificationActionCancel.title = "休息"
-        notificationActionCancel.destructive = false
-        notificationActionCancel.authenticationRequired = false
-        notificationActionCancel.activationMode = UIUserNotificationActivationMode.Background
+        let notificationActionRestNow: UIMutableUserNotificationAction = UIMutableUserNotificationAction()
+        notificationActionRestNow.identifier = "relaxNow"
+        notificationActionRestNow.title = "休息"
+        notificationActionRestNow.destructive = false
+        notificationActionRestNow.authenticationRequired = false
+        notificationActionRestNow.activationMode = UIUserNotificationActivationMode.Background
         
         let notificationActionRest:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
         notificationActionRest.identifier = "restRemindRater"
@@ -143,8 +143,8 @@ extension AppDelegate{
         //MARK: -Notification Category
         let notificationCompleteCategory: UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
         notificationCompleteCategory.identifier = completeCategory
-        notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Default)
-        notificationCompleteCategory.setActions([notificationActionOk,notificationActionCancel], forContext: .Minimal)
+        notificationCompleteCategory.setActions([notificationActionOk,notificationActionRestNow], forContext: .Default)
+        notificationCompleteCategory.setActions([notificationActionOk,notificationActionRestNow], forContext: .Minimal)
         
         let notificationRestCompletCategory:UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
         notificationRestCompletCategory.identifier = restCategory
@@ -178,6 +178,7 @@ extension AppDelegate{
     }
     
     func saveTimerAndNotification(){
+        
         let timer = Timer.shareInstance
         if (timer.fireDate == nil){
             return
@@ -191,18 +192,22 @@ extension AppDelegate{
         
         //MARK: -notification
         if timer.timerCurrentState == timerState.start{
+            configNowPlaying(Double(timer.fireTime - timer.currentTime),fireTime: Double(timer.fireTime))
             //present notification
             let completeNotification = setNotification("时间到了，已完成任务",timeToNotification: restTime,soundName: winMusicPath + getPathTitle(selectMusicToPlay.winMusic) + mp3Extension,category: "COMPLETE_CATEGORY")
             UIApplication.sharedApplication().scheduleLocalNotification(completeNotification)
 
         }else if timer.timerCurrentState == timerState.rest{
             //present notification
+            configNowPlaying(Double(timer.restFireTime - timer.currentTime),fireTime: Double(timer.restFireTime))
+            
             let restNotification = setNotification("时间到了，休息完毕",timeToNotification: restTime,soundName: restFinMusicPath + getPathTitle(selectMusicToPlay.restFinishMusic) + mp3Extension,category: "REST_COMPLETE_CATEGORY")
             UIApplication.sharedApplication().scheduleLocalNotification(restNotification)
             
         }else{
             print("current state :\(timer.timerCurrentState)")
         }
+        
     
     }
 }

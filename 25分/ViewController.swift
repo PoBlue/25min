@@ -98,6 +98,7 @@ class ViewController: UIViewController{
         if event == nil {
            return
         }
+        
         if event?.type == UIEventType.RemoteControl{
             switch(event!.subtype){
             case .RemoteControlPlay:
