@@ -26,7 +26,8 @@ class ViewController: UIViewController{
         let selectVC = self.storyboard!.instantiateViewControllerWithIdentifier("selectTimeVC")
         selectVC.modalPresentationStyle = .Custom
         selectVC.transitioningDelegate = transitionDelegate
-        self.presentViewController(selectVC, animated: true, completion: nil)
+        self.view.addSubview(selectVC.view)
+//        self.presentViewController(selectVC, animated: true, completion: nil)
     }
     @IBAction func swipeUp(sender: AnyObject) {
         presentColorController()

@@ -15,9 +15,17 @@ class SelectViewController: UIViewController {
     
     @IBOutlet weak var set45MinBtn: UIButton!
     
+   
+    var datePickVC:DatePickViewController!
+    var longPressing = false
+    var i = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        addLongGesture(set10MinBtn)
+        addLongGesture(set25MinBtn)
+        addLongGesture(set45MinBtn)
+        self.datePickVC = self.storyboard!.instantiateViewControllerWithIdentifier("datePickVC") as! DatePickViewController
     }
     
     func setTimerFiretime(time:Int){
@@ -47,7 +55,6 @@ class SelectViewController: UIViewController {
         self.transitioningDelegate = transitionDelegate
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
 }
 
 extension SelectViewController{
@@ -55,5 +62,15 @@ extension SelectViewController{
         makeRadiusBtn(set10MinBtn,borderColor: UIColor(red: 23 / 256, green: 106 / 256, blue: 213 / 256, alpha: 1.0).CGColor)
         makeRadiusBtn(set25MinBtn,borderColor: UIColor(red: 237 / 256, green: 242 / 256, blue:  11 / 256, alpha: 1.0).CGColor)
         makeRadiusBtn(set45MinBtn,borderColor: UIColor(red: 11 / 256, green: 242 / 256, blue: 32 / 256, alpha: 1.0).CGColor)
+    }
+    
+    func addLongGesture(view:UIView){
+        let longpressG = UILongPressGestureRecognizer(target: self, action: "longPress:")
+        view.addGestureRecognizer(longpressG)
+    }
+    
+    func longPress(sender:AnyObject){
+        print("longPress \(i)")
+        i = i + 1
     }
 }

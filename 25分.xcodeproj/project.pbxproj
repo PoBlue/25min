@@ -16,6 +16,7 @@
 		135C16191C1A6969005F53D3 /* _5_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C16181C1A6969005F53D3 /* _5_UITests.swift */; };
 		135C16271C1AEC68005F53D3 /* convinence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C16261C1AEC68005F53D3 /* convinence.swift */; };
 		135C16291C1BD282005F53D3 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C16281C1BD282005F53D3 /* Timer.swift */; };
+		13606B4B1C59EEDC00E48656 /* DatePickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13606B4A1C59EEDC00E48656 /* DatePickViewController.swift */; };
 		13A8ED141C279BF5005656E6 /* LabelBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13A8ED131C279BF5005656E6 /* LabelBackgroundView.xib */; };
 		13C39EAD1C2176CA009AEB96 /* bg-dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13C39EA71C2176CA009AEB96 /* bg-dark.jpg */; };
 		13C39EAE1C2176CA009AEB96 /* CircularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */; };
@@ -67,6 +68,7 @@
 		135C161A1C1A6969005F53D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		135C16261C1AEC68005F53D3 /* convinence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = convinence.swift; sourceTree = "<group>"; };
 		135C16281C1BD282005F53D3 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		13606B4A1C59EEDC00E48656 /* DatePickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickViewController.swift; sourceTree = "<group>"; };
 		13A8ED131C279BF5005656E6 /* LabelBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelBackgroundView.xib; sourceTree = "<group>"; };
 		13C39EA71C2176CA009AEB96 /* bg-dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-dark.jpg"; sourceTree = "<group>"; };
 		13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				13FE33A01C26B22000A57103 /* ColorViewController.swift */,
 				13C39EC81C23BD17009AEB96 /* SelectViewController.swift */,
 				135C15FA1C1A6969005F53D3 /* ViewController.swift */,
+				13606B4A1C59EEDC00E48656 /* DatePickViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				135C15FB1C1A6969005F53D3 /* ViewController.swift in Sources */,
 				13C39EAE1C2176CA009AEB96 /* CircularCollectionViewCell.swift in Sources */,
 				13C39EB01C2176CA009AEB96 /* CircularCollectionViewLayout.swift in Sources */,
+				13606B4B1C59EEDC00E48656 /* DatePickViewController.swift in Sources */,
 				13C39EB81C218E8F009AEB96 /* CustomPresent.swift in Sources */,
 				13C39EB11C2176CA009AEB96 /* CollectionViewController.swift in Sources */,
 				135C15F91C1A6969005F53D3 /* AppDelegate.swift in Sources */,

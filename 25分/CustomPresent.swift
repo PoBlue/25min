@@ -71,7 +71,7 @@ class CustomPresent: UIPresentationController {
     }
     
     override func dismissalTransitionWillBegin() {
-        presentingViewController.transitionCoordinator()?.animateAlongsideTransition({
+        presentedViewController.transitionCoordinator()?.animateAlongsideTransition({
             i in
             self.dimingView.alpha = 0.0
             }, completion: nil)
