@@ -19,9 +19,6 @@ class ContainerViewController: UIViewController ,UIScrollViewDelegate {
     var showingMenu = false
     var showingColor = false
     
-    override func viewWillAppear(animated: Bool) {
-        scrollView.scrollEnabled = true
-    }
     
     override func viewDidLayoutSubviews() {
         hideOrShowMenu(showingMenu, animated: false)
