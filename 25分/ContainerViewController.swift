@@ -48,7 +48,7 @@ class ContainerViewController: UIViewController ,UIScrollViewDelegate {
         
         let menuOffsetY = scrollView.contentSize.height - CGRectGetHeight(scrollView.frame)
         scrollView.pagingEnabled = scrollView.contentOffset.y < menuOffsetY
-        scrollView.bounces = scrollView.contentOffset.y >= menuOffsetY
+//        scrollView.bounces = scrollView.contentOffset.y >= menuOffsetY
         
         let boundOffset : CGFloat = 80
         if scrollView.contentOffset.y > (menuOffsetY + boundOffset){
@@ -60,7 +60,7 @@ class ContainerViewController: UIViewController ,UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let topOffsetY = CGRectGetHeight(topView.bounds)
         showingMenu = !CGPointEqualToPoint(scrollView.contentOffset, CGPoint(x: 0, y: topOffsetY))
-//        scrollView.bounces = !showingMenu
+        scrollView.bounces = !showingMenu
         
     }
 }
@@ -87,6 +87,6 @@ func hideOrShowMenu(show: Bool, animated: Bool) {
     scrollView.setContentOffset(show ? CGPointZero : CGPointMake(0, topOffsetY), animated: animated)
     
     showingMenu = show
-//    scrollView.bounces = !showingMenu
+    scrollView.bounces = !showingMenu
 }
 }
