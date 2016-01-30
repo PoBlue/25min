@@ -369,13 +369,13 @@ func restoreMusicSet(){
 }
 
 import MediaPlayer
-let whiteImage = UIImage(named:"whiteImage")!
-let textPoint = CGPoint(x: whiteImage.size.width  / 3, y: whiteImage.size.height / 3 )
+let blackImage = UIImage(named:"blackImage")!
+//let textPoint = CGPoint(x: whiteImage.size.width  / 3, y: whiteImage.size.height / 3 )
 let textSize : CGFloat = 60
 
 func configNowPlaying(currentTime:NSTimeInterval,fireTime:NSTimeInterval){
     
-    let timeImage = textToImage(formatToDisplayTime(Int(fireTime - currentTime)),inImage: whiteImage,atPoint: textPoint)
+    let timeImage = textToImage(formatToDisplayTime(Int(fireTime - currentTime)),inImage: blackImage)
     
     let mpPlayer = MPNowPlayingInfoCenter.defaultCenter()
     
@@ -394,7 +394,7 @@ func configNowPlaying(currentTime:NSTimeInterval,fireTime:NSTimeInterval){
     MPRemoteCommandCenter.sharedCommandCenter().seekBackwardCommand.enabled = false
 }
 
-func textToImage(drawText: NSString, inImage: UIImage, atPoint:CGPoint)->UIImage{
+func textToImage(drawText: NSString, inImage: UIImage)->UIImage{
     
     // Setup the font specific variables
 //    let textColor: UIColor = UIColor.blackColor()
@@ -437,7 +437,7 @@ func drawSting(s:NSString,withFont font:UIFont,inRect contextRect: CGRect){
     
     let attr = [
         NSFontAttributeName : font,
-        NSForegroundColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSParagraphStyleAttributeName : paragraphStyle
     ]
     

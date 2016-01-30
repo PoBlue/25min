@@ -31,6 +31,7 @@ class ColorViewController: UIViewController {
             midColorBtn.backgroundColor = midColor
             heavyColorBtn.backgroundColor = heavyColor
         }
+        
     }
     
     @IBAction func lightBtnTap(sender: AnyObject) {
@@ -50,6 +51,7 @@ class ColorViewController: UIViewController {
     @IBAction func randomBtnTap(sender: AnyObject) {
         randomAndSetColor()
     }
+    
 
 }
 

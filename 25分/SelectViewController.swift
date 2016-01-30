@@ -12,23 +12,25 @@ class SelectViewController: UIViewController {
 
     @IBOutlet weak var set10MinBtn: UIButton!
     @IBOutlet weak var set25MinBtn: UIButton!
-    
     @IBOutlet weak var set45MinBtn: UIButton!
     
    
-    var datePickVC:DatePickViewController!
     var longPressing = false
-    var i = 0
+    var datePicking = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
         addLongGesture(set10MinBtn)
         addLongGesture(set25MinBtn)
         addLongGesture(set45MinBtn)
-        self.datePickVC = self.storyboard!.instantiateViewControllerWithIdentifier("datePickVC") as! DatePickViewController
     }
     
-    func setTimerFiretime(time:Int){
+    func setTimerFiretime(sender:AnyObject){
+        
+        let btn = sender as! UIButton
+        let time = getTimeFromText(btn.titleLabel!.text!)
+        
         Timer.shareInstance.fireTime = time
         Timer.shareInstance.timerCurrentState = timerState.giveUp
         Timer.shareInstance.timerWillState = timerState.giveUp
@@ -36,28 +38,43 @@ class SelectViewController: UIViewController {
     }
     
     @IBAction func min10fireTimeSetup(sender: AnyObject) {
-        setTimerFiretime(10 * 60)
+        setTimerFiretime(sender)
         dismissSelfController()
     }
     
     @IBAction func min25fireTimeSetup(sender: AnyObject) {
-        setTimerFiretime(25 * 60)
+        setTimerFiretime(sender)
         dismissSelfController()
     }
     
     @IBAction func min45FireTimeSetup(sender: AnyObject) {
-        setTimerFiretime(45 * 60)
+        setTimerFiretime(sender)
         dismissSelfController()
     }
     
     func dismissSelfController(){
-        self.modalPresentationStyle = .Custom
-        self.transitioningDelegate = transitionDelegate
-        self.dismissViewControllerAnimated(true, completion: nil)
+        (self.parentViewController as! ContainerViewController).hideOrShowMenu(false, animated: true)
+//        self.modalPresentationStyle = .Custom
+//        self.transitioningDelegate = transitionDelegate
+//        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
 extension SelectViewController{
+    func getTimeFromText(text:String) -> Int{
+        let endIndex = text.endIndex.advancedBy(-1)
+        let timeStr = text.substringToIndex(endIndex)
+        let time = Int(timeStr)
+        
+        print(timeStr)
+        print(Int(timeStr))
+    
+        if time == nil{
+            print("time can not conver")
+        }
+        
+        return time! * 60
+    }
     func initView(){
         makeRadiusBtn(set10MinBtn,borderColor: UIColor(red: 23 / 256, green: 106 / 256, blue: 213 / 256, alpha: 1.0).CGColor)
         makeRadiusBtn(set25MinBtn,borderColor: UIColor(red: 237 / 256, green: 242 / 256, blue:  11 / 256, alpha: 1.0).CGColor)
@@ -70,7 +87,17 @@ extension SelectViewController{
     }
     
     func longPress(sender:AnyObject){
-        print("longPress \(i)")
-        i = i + 1
+        let pressG = sender as! UILongPressGestureRecognizer
+        let pressBtn = pressG.view as! UIButton
+        if !datePicking{
+            presentDatePickVC(pressBtn)
+            datePicking = true
+        }
+    }
+    
+    func presentDatePickVC(pressBtn:UIButton){
+        let dateVC = self.storyboard!.instantiateViewControllerWithIdentifier("datePView") as! DatePickViewController
+        dateVC.timeBtn = pressBtn
+        self.presentViewController(dateVC, animated: true, completion: nil)
     }
 }

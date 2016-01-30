@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, UIGestureRecognizerDelegate{
 
     let tDelegate = BubbleTransiton()
     
@@ -26,8 +26,8 @@ class ViewController: UIViewController{
         let selectVC = self.storyboard!.instantiateViewControllerWithIdentifier("selectTimeVC")
         selectVC.modalPresentationStyle = .Custom
         selectVC.transitioningDelegate = transitionDelegate
-        self.view.addSubview(selectVC.view)
-//        self.presentViewController(selectVC, animated: true, completion: nil)
+//        self.view.addSubview(selectVC.view)
+        self.presentViewController(selectVC, animated: true, completion: nil)
     }
     @IBAction func swipeUp(sender: AnyObject) {
         presentColorController()
@@ -116,6 +116,15 @@ class ViewController: UIViewController{
 }
 
 extension ViewController{
+//    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        let containerView = self.parentViewController as! ContainerViewController
+//        if containerView.showingMenu{
+//            return false
+//        }
+//        
+//        return true
+//    }
+    
     func switchVoiceButton(voice:Bool){
         if voice {
             voiceButton.setTitle("静音", forState: .Normal)
