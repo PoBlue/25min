@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>25min.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>25分.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1358CBE61C5DD9B40081DC8A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>135C15F41C1A6969005F53D3</key>
 		<dict>
 			<key>primary</key>

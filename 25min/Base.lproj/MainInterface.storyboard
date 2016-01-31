@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="M4Y-Lb-cyx">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="_5min" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
+                        <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIL-Gl-2Oo">
+                                <rect key="frame" x="215" y="15" width="89" height="30"/>
+                                <state key="normal" title="45分">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnTouch:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="1Zz-ex-NVg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Jl-sZ-tXz">
+                                <rect key="frame" x="115" y="15" width="90" height="30"/>
+                                <state key="normal" title="25分">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnTouch:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="nf8-Hl-KhF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBh-h6-BJv">
+                                <rect key="frame" x="16" y="15" width="89" height="30"/>
+                                <state key="normal" title="10分">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnTouch:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="2m2-Ih-VYT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="1Jl-sZ-tXz" firstAttribute="width" secondItem="xIL-Gl-2Oo" secondAttribute="width" id="2QB-Bc-xAN"/>
+                            <constraint firstItem="XBh-h6-BJv" firstAttribute="width" secondItem="1Jl-sZ-tXz" secondAttribute="width" id="55s-WU-XXE"/>
+                            <constraint firstItem="XBh-h6-BJv" firstAttribute="height" secondItem="1Jl-sZ-tXz" secondAttribute="height" id="9Pu-nk-0b5"/>
+                            <constraint firstItem="xIL-Gl-2Oo" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="AUV-lG-Xjz"/>
+                            <constraint firstItem="1Jl-sZ-tXz" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="DdI-Pu-8T1"/>
+                            <constraint firstItem="1Jl-sZ-tXz" firstAttribute="leading" secondItem="XBh-h6-BJv" secondAttribute="trailing" constant="10" id="MdW-OR-veo"/>
+                            <constraint firstItem="xIL-Gl-2Oo" firstAttribute="trailing" secondItem="S3S-Oj-5AN" secondAttribute="trailingMargin" id="WoV-QM-9WF"/>
+                            <constraint firstItem="XBh-h6-BJv" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="WyP-iG-u7n"/>
+                            <constraint firstItem="XBh-h6-BJv" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="Zgb-JS-3wQ"/>
+                            <constraint firstItem="xIL-Gl-2Oo" firstAttribute="leading" secondItem="1Jl-sZ-tXz" secondAttribute="trailing" constant="10" id="aY2-aK-atI"/>
+                            <constraint firstItem="1Jl-sZ-tXz" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="b16-qp-B1z"/>
+                            <constraint firstItem="1Jl-sZ-tXz" firstAttribute="height" secondItem="xIL-Gl-2Oo" secondAttribute="height" id="tog-YN-zfz"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="60"/>
+                    <connections>
+                        <outlet property="leftBtn" destination="XBh-h6-BJv" id="0eP-Zd-h05"/>
+                        <outlet property="midBtn" destination="1Jl-sZ-tXz" id="iGr-Am-5lT"/>
+                        <outlet property="rightBtn" destination="xIL-Gl-2Oo" id="AAx-d9-DKY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="443" y="202"/>
+        </scene>
+    </scenes>
+</document>

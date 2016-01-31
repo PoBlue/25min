@@ -68,6 +68,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let groupKey = "group.value"
+        //save date
+        let myContainShare = NSUserDefaults.init(suiteName: groupKey)
+        myContainShare?.setInteger(2, forKey: "test")
+        
+        
         NSThread.sleepForTimeInterval(1.0)
         // Do any additional setup after loading the view, typically from a nib.
         timerLabel.text = formatToDisplayTime(myTimer.fireTime)
