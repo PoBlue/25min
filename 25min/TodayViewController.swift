@@ -16,11 +16,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var leftBtn: UIButton!
     
     @IBAction func btnTouch(btn:UIButton){
-        let groupKey = "group.value"
-        //save date 
-        let myContainShare = NSUserDefaults.init(suiteName: groupKey)
         
-        let a  = myContainShare?.integerForKey("test")
+        //save date
+//        let groupKey = "group.value"
+//        let myContainShare = NSUserDefaults.init(suiteName: groupKey)
+//        
+//        let a  = myContainShare?.integerForKey("test")
+        
+        
+        //open url
+        let url = NSURL(string: "25min://helloWorld")
+        self.extensionContext?.openURL(url!, completionHandler: nil)
         
     }
     
@@ -28,9 +34,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         self.preferredContentSize = CGSizeMake(320, 60)
-        makeRadiusBtns([leftBtn,midBtn,rightBtn])
-        
-        
+        makeRadiusBtn(midBtn, borderColor: UIColor.yellowColor().CGColor)
     }
     
     override func didReceiveMemoryWarning() {
