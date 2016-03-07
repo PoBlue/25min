@@ -29,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    //url schem
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        return true
+    }
     //MARK: - handle action
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
         
@@ -211,4 +215,5 @@ extension AppDelegate{
     
     }
 }
+
 

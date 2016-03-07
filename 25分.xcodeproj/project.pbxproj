@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1358CBE91C5DD9B40081DC8A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1358CBE81C5DD9B40081DC8A /* NotificationCenter.framework */; };
+		1358CBEC1C5DD9B40081DC8A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1358CBEB1C5DD9B40081DC8A /* TodayViewController.swift */; };
+		1358CBEF1C5DD9B40081DC8A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1358CBED1C5DD9B40081DC8A /* MainInterface.storyboard */; };
+		1358CBF31C5DD9B40081DC8A /* 25min.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1358CBE71C5DD9B40081DC8A /* 25min.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		135C15F91C1A6969005F53D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C15F81C1A6969005F53D3 /* AppDelegate.swift */; };
 		135C15FB1C1A6969005F53D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135C15FA1C1A6969005F53D3 /* ViewController.swift */; };
 		135C15FE1C1A6969005F53D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 135C15FC1C1A6969005F53D3 /* Main.storyboard */; };
@@ -37,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1358CBF11C5DD9B40081DC8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 135C15ED1C1A6969005F53D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1358CBE61C5DD9B40081DC8A;
+			remoteInfo = 25min;
+		};
 		135C160A1C1A6969005F53D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 135C15ED1C1A6969005F53D3 /* Project object */;
@@ -53,7 +64,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1358CBF71C5DD9B40081DC8A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1358CBF31C5DD9B40081DC8A /* 25min.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1358CBE71C5DD9B40081DC8A /* 25min.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = 25min.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1358CBE81C5DD9B40081DC8A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		1358CBEB1C5DD9B40081DC8A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		1358CBEE1C5DD9B40081DC8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		1358CBF01C5DD9B40081DC8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1358CBF81C5DE1530081DC8A /* Pods_25_.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_25_.framework; path = "Pods/../build/Debug-iphoneos/Pods_25_.framework"; sourceTree = "<group>"; };
+		1358CBFA1C5E42E30081DC8A /* 25分.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "25分.entitlements"; sourceTree = "<group>"; };
 		135C15F51C1A6969005F53D3 /* 25分.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "25分.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		135C15F81C1A6969005F53D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		135C15FA1C1A6969005F53D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +103,7 @@
 		135C16281C1BD282005F53D3 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		13606B4A1C59EEDC00E48656 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		13606B501C5B721700E48656 /* DatePickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickViewController.swift; sourceTree = "<group>"; };
+		136682E51C5E534600FAA23A /* 25min.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = 25min.entitlements; sourceTree = "<group>"; };
 		13A8ED131C279BF5005656E6 /* LabelBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelBackgroundView.xib; sourceTree = "<group>"; };
 		13C39EA71C2176CA009AEB96 /* bg-dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-dark.jpg"; sourceTree = "<group>"; };
 		13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +125,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1358CBE41C5DD9B40081DC8A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1358CBE91C5DD9B40081DC8A /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		135C15F21C1A6969005F53D3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -117,9 +158,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1358CBEA1C5DD9B40081DC8A /* 25min */ = {
+			isa = PBXGroup;
+			children = (
+				136682E51C5E534600FAA23A /* 25min.entitlements */,
+				1358CBEB1C5DD9B40081DC8A /* TodayViewController.swift */,
+				1358CBED1C5DD9B40081DC8A /* MainInterface.storyboard */,
+				1358CBF01C5DD9B40081DC8A /* Info.plist */,
+			);
+			path = 25min;
+			sourceTree = "<group>";
+		};
 		135C15EC1C1A6969005F53D3 = {
 			isa = PBXGroup;
 			children = (
+				1358CBEA1C5DD9B40081DC8A /* 25min */,
 				135C15F71C1A6969005F53D3 /* 25分 */,
 				135C160C1C1A6969005F53D3 /* 25分Tests */,
 				135C16171C1A6969005F53D3 /* 25分UITests */,
@@ -135,6 +188,7 @@
 				135C15F51C1A6969005F53D3 /* 25分.app */,
 				135C16091C1A6969005F53D3 /* 25分Tests.xctest */,
 				135C16141C1A6969005F53D3 /* 25分UITests.xctest */,
+				1358CBE71C5DD9B40081DC8A /* 25min.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +196,7 @@
 		135C15F71C1A6969005F53D3 /* 25分 */ = {
 			isa = PBXGroup;
 			children = (
+				1358CBFA1C5E42E30081DC8A /* 25分.entitlements */,
 				13C39ECA1C240A6D009AEB96 /* Bgm */,
 				13C39EBC1C23A457009AEB96 /* transitionAnimation */,
 				13C39EBA1C23A408009AEB96 /* collectionView */,
@@ -216,7 +271,9 @@
 		DE3BB6BDD8F24904858C66E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1358CBF81C5DE1530081DC8A /* Pods_25_.framework */,
 				2F5507DAED6AF27E10042B1C /* Pods_25_.framework */,
+				1358CBE81C5DD9B40081DC8A /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -233,6 +290,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1358CBE61C5DD9B40081DC8A /* 25min */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1358CBF61C5DD9B40081DC8A /* Build configuration list for PBXNativeTarget "25min" */;
+			buildPhases = (
+				1358CBE31C5DD9B40081DC8A /* Sources */,
+				1358CBE41C5DD9B40081DC8A /* Frameworks */,
+				1358CBE51C5DD9B40081DC8A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = 25min;
+			productName = 25min;
+			productReference = 1358CBE71C5DD9B40081DC8A /* 25min.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		135C15F41C1A6969005F53D3 /* 25分 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 135C161D1C1A6969005F53D3 /* Build configuration list for PBXNativeTarget "25分" */;
@@ -243,10 +317,12 @@
 				135C15F31C1A6969005F53D3 /* Resources */,
 				4AF23E85818855FE4A5A2710 /* Embed Pods Frameworks */,
 				AF7B56B21C1345AEF7D54BF7 /* Copy Pods Resources */,
+				1358CBF71C5DD9B40081DC8A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1358CBF21C5DD9B40081DC8A /* PBXTargetDependency */,
 			);
 			name = "25分";
 			productName = "25分";
@@ -295,13 +371,27 @@
 		135C15ED1C1A6969005F53D3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = blues;
 				TargetAttributes = {
+					1358CBE61C5DD9B40081DC8A = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5JZAUP3338;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					135C15F41C1A6969005F53D3 = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = 5JZAUP3338;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					135C16081C1A6969005F53D3 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -331,11 +421,20 @@
 				135C15F41C1A6969005F53D3 /* 25分 */,
 				135C16081C1A6969005F53D3 /* 25分Tests */,
 				135C16131C1A6969005F53D3 /* 25分UITests */,
+				1358CBE61C5DD9B40081DC8A /* 25min */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1358CBE51C5DD9B40081DC8A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1358CBEF1C5DD9B40081DC8A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		135C15F31C1A6969005F53D3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +514,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1358CBE31C5DD9B40081DC8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1358CBEC1C5DD9B40081DC8A /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		135C15F11C1A6969005F53D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,6 +565,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1358CBF21C5DD9B40081DC8A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1358CBE61C5DD9B40081DC8A /* 25min */;
+			targetProxy = 1358CBF11C5DD9B40081DC8A /* PBXContainerItemProxy */;
+		};
 		135C160B1C1A6969005F53D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 135C15F41C1A6969005F53D3 /* 25分 */;
@@ -471,6 +583,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1358CBED1C5DD9B40081DC8A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1358CBEE1C5DD9B40081DC8A /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		135C15FC1C1A6969005F53D3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -490,6 +610,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1358CBF41C5DD9B40081DC8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = 25min/25min.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = 25min/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "blues.-5-.-5min";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1358CBF51C5DD9B40081DC8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = 25min/25min.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = 25min/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "blues.-5-.-5min";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		135C161B1C1A6969005F53D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -576,10 +728,15 @@
 			baseConfigurationReference = 2880A694661319B1A89D383F /* Pods-25分.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "25分/25分.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "25分/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "blues.-5-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -588,10 +745,15 @@
 			baseConfigurationReference = DFC3EC85CF5FA37A7FE0E656 /* Pods-25分.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "25分/25分.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "25分/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "blues.-5-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -646,6 +808,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1358CBF61C5DD9B40081DC8A /* Build configuration list for PBXNativeTarget "25min" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1358CBF41C5DD9B40081DC8A /* Debug */,
+				1358CBF51C5DD9B40081DC8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		135C15F01C1A6969005F53D3 /* Build configuration list for PBXProject "25分" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
