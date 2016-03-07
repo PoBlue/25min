@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //url schem
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        print("url: \(url)")
         return true
     }
     //MARK: - handle action
@@ -216,4 +215,5 @@ extension AppDelegate{
     
     }
 }
+
 
