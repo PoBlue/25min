@@ -1,19 +1,15 @@
-# 番茄钟App
-------
 
-## 效果如下
-------
-#### 挑选时间
-![Alt text](./gifs/25MinApp.gif)
 
-#### 挑选颜色
-![Alt text](./gifs/25Color.gif)
+## 25min
+--------
+![25min.gif](http://upload-images.jianshu.io/upload_images/1132519-0e58fe485514d052.gif?imageMogr2/auto-orient/strip)
 
-#### 长按自定义时间
-![Alt text](./gifs/25SelectTime.gif)
+#### 学到的技术
+- 本地通知 + 计时 + 音乐播放器
+- 自定义UICollectionView Layout
+- Coopod 连接第三方库使用
+- 自定义转场动画
+- Today Widget
 
-#### 设置背景音乐或者通知音乐
-![Alt text](./gifs/25Seting.gif)
-
-#### 通知
-![Alt text](./gifs/6f46d11c-c3d7-4d26-ae7f-6d721a92514e.gif)
+#### 教程
+文章：http://www.jianshu.com/p/7dedfd704008 
