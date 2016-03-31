@@ -13,3 +13,8 @@
 
 ## 教程
 文章：http://www.jianshu.com/p/7dedfd704008 
+
+## 运行
+因为使用了Cocopod，所以
+
+**请打开`25分.xcworkspace`文件运行**,而不是打开`25分.xcodeproj`
