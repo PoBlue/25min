@@ -236,8 +236,8 @@
 			children = (
 				13C39EA71C2176CA009AEB96 /* bg-dark.jpg */,
 				13C39EA81C2176CA009AEB96 /* CircularCollectionViewCell.swift */,
-				13C39EA91C2176CA009AEB96 /* CircularCollectionViewCell.xib */,
 				13C39EAA1C2176CA009AEB96 /* CircularCollectionViewLayout.swift */,
+				13C39EA91C2176CA009AEB96 /* CircularCollectionViewCell.xib */,
 			);
 			name = collectionView;
 			sourceTree = "<group>";

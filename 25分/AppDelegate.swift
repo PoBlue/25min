@@ -26,6 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         initSetNotification(application)
         UIApplication.sharedApplication().cancelAllLocalNotifications()
+        if let dict = NSDictionary(contentsOfFile: btnTextsPath){
+            btnTexts =  dict["btnTexts"] as! [String]
+        }
+        
+        if let color = NSKeyedUnarchiver.unarchiveObjectWithFile(colorLabelPath) as? UIColor{
+            labelColor = color
+        }
+        
         return true
     }
     
@@ -105,8 +113,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let musicSet:[MusicSet] = [mainMusicSet,restMusicSet,winMusicSet,restFinMusicSet]
         NSKeyedArchiver.archiveRootObject(musicSet, toFile: musicSetFilePath)
+        NSKeyedArchiver.archiveRootObject(labelColor, toFile: colorLabelPath)
+        
+        let btnTextsDic = NSDictionary(dictionary: ["btnTexts":btnTexts])
+        btnTextsDic.writeToFile(btnTextsPath, atomically: false)
+        
         
         UIApplication.sharedApplication().cancelAllLocalNotifications()
+        
     }
 
 

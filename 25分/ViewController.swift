@@ -68,6 +68,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        labelView.backgroundColor = labelColor  
+        
         let groupKey = "group.value"
         //save date
         let myContainShare = NSUserDefaults.init(suiteName: groupKey)

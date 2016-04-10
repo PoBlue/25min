@@ -13,6 +13,9 @@ var lightColor:UIColor!
 var midColor:UIColor!
 var heavyColor:UIColor!
 
+//default red color
+var labelColor = UIColor(red: 1, green: 0.223529, blue: 0.0745098, alpha: 1)
+
 class ColorViewController: UIViewController {
 
     @IBOutlet weak var lightColorBtn: UIButton!
@@ -32,6 +35,10 @@ class ColorViewController: UIViewController {
             heavyColorBtn.backgroundColor = heavyColor
         }
         
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        labelColor = labelView.backgroundColor!
     }
     
     @IBAction func lightBtnTap(sender: AnyObject) {

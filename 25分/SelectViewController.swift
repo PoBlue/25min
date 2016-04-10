@@ -7,6 +7,7 @@
 //
 
 import UIKit
+var btnTexts = ["10分","25分","45分"]
 
 class SelectViewController: UIViewController {
 
@@ -21,9 +22,16 @@ class SelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        
+        saveOrLoadBtnText(false)
+        
         addLongGesture(set10MinBtn)
         addLongGesture(set25MinBtn)
         addLongGesture(set45MinBtn)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        saveOrLoadBtnText(true)
     }
     
     func setTimerFiretime(sender:AnyObject){
@@ -99,5 +107,20 @@ extension SelectViewController{
         let dateVC = self.storyboard!.instantiateViewControllerWithIdentifier("datePView") as! DatePickViewController
         dateVC.timeBtn = pressBtn
         self.presentViewController(dateVC, animated: true, completion: nil)
+    }
+    
+    func saveOrLoadBtnText(save:Bool){
+        let btns = [set10MinBtn,set25MinBtn,set45MinBtn]
+        var i = 0
+        
+        for btn in btns{
+            if save {
+                btnTexts[i] = btn.titleLabel!.text!
+            } else {
+                btn.setTitle(btnTexts[i], forState: .Normal)
+            }
+            
+            i += 1
+        }
     }
 }

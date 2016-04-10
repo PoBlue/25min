@@ -353,6 +353,18 @@ var musicSetFilePath : String {
     return url.URLByAppendingPathComponent("musicSet").path!
 }
 
+var btnTextsPath : String {
+    let manager = NSFileManager.defaultManager()
+    let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    return url.URLByAppendingPathComponent("btnTexts.plist").path!
+}
+
+var colorLabelPath: String {
+    let manager = NSFileManager.defaultManager()
+    let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    return url.URLByAppendingPathComponent("colorLabel").path!
+}
+
 
 func restoreMusicSet(){
     if let ins = NSKeyedUnarchiver.unarchiveObjectWithFile(musicSetFilePath) as? [MusicSet]{
