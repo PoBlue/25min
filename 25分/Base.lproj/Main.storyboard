@@ -18,6 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上拉挑选颜色" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUv-r8-n7e">
+                                <rect key="frame" x="0.0" y="576" width="600" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="JvI-Kk-j3o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pF-Jo-o3C">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
@@ -71,17 +80,24 @@
                         </subviews>
                         <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="hUv-r8-n7e" firstAttribute="height" secondItem="xxE-re-iap" secondAttribute="height" id="7tn-Zi-dl2"/>
                             <constraint firstItem="99S-8s-wgw" firstAttribute="top" secondItem="2pF-Jo-o3C" secondAttribute="bottom" id="7yW-cX-k7c"/>
                             <constraint firstItem="2pF-Jo-o3C" firstAttribute="leading" secondItem="xxE-re-iap" secondAttribute="leading" id="8FD-Tq-lA6"/>
                             <constraint firstItem="m1V-JK-biY" firstAttribute="height" secondItem="xxE-re-iap" secondAttribute="height" constant="200" id="9Pd-Fz-W7T"/>
+                            <constraint firstItem="99S-8s-wgw" firstAttribute="top" secondItem="hUv-r8-n7e" secondAttribute="bottom" constant="3" id="Bmk-mZ-aaz"/>
                             <constraint firstItem="m1V-JK-biY" firstAttribute="height" secondItem="xxE-re-iap" secondAttribute="height" constant="200" id="Gqo-hA-MLS"/>
                             <constraint firstItem="2pF-Jo-o3C" firstAttribute="top" secondItem="xxE-re-iap" secondAttribute="top" id="JyR-gJ-OKX"/>
                             <constraint firstAttribute="trailing" secondItem="2pF-Jo-o3C" secondAttribute="trailing" id="Xg2-fd-fLI"/>
+                            <constraint firstItem="hUv-r8-n7e" firstAttribute="width" secondItem="xxE-re-iap" secondAttribute="width" id="ax6-OW-b6N"/>
                             <constraint firstItem="m1V-JK-biY" firstAttribute="width" secondItem="xxE-re-iap" secondAttribute="width" id="dr7-84-OSq"/>
+                            <constraint firstItem="hUv-r8-n7e" firstAttribute="centerX" secondItem="xxE-re-iap" secondAttribute="centerX" id="pfn-Ja-2Hy"/>
+                            <constraint firstItem="hUv-r8-n7e" firstAttribute="width" secondItem="xxE-re-iap" secondAttribute="width" id="zrn-z7-aAG"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Gqo-hA-MLS"/>
+                                <exclude reference="7tn-Zi-dl2"/>
+                                <exclude reference="ax6-OW-b6N"/>
                             </mask>
                         </variation>
                     </view>
