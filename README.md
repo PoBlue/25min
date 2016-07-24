@@ -1,8 +1,10 @@
 # 25min
 
-
 ## App 展示
 ![25min.gif](http://upload-images.jianshu.io/upload_images/1132519-0e58fe485514d052.gif?imageMogr2/auto-orient/strip)
+
+## 下载
+地址：https://itunes.apple.com/cn/app/id1103593231
 
 ## 学到的技术
 - 本地通知 + 计时 + 音乐播放器
